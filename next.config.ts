@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  allowedDevOrigins: ['accurate-foil-gratuity.ngrok-free.dev'],
   turbopack: {
     rules: {
       "*.css": {
