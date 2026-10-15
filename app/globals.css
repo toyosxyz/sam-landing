@@ -381,6 +381,157 @@
   }
 }
 
+/* ─── Page motion ───
+   Content stays visible without JS or with reduced motion; the hidden
+   pre-reveal state only applies when both scripting and motion are on. */
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+}
+@keyframes reveal-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes row-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+@keyframes bar-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes line-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes value-swap {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(4px);
+  }
+}
+@keyframes disclose {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.m-draw {
+  stroke-dasharray: 1;
+}
+
+[data-reveal="stagger"] > :nth-child(2) { --i: 1; }
+[data-reveal="stagger"] > :nth-child(3) { --i: 2; }
+[data-reveal="stagger"] > :nth-child(4) { --i: 3; }
+[data-reveal="stagger"] > :nth-child(5) { --i: 4; }
+[data-reveal="stagger"] > :nth-child(6) { --i: 5; }
+[data-reveal="stagger"] > :nth-child(7) { --i: 6; }
+[data-reveal="stagger"] > :nth-child(8) { --i: 7; }
+[data-reveal="stagger"] > :nth-child(9) { --i: 8; }
+[data-reveal="stagger"] > :nth-child(n + 10) { --i: 9; }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero copy: plays on load, no JS needed */
+  [data-reveal="load"] > * {
+    animation: reveal-up 900ms var(--ease-trail) backwards;
+    animation-delay: calc(var(--reveal-delay, 0ms) + var(--i, 0) * 90ms);
+  }
+  [data-reveal="load"] > :nth-child(2) { --i: 1; }
+  [data-reveal="load"] > :nth-child(3) { --i: 2; }
+  [data-reveal="load"] > :nth-child(4) { --i: 3; }
+  [data-reveal="load"] > :nth-child(5) { --i: 4; }
+  [data-reveal="load-one"] {
+    animation: reveal-up 1100ms var(--ease-trail) backwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+  [data-reveal="load-one"] .m-bar {
+    animation: bar-in 1200ms var(--ease-trail) backwards;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 400ms + var(--bar, 0) * 80ms);
+  }
+  [data-reveal="load-one"] .m-draw {
+    animation: line-draw 1800ms cubic-bezier(0.45, 0, 0.2, 1) backwards;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 500ms);
+  }
+  [data-reveal="load-one"] .m-row {
+    animation: row-in 600ms var(--ease-trail) backwards;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 500ms + var(--row, 0) * 60ms);
+  }
+  [data-reveal="load-one"] .m-fade {
+    animation: reveal-fade 1200ms ease backwards;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 1100ms);
+  }
+
+  .value-swap {
+    animation: value-swap 420ms var(--ease-trail);
+  }
+  .disclose {
+    animation: disclose 320ms var(--ease-trail);
+  }
+}
+
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  [data-reveal="up"]:not([data-inview]),
+  [data-reveal="stagger"]:not([data-inview]) > * {
+    opacity: 0;
+  }
+  [data-reveal="up"][data-inview] {
+    animation: reveal-up 900ms var(--ease-trail) backwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+  [data-reveal="stagger"][data-inview] > * {
+    animation: reveal-up 800ms var(--ease-trail) backwards;
+    animation-delay: calc(var(--reveal-delay, 0ms) + var(--i, 0) * 70ms);
+  }
+
+  /* Metrics inside a <Reveal>: bars sweep in, lines draw, rows and fills
+     fade, once it is revealed. Keep them out of nested <Reveal>s. */
+  :is([data-reveal="up"], [data-reveal="stagger"]):not([data-inview]) .m-bar {
+    clip-path: inset(0 100% 0 0);
+  }
+  [data-inview] .m-bar {
+    animation: bar-in 1200ms var(--ease-trail) backwards;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 250ms + var(--bar, 0) * 80ms);
+  }
+  :is([data-reveal="up"], [data-reveal="stagger"]):not([data-inview]) .m-draw {
+    stroke-dashoffset: 1;
+  }
+  [data-inview] .m-draw {
+    animation: line-draw 1800ms cubic-bezier(0.45, 0, 0.2, 1) backwards;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 300ms);
+  }
+  :is([data-reveal="up"], [data-reveal="stagger"]):not([data-inview]) .m-row {
+    opacity: 0;
+  }
+  [data-inview] .m-row {
+    animation: row-in 600ms var(--ease-trail) backwards;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 300ms + var(--row, 0) * 60ms);
+  }
+  :is([data-reveal="up"], [data-reveal="stagger"]):not([data-inview]) .m-fade {
+    opacity: 0;
+  }
+  [data-inview] .m-fade {
+    animation: reveal-fade 1200ms ease backwards;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 900ms);
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

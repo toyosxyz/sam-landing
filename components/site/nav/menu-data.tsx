@@ -140,8 +140,8 @@ export const menus: Menu[] = [
     feature: {
       title: "How it works",
       description: "Analytics that never touch the shopper's browser.",
-      href: "/demo",
-      cta: "Try the live demo",
+      href: "/how-it-works",
+      cta: "See how it works",
       image: "/images/menu-product.png",
       imageHeight: 150,
     },
@@ -225,7 +225,6 @@ export const menus: Menu[] = [
 
 export const topLinks = {
   pricing: { label: "Pricing", href: "/pricing" },
-  demo: { label: "Live demo", href: "/demo" },
   signIn: { label: "Sign in", href: "/signin" },
   install: { label: "Install on Shopify", href: "/install" },
 };

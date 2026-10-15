@@ -1,0 +1,207 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Chip } from "@/components/site/Chip";
+import { container } from "@/components/site/layout";
+import { Reveal } from "@/components/site/motion";
+import { heroDelay, row } from "@/components/site/motion-vars";
+import { HeroBackdrop, HeroCopy } from "@/components/site/PageHero";
+import { InlineHeading, NumberedItems, SectionHeading } from "@/components/site/sections";
+import { SiteNav } from "@/components/site/SiteNav";
+import { FinalCta, SiteFooter } from "@/components/site/SiteFooter";
+
+export const metadata: Metadata = {
+  title: "Trust center · SAM",
+  description:
+    "Where your data lives, who processes it, what we keep and for how long.",
+};
+
+const heroFade =
+  "linear-gradient(in oklab 180deg, oklab(18.4% -0.004 0.003 / 70%) 0%, oklab(18.4% -0.004 0.003 / 40%) 40%, oklab(18.4% -0.004 0.003 / 80%) 78%, oklab(18.4% -0.004 0.003) 100%), linear-gradient(in oklab 90deg, oklab(18.4% -0.004 0.003 / 88%) 0%, oklab(18.4% -0.004 0.003 / 45%) 50%, oklab(18.4% -0.004 0.003 / 5%) 100%)";
+
+const dpaHref = "mailto:hello@sam.shop?subject=DPA%20request";
+
+const facts = [
+  { label: "Data location", value: "European Union" },
+  { label: "Personal data from shoppers", value: "None stored" },
+  { label: "Browser storage", value: "None used" },
+  { label: "Data processing agreement", value: "Available ↗", href: dpaHref },
+];
+
+const subprocessors = [
+  { name: "DigitalOcean", purpose: "Application hosting", region: "EU" },
+  { name: "Tinybird", purpose: "Event storage and dashboard metrics", region: "EU" },
+  { name: "Supabase", purpose: "Stores, team members and campaigns", region: "EU" },
+  { name: "MongoDB", purpose: "Account sign-in", region: "EU" },
+  {
+    name: "Shopify",
+    purpose: "Store connection, web pixel and order webhooks",
+    region: "Your store",
+    muted: true,
+  },
+];
+
+const practices = [
+  {
+    title: "Hashed, not stored",
+    body: "IP addresses, user agents and checkout tokens are hashed on arrival. The raw values are never written to a database or a log.",
+  },
+  {
+    title: "One owner per store",
+    body: "The account that connects a store owns it. Nobody else gets access unless the owner invites them.",
+  },
+  {
+    title: "Delete on request",
+    body: "Remove any session from the dashboard. Uninstall the app and Sam stops collecting straight away.",
+  },
+];
+
+const documents = [
+  { title: "Data processing agreement", body: "Request a signed copy", href: dpaHref },
+  { title: "Privacy policy", body: "How we handle your account data", href: "/legal/privacy" },
+  { title: "Terms of service", body: "The agreement behind every plan", href: "/legal/privacy#terms" },
+];
+
+export default function TrustPage() {
+  return (
+    <main className="w-full overflow-x-clip bg-background">
+      <section className="relative flex flex-col overflow-clip">
+        <HeroBackdrop
+          image="/images/plan-garden.png"
+          position="50% 60%"
+          painting={{ height: 640 }}
+          fade={{ height: 640 }}
+          gradient={heroFade}
+          mobilePainting={{ height: 520 }}
+          mobileFade={{ height: 520 }}
+        />
+        <SiteNav />
+        <HeroCopy
+          chip="Trust center"
+          title="Your shoppers' privacy,"
+          muted="in writing."
+          leadWidth={640}
+          lead="Where your data lives, who processes it, what we keep and for how long. Everything your legal team will ask, on one page."
+          className="pt-12 lg:pt-[120px]"
+        />
+        <div
+          data-reveal="load"
+          style={heroDelay}
+          className={`${container} relative grid grid-cols-2 gap-3 pt-12 lg:flex lg:gap-4 lg:pt-[72px]`}
+        >
+          {facts.map((f) => {
+            const content = (
+              <>
+                <span className="font-body text-label leading-[18px] text-mist">{f.label}</span>
+                <span
+                  className={`font-body text-lead leading-6 lg:text-[20px] lg:leading-[26px] ${
+                    f.href ? "text-accent" : "text-foreground"
+                  }`}
+                >
+                  {f.value}
+                </span>
+              </>
+            );
+            const box =
+              "flex grow basis-0 flex-col gap-1.5 rounded-md border border-[#EDEEE914] bg-[#161916B3] px-4 py-4 backdrop-blur-[12px] lg:px-6 lg:py-5";
+            return f.href ? (
+              <Link key={f.label} href={f.href} className={box}>
+                {content}
+              </Link>
+            ) : (
+              <div key={f.label} className={box}>
+                {content}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <div className={`${container} flex flex-col gap-[72px] py-[72px] lg:gap-32 lg:pt-32 lg:pb-[120px]`}>
+        <div id="subprocessors" className="flex scroll-mt-8 flex-col gap-8 lg:flex-row lg:gap-24">
+          <Reveal stagger className="flex w-full shrink-0 flex-col gap-4 lg:w-[360px]">
+            <Chip>Subprocessors</Chip>
+            <h2 className="flex flex-col">
+              <span className="font-body text-2xl leading-8 text-foreground">Who handles the data.</span>
+              <span className="font-body text-2xl leading-8 text-mist">
+                Every provider, every region, all in the EU.
+              </span>
+            </h2>
+            <p className="font-body text-[15px] leading-[23px] text-mist">
+              This list is kept up to date with every provider that touches store data.
+            </p>
+          </Reveal>
+          <Reveal
+            delay={120}
+            className="flex grow flex-col overflow-clip rounded-2xl border border-night-line bg-[#141614]"
+          >
+            <div className="flex gap-4 border-b border-night-line bg-[#161916] px-4 py-4 lg:px-6">
+              <span className="w-[120px] shrink-0 font-body text-label leading-4 text-mist lg:w-[180px]">
+                Provider
+              </span>
+              <span className="hidden grow font-body text-label leading-4 text-mist sm:inline">Purpose</span>
+              <span className="ml-auto w-[90px] shrink-0 text-right font-body text-label leading-4 text-mist lg:w-[120px]">
+                Region
+              </span>
+            </div>
+            {subprocessors.map((s, i) => (
+              <div
+                key={s.name}
+                style={row(i)}
+                className={`m-row flex flex-wrap gap-x-4 gap-y-1 px-4 py-4 lg:flex-nowrap lg:px-6 lg:py-[18px] ${
+                  i < subprocessors.length - 1 ? "border-b border-night-line" : ""
+                }`}
+              >
+                <span className="w-[120px] shrink-0 font-body text-[15px] leading-5 text-foreground lg:w-[180px]">
+                  {s.name}
+                </span>
+                <span
+                  className={`ml-auto w-[90px] shrink-0 text-right font-body text-[15px] leading-5 sm:order-last lg:w-[120px] ${
+                    s.muted ? "text-mist" : "text-foreground"
+                  }`}
+                >
+                  {s.region}
+                </span>
+                <span className="w-full font-body text-[15px] leading-5 text-mist sm:w-auto sm:grow">
+                  {s.purpose}
+                </span>
+              </div>
+            ))}
+          </Reveal>
+        </div>
+
+        <div className="flex flex-col gap-10 lg:gap-12">
+          <SectionHeading
+            chip="Practices"
+            title="Privacy is the product."
+            muted="Not a setting you turn on."
+          />
+          <NumberedItems items={practices} numbered={false} />
+        </div>
+
+        <div id="documents" className="flex scroll-mt-8 flex-col gap-8 lg:gap-10">
+          <InlineHeading title="Documents." muted="For you and your legal team." />
+          <Reveal stagger className="flex flex-col gap-4 lg:flex-row lg:gap-6">
+            {documents.map((d) => (
+              <Link
+                key={d.title}
+                href={d.href}
+                className="group flex grow basis-0 items-center justify-between gap-4 rounded-2xl border border-night-line bg-[#161916] p-6 transition-colors hover:border-[#3A3F38]"
+              >
+                <div className="flex flex-col gap-1">
+                  <span className="font-body text-[17px] leading-[22px] text-foreground">{d.title}</span>
+                  <span className="font-body text-[14px] leading-5 text-mist">{d.body}</span>
+                </div>
+                <span className="font-body text-body leading-5 text-mist transition-colors group-hover:text-foreground">
+                  ↗
+                </span>
+              </Link>
+            ))}
+          </Reveal>
+        </div>
+      </div>
+
+      <FinalCta />
+      <SiteFooter />
+    </main>
+  );
+}

@@ -207,17 +207,6 @@ export function MobileNav() {
                 <span className="font-body text-[15px] font-medium leading-5 text-foreground">Pricing</span>
                 <span className="font-body text-[13px] leading-[18px] text-mist">From €29 a month</span>
               </Link>
-              <Link
-                href={topLinks.demo.href}
-                onClick={navigate}
-                className="flex flex-1 flex-col gap-0.5 rounded-[12px] border border-[#EDEEE914] bg-[#161916E6] p-3.5"
-              >
-                <span className="flex items-center gap-2 font-body text-[15px] font-medium leading-5 text-foreground">
-                  Live demo
-                  <span className="nav-firefly size-1.5 shrink-0 rounded-[3px] bg-accent" />
-                </span>
-                <span className="font-body text-[13px] leading-[18px] text-mist">A real store, live</span>
-              </Link>
             </div>
             <div className="m-stagger flex gap-2" style={stagger()}>
               <Link
@@ -239,7 +228,7 @@ export function MobileNav() {
               </Link>
             </div>
             <p className="m-stagger text-center font-body text-[13px] leading-[18px] text-mist" style={stagger()}>
-              14 days free, no card needed.
+              7 days free, no card needed.
             </p>
           </div>
         </div>

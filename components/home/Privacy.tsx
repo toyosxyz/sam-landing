@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Chip } from "./Chip";
+import { Chip } from "@/components/site/Chip";
+import { Reveal } from "@/components/site/motion";
+import { row } from "@/components/site/motion-vars";
 
 const facts = [
   { label: "Cookies or browser storage", value: "None", accent: true },
@@ -30,7 +32,7 @@ const steps = [
 export function Privacy() {
   return (
     <section className="mx-auto flex w-full max-w-[1440px] flex-col gap-[88px] px-5 py-[72px] lg:gap-[140px] lg:px-[104px] lg:py-[120px]">
-      <div
+      <Reveal
         className="relative flex flex-col gap-9 overflow-clip rounded-2xl border border-night-line bg-[#141614] bg-origin-border px-5 py-7 shadow-[inset_0_1px_0_#EDEEE90F] lg:flex-row lg:gap-24 lg:rounded-lg lg:p-14 lg:shadow-[inset_0_1px_0_#EDEEE90F]"
         style={{
           backgroundImage:
@@ -93,7 +95,8 @@ export function Privacy() {
           {facts.map((f, i) => (
             <div
               key={f.label}
-              className={`flex justify-between gap-4 py-4 lg:py-5 ${
+              style={row(i)}
+              className={`m-row flex justify-between gap-4 py-4 lg:py-5 ${
                 i < facts.length - 1 ? "border-b border-night-line" : ""
               }`}
             >
@@ -110,10 +113,10 @@ export function Privacy() {
             </div>
           ))}
         </div>
-      </div>
+      </Reveal>
 
       <div className="flex flex-col gap-10 lg:gap-14">
-        <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <Reveal className="flex flex-col items-start gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex flex-col gap-4">
             <Chip>How it works</Chip>
             <div className="flex flex-col">
@@ -132,8 +135,8 @@ export function Privacy() {
             Install on Shopify
             <span aria-hidden className="font-normal">→</span>
           </Link>
-        </div>
-        <div className="flex flex-col gap-8 lg:flex-row lg:gap-6">
+        </Reveal>
+        <Reveal stagger className="flex flex-col gap-8 lg:flex-row lg:gap-6">
           {steps.map((s) => (
             <div
               key={s.n}
@@ -150,7 +153,7 @@ export function Privacy() {
               </p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

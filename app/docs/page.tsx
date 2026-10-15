@@ -1,0 +1,129 @@
+import type { Metadata } from "next";
+import {
+  Callout,
+  CodeBlock,
+  DocsH2,
+  DocsLayout,
+  DocsP,
+  DocsTitle,
+  Pager,
+  type SidebarGroup,
+} from "@/components/docs/DocsLayout";
+
+export const metadata: Metadata = {
+  title: "Install the Shopify app · SAM Docs",
+  description:
+    "Connecting a store takes about a minute. Create your Sam account, connect Shopify and watch the first sessions arrive.",
+};
+
+const groups: SidebarGroup[] = [
+  {
+    title: "Get started",
+    items: [
+      { label: "Welcome", href: "/" },
+      { label: "Install the app", href: "/docs", active: true },
+      { label: "Custom pixel", href: "/docs#custom-events" },
+      { label: "Invite your team" },
+    ],
+  },
+  {
+    title: "Dashboard",
+    items: [
+      { label: "Overview", href: "/product/funnel" },
+      { label: "Sessions", href: "/product/sessions" },
+      { label: "Orders", href: "/product/orders" },
+      { label: "Campaigns", href: "/product/campaigns" },
+    ],
+  },
+  {
+    title: "Tracking",
+    items: [
+      { label: "How tracking works", href: "/how-it-works" },
+      { label: "What Sam stores", href: "/trust" },
+      { label: "Order attribution", href: "/product/orders" },
+    ],
+  },
+  {
+    title: "Advanced",
+    items: [
+      { label: "Multiple stores" },
+      { label: "Generic order webhook" },
+      { label: "Reauthorize permissions" },
+    ],
+  },
+];
+
+const toc = [
+  { id: "create-account", label: "Create your Sam account" },
+  { id: "connect-shopify", label: "Connect Shopify" },
+  { id: "first-sessions", label: "Watch the first sessions" },
+  { id: "custom-events", label: "Can't install apps?" },
+] as const;
+
+export default function DocsPage() {
+  return (
+    <DocsLayout
+      groups={groups}
+      search
+      breadcrumb="Get started / Install the app"
+      toc={toc}
+      footerVariant="home"
+    >
+      <DocsTitle>Install the Shopify app</DocsTitle>
+      <p className="font-body text-body leading-[26px] text-mist lg:text-lead lg:leading-7">
+        Connecting a store takes about a minute. You&apos;ll need permission to install apps on
+        that store.
+      </p>
+      <div
+        aria-hidden
+        className="h-[140px] shrink-0 overflow-clip rounded-[14px] border border-night-line bg-cover lg:h-[180px]"
+        style={{
+          backgroundImage: "url(/images/hills-sessions.png)",
+          backgroundPosition: "50% 60%",
+        }}
+      />
+
+      <DocsH2 id="create-account">1. Create your Sam account</DocsH2>
+      <DocsP>
+        Sign up at app.samtrack.co with your work email. You can switch the dashboard between
+        English and Spanish at any time.
+      </DocsP>
+
+      <DocsH2 id="connect-shopify">2. Connect Shopify</DocsH2>
+      <DocsP>
+        Open Connect Shopify, type your store&apos;s myshopify.com domain and approve the
+        permissions. The first account to connect a store becomes its owner. Teammates join by
+        invitation.
+      </DocsP>
+      <Callout>
+        Sam asks for two permissions: customer events, to run its web pixel, and read orders, to
+        count purchases. Nothing else.
+      </Callout>
+
+      <DocsH2 id="first-sessions">3. Watch the first sessions arrive</DocsH2>
+      <DocsP>
+        Sam turns on its pixel and subscribes to order webhooks automatically. No theme edits, no
+        code. Open Overview and the first visits show up within minutes.
+      </DocsP>
+
+      <DocsH2 id="custom-events">Can&apos;t install apps?</DocsH2>
+      <DocsP>
+        Use a custom pixel instead. Copy your snippet from Settings → Custom pixel in Sam, then
+        paste it in Shopify Admin:
+      </DocsP>
+      <CodeBlock
+        title="Shopify Admin"
+        lines={[
+          "Settings → Customer events → Add custom pixel",
+          "Name: Sam",
+          "Paste: your snippet from Sam → Settings → Custom pixel",
+        ]}
+      />
+
+      <Pager
+        prev={{ label: "Welcome", href: "/" }}
+        next={{ label: "Custom pixel", href: "/docs#custom-events" }}
+      />
+    </DocsLayout>
+  );
+}

@@ -1,6 +1,8 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import { Chip } from "./Chip";
+import { Chip } from "@/components/site/Chip";
+import { CountUp, Reveal } from "@/components/site/motion";
+import { bar, row } from "@/components/site/motion-vars";
 
 const funnelSteps = [
   { label: "Visit", pct: "100.0%", sessions: "37,150 sessions", drop: "—" },
@@ -126,7 +128,7 @@ export function Features() {
       id="product"
       className="mx-auto flex w-full max-w-[1440px] flex-col gap-[72px] px-5 py-[72px] lg:gap-32 lg:px-[104px] lg:py-[120px]"
     >
-      <div className="flex w-full max-w-[760px] flex-col gap-4">
+      <Reveal stagger className="flex w-full max-w-[760px] flex-col gap-4">
         <Chip>What Sam sees</Chip>
         <div className="flex flex-col">
           <h2 className="font-body text-h3 leading-[34px] tracking-[-0.03em] text-foreground lg:text-[40px] lg:leading-[48px]">
@@ -136,11 +138,11 @@ export function Features() {
             Every step your shoppers take, and every step they don&apos;t.
           </p>
         </div>
-      </div>
+      </Reveal>
 
       {/* Funnel */}
       <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-[72px]">
-        <div className="flex w-full shrink-0 flex-col gap-4 lg:w-[400px]">
+        <Reveal stagger className="flex w-full shrink-0 flex-col gap-4 lg:w-[400px]">
           <Chip>Funnel</Chip>
           <div className="flex flex-col">
             <h3 className={`${featureTitle} text-foreground`}>
@@ -157,8 +159,8 @@ export function Features() {
           >
             Explore the funnel ↗
           </Link>
-        </div>
-        <div className={featureCard} style={{ backgroundImage: cardGlow }}>
+        </Reveal>
+        <Reveal delay={100} className={featureCard} style={{ backgroundImage: cardGlow }}>
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url(/images/hills-funnel.png)" }}
@@ -169,9 +171,11 @@ export function Features() {
                 <span className="font-body text-[10px] font-semibold leading-3 tracking-[0.06em] text-[#A0A0A0]">
                   CONVERSION BREAKDOWN
                 </span>
-                <span className="font-body text-[26px] font-semibold leading-8 tracking-[-0.02em] text-[#EDEDED]">
-                  2.9%
-                </span>
+                <CountUp
+                  value="2.9%"
+                  delay={300}
+                  className="font-body text-[26px] font-semibold leading-8 tracking-[-0.02em] text-[#EDEDED]"
+                />
                 <span className="font-body text-[11px] leading-[14px] text-[#A0A0A0]">
                   of visitors reach a confirmed order
                 </span>
@@ -202,9 +206,11 @@ export function Features() {
                   <span className="font-body text-[11px] leading-[14px] text-[#A0A0A0]">
                     {s.label}
                   </span>
-                  <span className="font-body text-[17px] font-semibold leading-[22px] text-[#EDEDED]">
-                    {s.pct}
-                  </span>
+                  <CountUp
+                    value={s.pct}
+                    delay={300 + i * 80}
+                    className="font-body text-[17px] font-semibold leading-[22px] text-[#EDEDED]"
+                  />
                   <span className="font-body text-[10px] leading-3 text-[#A0A0A0]">
                     {s.sessions}
                   </span>
@@ -224,7 +230,7 @@ export function Features() {
               width="616"
               height="150"
               viewBox="0 0 616 150"
-              className="h-auto w-full shrink-0"
+              className="m-bar h-auto w-full shrink-0"
               aria-hidden
             >
               <path
@@ -237,12 +243,13 @@ export function Features() {
               />
             </svg>
           </div>
-        </div>
+        </Reveal>
       </div>
 
       {/* Sessions */}
       <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-[72px]">
-        <div
+        <Reveal
+          delay={100}
           className={`${featureCard} order-last lg:order-none`}
           style={{ backgroundImage: cardGlowLeft }}
         >
@@ -312,7 +319,8 @@ export function Features() {
               {sessionEvents.map((e, i) => (
                 <div
                   key={e.event}
-                  className={`flex py-[9px] ${
+                  style={row(i)}
+                  className={`m-row flex py-[9px] ${
                     i < sessionEvents.length - 1
                       ? "border-b border-[#2A2A2A]"
                       : ""
@@ -340,8 +348,8 @@ export function Features() {
               ))}
             </div>
           </div>
-        </div>
-        <div className="flex w-full shrink-0 flex-col gap-4 lg:w-[400px]">
+        </Reveal>
+        <Reveal stagger className="flex w-full shrink-0 flex-col gap-4 lg:w-[400px]">
           <Chip>Sessions</Chip>
           <div className="flex flex-col">
             <h3 className={`${featureTitle} text-foreground`}>
@@ -358,12 +366,12 @@ export function Features() {
           >
             See a session ↗
           </Link>
-        </div>
+        </Reveal>
       </div>
 
       {/* Attribution */}
       <div className="flex flex-col gap-10">
-        <div className="flex flex-col gap-4">
+        <Reveal stagger className="flex flex-col gap-4">
           <Chip>Attribution</Chip>
           <div className="flex flex-col items-start lg:flex-row lg:flex-wrap lg:gap-2">
             <span className={`${blockTitle} text-foreground`}>
@@ -373,9 +381,9 @@ export function Features() {
               Not just visitors.
             </span>
           </div>
-        </div>
+        </Reveal>
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-6">
-          <div className="flex grow basis-0 flex-col gap-5">
+          <Reveal className="flex grow basis-0 flex-col gap-5">
             <div
               className="relative flex shrink-0 items-center justify-center overflow-clip rounded-2xl border border-night-line bg-[#141614] bg-origin-border px-4 py-6 shadow-[inset_0_1px_0_#EDEEE90F] lg:h-[420px] lg:p-0"
               style={{
@@ -402,11 +410,12 @@ export function Features() {
                 {channels.map((c, i) => (
                   <div key={c.name} className="flex items-center justify-between">
                     <div
-                      className={`flex h-[22px] w-(--bar-sm) shrink-0 items-center rounded-[5px] pl-2 lg:w-(--bar-lg) ${
+                      className={`m-bar flex h-[22px] w-(--bar-sm) shrink-0 items-center rounded-[5px] pl-2 lg:w-(--bar-lg) ${
                         i === 0 ? "bg-[#2E2E2E]" : "bg-[#2A2A2A]"
                       }`}
                       style={
                         {
+                          ...bar(i),
                           "--bar-sm": `${Math.round((c.width / 430) * 100)}%`,
                           "--bar-lg": `${c.width}px`,
                         } as CSSProperties
@@ -416,9 +425,11 @@ export function Features() {
                         {c.name}
                       </span>
                     </div>
-                    <span className="font-body text-[11px] leading-[14px] text-[#A0A0A0]">
-                      {c.sessions}
-                    </span>
+                    <CountUp
+                      value={c.sessions}
+                      delay={300 + i * 80}
+                      className="font-body text-[11px] leading-[14px] text-[#A0A0A0]"
+                    />
                   </div>
                 ))}
               </div>
@@ -432,9 +443,9 @@ export function Features() {
                 visit&apos;s source and referrer.
               </p>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="flex grow basis-0 flex-col gap-5">
+          <Reveal delay={120} className="flex grow basis-0 flex-col gap-5">
             <div
               className="relative flex shrink-0 items-center justify-center overflow-clip rounded-2xl border border-night-line bg-[#141614] bg-origin-border px-4 py-6 shadow-[inset_0_1px_0_#EDEEE90F] lg:h-[420px] lg:p-0"
               style={{
@@ -489,7 +500,8 @@ export function Features() {
                   {campaigns.map((c, i) => (
                     <div
                       key={c.name}
-                      className={`flex py-[9px] ${
+                      style={row(i)}
+                      className={`m-row flex py-[9px] ${
                         i < campaigns.length - 1
                           ? "border-b border-[#2A2A2A]"
                           : ""
@@ -528,13 +540,13 @@ export function Features() {
                 campaign you run.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
 
       {/* And the rest */}
       <div className="flex flex-col gap-12">
-        <div className="flex flex-col items-start gap-5 lg:flex-row lg:items-center lg:justify-between">
+        <Reveal className="flex flex-col items-start gap-5 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-col items-start lg:flex-row lg:flex-wrap lg:gap-2">
             <span className={`${blockTitle} text-foreground`}>
               And the rest.
@@ -549,8 +561,8 @@ export function Features() {
           >
             All features
           </Link>
-        </div>
-        <div className="flex flex-col border-t border-night-line">
+        </Reveal>
+        <Reveal stagger className="flex flex-col border-t border-night-line">
           {restRows.map((row) => (
             <div
               key={row.label}
@@ -570,7 +582,7 @@ export function Features() {
               </span>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

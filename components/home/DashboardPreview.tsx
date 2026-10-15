@@ -1,3 +1,5 @@
+import { CountUp } from "@/components/site/motion";
+
 const metrics = [
   { label: "CONVERSION", value: "3.1%", delta: "↗ 8.4%", up: true },
   { label: "REVENUE", value: "€58,240", delta: "↗ 12.6%", up: true },
@@ -45,7 +47,7 @@ export function DashboardPreview() {
           app.samtrack.co
         </span>
         <div className="flex items-center gap-1.5">
-          <span className="size-[7px] shrink-0 rounded bg-accent" />
+          <span className="nav-firefly size-[7px] shrink-0 rounded bg-accent" />
           <span className="font-body text-[12px] leading-4 text-mist">Live</span>
         </div>
       </div>
@@ -120,9 +122,11 @@ export function DashboardPreview() {
                   {m.label}
                 </span>
                 <div className="flex items-baseline gap-2">
-                  <span className="w-max font-display text-[24px] font-bold leading-[30px] tracking-[-0.02em] text-[#F2F2F2] lg:text-[30px] lg:leading-9">
-                    {m.value}
-                  </span>
+                  <CountUp
+                    value={m.value}
+                    delay={500 + i * 90}
+                    className="w-max font-display text-[24px] font-bold leading-[30px] tracking-[-0.02em] text-[#F2F2F2] lg:text-[30px] lg:leading-9"
+                  />
                   <span
                     className={`w-max font-body text-[11px] leading-[14px] ${
                       m.up ? "text-accent" : "text-[#E5484D]"
@@ -150,9 +154,11 @@ export function DashboardPreview() {
                     {t.label}
                   </span>
                   <div className="flex items-baseline gap-2">
-                    <span className="font-display text-[22px] font-bold leading-7 text-[#F2F2F2]">
-                      {t.value}
-                    </span>
+                    <CountUp
+                      value={t.value}
+                      delay={700 + i * 90}
+                      className="font-display text-[22px] font-bold leading-7 text-[#F2F2F2]"
+                    />
                     <span
                       className={`font-body text-[11px] leading-[14px] ${
                         t.up ? "text-accent" : "text-[#E5484D]"
@@ -232,9 +238,12 @@ function ChartSvg() {
       <path
         d="M60 44C138 32 170 22 216 25C270 28 320 58 372 72C430 90 470 125 528 128C590 131 630 122 684 118C740 112 790 102 840 104C900 106 950 120 996 138L996 230L60 230Z"
         fill="url(#chartFill)"
+        className="m-fade"
       />
       <path
         d="M60 44C138 32 170 22 216 25C270 28 320 58 372 72C430 90 470 125 528 128C590 131 630 122 684 118C740 112 790 102 840 104C900 106 950 120 996 138"
+        pathLength={1}
+        className="m-draw"
         fill="none"
         stroke="#A3E635"
         strokeWidth="2"

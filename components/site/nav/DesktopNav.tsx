@@ -188,7 +188,7 @@ export function DesktopNav() {
       </div>
 
       <div className="flex items-center gap-1 rounded-[10px] bg-[#161916] p-1">
-        {[topLinks.pricing, topLinks.demo, topLinks.signIn].map((link) => (
+        {[topLinks.pricing, topLinks.signIn].map((link) => (
           <Link
             key={link.href}
             href={link.href}
