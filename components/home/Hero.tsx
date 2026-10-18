@@ -1,7 +1,6 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import { DashboardPreview } from "./DashboardPreview";
-import { Arrow } from "@/components/site/Arrow";
 import { heroDelay } from "@/components/site/motion-vars";
 import { SiteNav } from "@/components/site/SiteNav";
 
@@ -38,27 +37,39 @@ export function Hero() {
           <div className="relative flex w-full max-w-[680px] flex-col gap-7 lg:gap-8">
             <div data-reveal="load" className="flex flex-col gap-[18px]">
               <h1 className="font-body text-[38px] leading-[42px] tracking-[-0.035em] text-foreground lg:text-[56px] lg:leading-[62px]">
-                Every path through your store, watched live
+                Find where your Shopify store loses buyers
               </h1>
               <p className="max-w-[540px] font-body text-body leading-6 tracking-[-0.005em] text-mist lg:text-[20px] lg:leading-[30px]">
-                Sam walks every session with your shoppers, spots where they
-                leave the trail and tells you what it costs. No cookies, no
-                banners.
+                Sam tracks every session without cookies, including visits that
+                decline consent. See which step, landing or campaign costs you
+                sales.
               </p>
             </div>
             <div
               data-reveal="load-one"
               style={{ "--reveal-delay": "180ms" } as CSSProperties}
-              className="flex gap-2.5"
+              className="flex flex-wrap gap-2.5"
             >
               <Link
                 href="#install"
                 className="flex items-center gap-2 rounded-[8px] bg-foreground px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-night-bg"
               >
                 Start 7-day trial
-                <Arrow />
+              </Link>
+              <Link
+                href="/how-it-works"
+                className="flex items-center gap-2 rounded-[8px] border border-night-line bg-[#161916] px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-foreground"
+              >
+                How tracking works
               </Link>
             </div>
+            <p
+              data-reveal="load-one"
+              style={{ "--reveal-delay": "240ms" } as CSSProperties}
+              className="-mt-3 font-body text-[13px] leading-[18px] text-mist lg:-mt-4"
+            >
+              7-day trial. Cancel before it ends, pay nothing.
+            </p>
           </div>
 
           <div data-reveal="load-one" style={heroDelay} className="relative">

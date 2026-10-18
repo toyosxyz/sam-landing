@@ -5,10 +5,10 @@ import { Reveal } from "@/components/site/motion";
 import { row } from "@/components/site/motion-vars";
 
 const facts = [
-  { label: "Cookies or browser storage", value: "None", accent: true },
-  { label: "Consent banner needed", value: "No", accent: true },
-  { label: "Session key", value: "Daily-salted hash", accent: false },
-  { label: "Orders counted", value: "Every one, via webhooks", accent: false },
+  { label: "Cookies", value: "None", accent: true },
+  { label: "Consent banner", value: "Not needed", accent: true },
+  { label: "Visitor ID", value: "Resets daily", accent: false },
+  { label: "Orders counted", value: "All of them", accent: false },
   { label: "Data hosted in", value: "EU", accent: false },
 ] as const;
 
@@ -16,17 +16,17 @@ const steps = [
   {
     n: "01",
     title: "Install the app",
-    body: "One click from the Shopify App Store. No code and no theme edits.",
+    body: "One click from the Shopify App Store. No code.",
   },
   {
     n: "02",
     title: "Watch sessions arrive",
-    body: "Every visit, page view, add-to-cart and checkout lands in Sam as it happens.",
+    body: "Visits show up in real time.",
   },
   {
     n: "03",
     title: "Fix where it breaks",
-    body: "Find the step, device or channel losing buyers and act on it the same day.",
+    body: "Find the step losing buyers.",
   },
 ] as const;
 
@@ -75,14 +75,13 @@ export function Privacy() {
                 Private by default.
               </h2>
               <p className="font-body text-[24px] leading-[30px] tracking-[-0.02em] lg:text-[32px] lg:leading-10 text-mist">
-                No cookies, no banner, nobody followed across days.
+                No cookie banner needed.
               </p>
             </div>
           </div>
           <p className="font-body text-body leading-[25px] text-mist">
-            Sam groups each visit with a hash of IP, browser, store and a salt that
-            changes every day. Nothing is written to the shopper&apos;s browser, and
-            today&apos;s visit can&apos;t be linked to yesterday&apos;s.
+            Each visit gets an anonymous ID that resets every day. Nothing is
+            stored in the shopper&apos;s browser.
           </p>
           <Link
             href="#tracking"
@@ -126,7 +125,7 @@ export function Privacy() {
                 Install in a minute.
               </h2>
               <p className="font-body text-[24px] leading-[30px] tracking-[-0.02em] lg:text-[32px] lg:leading-10 text-mist">
-                See your first shoppers on the trail right after.
+                Data starts flowing right away.
               </p>
             </div>
           </div>
@@ -134,8 +133,7 @@ export function Privacy() {
             href="#install"
             className="flex items-center gap-2 rounded-[8px] bg-foreground px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-night-bg"
           >
-            Install on Shopify
-            <Arrow />
+            Start 7-day trial
           </Link>
         </Reveal>
         <Reveal stagger className="flex flex-col gap-8 lg:flex-row lg:gap-6">

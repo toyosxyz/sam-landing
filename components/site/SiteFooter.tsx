@@ -59,13 +59,13 @@ export function FinalCta() {
     >
       <div className="flex flex-col">
         <p className="font-body text-[26px] leading-8 tracking-[-0.02em] text-foreground lg:text-[32px] lg:leading-10">
-          Find out where the trail breaks.
+          See your first sessions today.
         </p>
         <p className="font-body text-[26px] leading-8 tracking-[-0.02em] text-mist lg:text-[32px] lg:leading-10">
-          7 days free, no card needed.
+          7-day trial. Cancel anytime.
         </p>
       </div>
-      <PrimaryButton>Install on Shopify</PrimaryButton>
+      <PrimaryButton>Start 7-day trial</PrimaryButton>
     </Reveal>
   );
 }

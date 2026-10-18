@@ -14,7 +14,7 @@ import { FinalCta, SiteFooter } from "@/components/site/SiteFooter";
 export const metadata: Metadata = {
   title: "Pricing · SAM",
   description:
-    "Pick a plan by how many sessions your store gets each month. All features on every plan, and 7 days free.",
+    "Plans by monthly sessions. All features on every plan. 7-day trial.",
 };
 
 const heroFade =
@@ -22,19 +22,19 @@ const heroFade =
 
 const includes = [
   "✓ Live sessions and funnels",
-  "✓ UTM campaigns, measured to checkout",
-  "✓ Orders and revenue by channel",
-  "✓ Cookieless, EU-hosted, DPA",
-  "✓ Invite your whole team",
+  "✓ Campaigns measured to checkout",
+  "✓ Revenue by channel",
+  "✓ Cookieless, EU-hosted",
+  "✓ Team invites",
 ] as const;
 
-const planNames = ["Garden", "Meadow", "Valley"] as const;
+const planNames = ["Garden", "Meadow", "Valley", "Forest"] as const;
 
-const rows: { label: string; values?: [string, string, string] }[] = [
-  { label: "Sessions per month", values: ["25,000", "100,000", "300,000"] },
+const rows: { label: string; values?: [string, string, string, string] }[] = [
+  { label: "Sessions per month", values: ["25,000", "100,000", "300,000", "1,000,000"] },
   { label: "Funnel, sessions, orders and campaigns" },
-  { label: "Breakdowns by device, channel and country" },
-  { label: "Cookieless tracking, no consent banner" },
+  { label: "Device, channel and country breakdowns" },
+  { label: "Cookieless tracking" },
   { label: "EU hosting and DPA" },
   { label: "Team invites" },
   { label: "Dashboard in English and Spanish" },
@@ -43,23 +43,23 @@ const rows: { label: string; values?: [string, string, string] }[] = [
 const faqs = [
   {
     q: "What counts as a session?",
-    a: "One visitor on your store during one day. Five page views in an afternoon is one session; coming back the next day is a new one.",
+    a: "One visitor, one day. Five pages in an afternoon is one session. Coming back tomorrow is a new one.",
   },
   {
     q: "What happens if I go over my plan?",
-    a: "Nothing breaks and no data is dropped. If you go over two months in a row, we'll suggest the next plan up before anything changes on your bill.",
+    a: "Nothing breaks and no data is lost. If it happens two months in a row, we'll suggest the next plan before your bill changes.",
   },
   {
     q: "Can I change plans later?",
-    a: "Yes, any time. Upgrades apply straight away and downgrades from your next billing date.",
+    a: "Yes, any time. Upgrades apply now. Downgrades apply on your next billing date.",
   },
   {
     q: "How does the free trial work?",
-    a: "You get every feature for 7 days with no card needed. Billing only starts if you pick a plan at the end.",
+    a: "7 days with every feature. A card is required through Stripe. Cancel before it ends and you pay nothing.",
   },
   {
     q: "I run several stores. Do I pay for each?",
-    a: "Each store has its own plan, sized by its own sessions. Running more than a few? Talk to us and we'll put one plan together.",
+    a: "Each store has its own plan. From 3 stores on one account, every plan is 20% off and you get one invoice.",
   },
 ];
 
@@ -79,14 +79,43 @@ export default function PricingPage() {
         <SiteNav />
         <HeroCopy
           chip="Pricing"
-          title="Pay for sessions, not features."
-          muted="Every plan includes everything."
+          title="Priced by sessions."
+          muted="All features on every plan."
           leadWidth={640}
-          lead="Pick a plan by how many sessions your store gets each month. All features on every plan, and 7 days free to try it."
+          lead="Pick a plan by monthly visits. Start with a 7-day trial."
           className="pt-12 lg:pt-[120px]"
         />
-        <div className={`${container} relative pt-10 lg:pt-14`}>
+        <div className={`${container} relative flex flex-col gap-4 pt-10 lg:gap-6 lg:pt-14`}>
           <Plans includes={includes} />
+
+          <Reveal className="relative flex flex-col items-start gap-5 overflow-clip rounded-2xl border border-night-line px-6 py-7 lg:flex-row lg:items-center lg:justify-between lg:px-9 lg:py-8">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: "url(/images/plan-valley.png)" }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "linear-gradient(in oklab 90deg, oklab(18.4% -0.004 0.003 / 92%) 0%, oklab(18.4% -0.004 0.003 / 55%) 100%)",
+              }}
+            />
+            <div className="relative flex flex-col gap-1.5">
+              <p className="font-body text-[22px] leading-7 text-foreground">
+                More than 1,000,000 sessions a month?
+              </p>
+              <p className="font-body text-body leading-6 text-mist">
+                Tell us about your stores. We&apos;ll build a plan that fits.
+              </p>
+            </div>
+            <Link
+              href="mailto:hello@sam.shop"
+              className="relative flex items-center gap-2 rounded-[8px] border border-night-line bg-[#161916] px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-foreground"
+            >
+              Talk to us
+              <Arrow />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
@@ -94,8 +123,8 @@ export default function PricingPage() {
         <div className="flex flex-col gap-8 lg:gap-10">
           <SectionHeading
             chip="Compare plans"
-            title="The only difference is volume."
-            muted="Everything else is the same."
+            title="Plans differ in volume."
+            muted="Nothing else."
             width={1000}
           />
 
@@ -140,39 +169,10 @@ export default function PricingPage() {
               </div>
             ))}
           </Reveal>
-
-          <Reveal className="relative flex flex-col items-start gap-5 overflow-clip rounded-2xl border border-night-line px-6 py-7 lg:flex-row lg:items-center lg:justify-between lg:px-9 lg:py-8">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: "url(/images/plan-valley.png)" }}
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage:
-                  "linear-gradient(in oklab 90deg, oklab(18.4% -0.004 0.003 / 92%) 0%, oklab(18.4% -0.004 0.003 / 55%) 100%)",
-              }}
-            />
-            <div className="relative flex flex-col gap-1.5">
-              <p className="font-body text-[22px] leading-7 text-foreground">
-                More than 300,000 sessions a month?
-              </p>
-              <p className="font-body text-body leading-6 text-mist">
-                Tell us about your stores and we&apos;ll put together a plan that fits.
-              </p>
-            </div>
-            <Link
-              href="mailto:hello@sam.shop"
-              className="relative flex items-center gap-2 rounded-[8px] border border-night-line bg-[#161916] px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-foreground"
-            >
-              Talk to us
-              <Arrow />
-            </Link>
-          </Reveal>
         </div>
 
         <div id="faq" className="scroll-mt-8">
-          <Faq items={faqs} title="Billing questions." subtitle="Answered before you ask." />
+          <Faq items={faqs} title="Billing questions." subtitle="Short answers." />
         </div>
       </div>
 

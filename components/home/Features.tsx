@@ -92,12 +92,12 @@ const campaigns = [
 ] as const;
 
 const restRows = [
-  { label: "Live sessions: who is on your store right now" },
-  { label: "Orders matched to the session and channel that brought them" },
-  { label: "Customer journeys from first visit to repeat order" },
-  { label: "Every metric split by device, OS and browser" },
-  { label: "Alerts when a step of the funnel suddenly drops", soon: true },
-  { label: "Your numbers inside Claude and ChatGPT, via MCP", soon: true },
+  { label: "Live sessions on your store" },
+  { label: "Orders matched to their session" },
+  { label: "Conversion by landing page" },
+  { label: "Split by device, OS and browser" },
+  { label: "Alerts when a step drops", soon: true },
+  { label: "Your data in Claude and ChatGPT", soon: true },
 ] as const;
 
 const cardGlow =
@@ -119,13 +119,13 @@ export function Features() {
       className="mx-auto flex w-full max-w-[1440px] flex-col gap-[72px] px-5 py-[72px] lg:gap-32 lg:px-[104px] lg:py-[120px]"
     >
       <Reveal stagger className="flex w-full max-w-[760px] flex-col gap-4">
-        <Chip>What Sam sees</Chip>
+        <Chip>What Sam shows</Chip>
         <div className="flex flex-col">
           <h2 className="font-body text-h3 leading-[34px] tracking-[-0.03em] text-foreground lg:text-[40px] lg:leading-[48px]">
-            From the first page to the thank-you page.
+            Every step from landing to order.
           </h2>
           <p className="font-body text-h3 leading-[34px] tracking-[-0.03em] text-mist lg:text-[40px] lg:leading-[48px]">
-            Every step your shoppers take, and every step they don&apos;t.
+            And where shoppers stop.
           </p>
         </div>
       </Reveal>
@@ -136,11 +136,10 @@ export function Features() {
           <Chip>Funnel</Chip>
           <div className="flex flex-col">
             <h3 className={`${featureTitle} text-foreground`}>
-              See exactly where the trail breaks.
+              See where shoppers drop.
             </h3>
             <p className={`${featureTitle} text-mist`}>
-              Each step from visit to purchase, the drop between them, on mobile and
-              desktop.
+              Visit to purchase, on mobile and desktop.
             </p>
           </div>
           <Link
@@ -346,11 +345,10 @@ export function Features() {
           <Chip>Sessions</Chip>
           <div className="flex flex-col">
             <h3 className={`${featureTitle} text-foreground`}>
-              Follow any shopper, step by step.
+              Follow any visit.
             </h3>
             <p className={`${featureTitle} text-mist`}>
-              Landing page, device, channel and every view, add-to-cart and checkout,
-              in order.
+              Every page, cart and checkout, in order.
             </p>
           </div>
           <Link
@@ -369,10 +367,10 @@ export function Features() {
           <Chip>Attribution</Chip>
           <div className="flex flex-col items-start lg:flex-row lg:flex-wrap lg:gap-2">
             <span className={`${blockTitle} text-foreground`}>
-              Know which roads bring buyers.
+              Know which campaigns sell.
             </span>
             <span className={`${blockTitle} text-mist`}>
-              Not just visitors.
+              Down to the order.
             </span>
           </div>
         </Reveal>
@@ -430,11 +428,10 @@ export function Features() {
             </div>
             <div className="flex flex-col gap-1.5">
               <h4 className="font-body text-lead leading-[22px] text-foreground">
-                Every session credited to its channel
+                Sessions by channel
               </h4>
               <p className="font-body text-body leading-6 text-mist">
-                Organic, paid, referral, direct, email and social, read from each
-                visit&apos;s source and referrer.
+                Organic, paid, email, social and more.
               </p>
             </div>
           </Reveal>
@@ -527,11 +524,10 @@ export function Features() {
             </div>
             <div className="flex flex-col gap-1.5">
               <h4 className="font-body text-lead leading-[22px] text-foreground">
-                UTM campaigns, measured to checkout
+                Campaigns to orders
               </h4>
               <p className="font-body text-body leading-6 text-mist">
-                Page views, add-to-cart, checkout reached and completed for every
-                campaign you run.
+                Views, carts, checkouts and orders for each UTM.
               </p>
             </div>
           </Reveal>
@@ -543,10 +539,10 @@ export function Features() {
         <Reveal className="flex flex-col items-start gap-5 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-col items-start lg:flex-row lg:flex-wrap lg:gap-2">
             <span className={`${blockTitle} text-foreground`}>
-              And the rest.
+              And more.
             </span>
             <span className={`${blockTitle} text-mist`}>
-              Everything else Sam keeps an eye on.
+              On every plan.
             </span>
           </div>
           <Link

@@ -39,22 +39,22 @@ export const productCards: Record<
 > = {
   funnel: {
     title: "Funnel",
-    body: "See where shoppers drop, step by step, by device and channel.",
+    body: "See where shoppers drop, by device and channel.",
     image: "/images/hills-funnel.png",
   },
   sessions: {
     title: "Sessions",
-    body: "Follow any shopper, step by step, from landing page to thank-you page.",
+    body: "Follow any visit, from landing to thank-you page.",
     image: "/images/hills-sessions.png",
   },
   campaigns: {
     title: "Campaigns",
-    body: "Build UTM links and see each campaign's funnel down to the order.",
+    body: "Build UTM links and see which ones sell.",
     image: "/images/hills-campaigns.png",
   },
   orders: {
     title: "Orders",
-    body: "Every Shopify order, counted, and linked to its session when possible.",
+    body: "Every Shopify order, linked to its visit when possible.",
     image: "/images/hills-channels.png",
   },
 };
@@ -62,126 +62,122 @@ export const productCards: Record<
 export const products: Record<ProductSlug, Product> = {
   funnel: {
     name: "Funnel",
-    description:
-      "Five steps from first visit to confirmed order, the drop between each one, and who falls off.",
+    description: "Five steps from visit to order, and where shoppers drop.",
     hero: {
-      title: "See exactly where the trail breaks.",
-      muted: "Step by step, device by device.",
-      lead: "Five steps from first visit to confirmed order, the drop between each one, and who falls off: mobile or desktop, ads or newsletter, Spain or France.",
+      title: "See where shoppers drop.",
+      muted: "Step by step, by device.",
+      lead: "Five steps from visit to order. See the drop at each one, by device, channel or country.",
       imagePosition: "50% 60%",
       Visual: FunnelHeroVisual,
       visualGap: "pt-12 lg:pt-[72px]",
     },
     highlights: {
-      title: "One funnel, built around Shopify.",
-      muted: "No events to configure, no reports to build.",
+      title: "One funnel, built for Shopify.",
+      muted: "Nothing to configure.",
       items: [
         {
-          title: "Five steps, all counted",
-          body: "Visit, product viewed, added to cart, checkout started and purchase. Every session is counted, nothing is sampled.",
+          title: "Five steps",
+          body: "Visit, product, cart, checkout and purchase. Every session counted.",
         },
         {
           title: "The drop, in numbers",
-          body: "See how many shoppers leave between each step, so you know which one to fix first.",
+          body: "See which step loses the most shoppers, so you fix it first.",
         },
         {
-          title: "The last step matches Shopify",
-          body: "Purchases come from Shopify's order webhooks, so the bottom of the funnel always matches your orders.",
+          title: "Matches Shopify",
+          body: "Purchases come from Shopify, so the last step matches your orders.",
         },
       ],
     },
     split: {
       chip: "Breakdowns",
-      title: "Split it any way you need.",
-      body: "Device, OS, browser, channel, referrer or country. Find the segment that leaks before you redesign anything.",
+      title: "Split it any way.",
+      body: "By device, browser, channel or country. Find the leak before you redesign.",
       Visual: FunnelSplitVisual,
     },
     more: ["sessions", "campaigns", "orders"],
   },
   sessions: {
     name: "Sessions",
-    description:
-      "Every page view, product view, add-to-cart and checkout, in order, without knowing who the shopper is.",
+    description: "Every page, cart and checkout of a visit, in order. Fully anonymous.",
     hero: {
-      title: "Follow any shopper, step by step.",
-      muted: "From landing page to thank-you page.",
-      lead: "Every page view, product view, add-to-cart and checkout, in order, with the landing page, device and channel that brought them. Without knowing who they are.",
+      title: "Follow any visit.",
+      muted: "From landing to thank-you page.",
+      lead: "Every page, cart and checkout in order, with the device and channel that brought them. Sam never knows who the shopper is.",
       imagePosition: "30% 60%",
       Visual: SessionsHeroVisual,
       visualGap: "pt-12 lg:pt-[72px]",
     },
     highlights: {
-      title: "Every session, event by event.",
-      muted: "Without following anyone across days.",
+      title: "Every visit, event by event.",
+      muted: "Anonymous and reset daily.",
       items: [
         {
-          title: "Live, as it happens",
-          body: "Sessions show up while the shopper is still browsing. See who is on your store right now.",
+          title: "Live",
+          body: "See who is on your store right now.",
         },
         {
           title: "Context on every visit",
-          body: "Landing page, device, OS, browser, country and channel, attached to every session.",
+          body: "Landing page, device, browser, country and channel.",
         },
         {
           title: "Filter and delete",
-          body: "Filter sessions by any field, and delete one in a click if a shopper asks you to.",
+          body: "Filter by any field. Delete a session in one click.",
         },
       ],
     },
     split: {
-      chip: "Session key",
+      chip: "Visitor ID",
       title: "Private by design.",
-      body: "Each key is a hash of IP, user agent and store with a salt that changes every day. Sam never knows who the shopper is.",
+      body: "Each visit gets an anonymous ID that resets every day. Sam never knows who the shopper is.",
       Visual: SessionsSplitVisual,
     },
     more: ["funnel", "campaigns", "orders"],
   },
   campaigns: {
     name: "Campaigns",
-    description:
-      "Build UTM links in Sam, share them anywhere, and see each campaign's funnel from first visit to completed checkout.",
+    description: "Build UTM links in Sam and see each campaign's funnel, down to the order.",
     hero: {
-      title: "Know which campaigns bring buyers.",
-      muted: "Not just clicks.",
-      lead: "Build UTM links in Sam, share them anywhere, and see each campaign's funnel from first visit to completed checkout.",
+      title: "Know which campaigns sell.",
+      muted: "Down to the order.",
+      lead: "Build UTM links in Sam, share them anywhere and see each campaign's funnel to checkout.",
       imagePosition: "70% 60%",
       Visual: CampaignsHeroVisual,
       visualGap: "pt-16 lg:pt-32",
     },
     highlights: {
-      title: "From link to order, in one place.",
-      muted: "No spreadsheets full of UTM parameters.",
+      title: "From link to order.",
+      muted: "In one place.",
       items: [
         {
           title: "Build the link",
-          body: "Pick a source, a medium and a name. Sam writes the UTM link for you.",
+          body: "Pick a source, medium and name. Sam writes the link.",
         },
         {
-          title: "Copy and share",
-          body: "Paste it in an ad, an email or a bio. Every visit from it is tagged on its own.",
+          title: "Share it",
+          body: "Use it in an ad, an email or a bio.",
         },
         {
           title: "See its funnel",
-          body: "Views, add-to-carts, checkouts and completed orders for every campaign, side by side.",
+          body: "Views, carts, checkouts and orders, side by side.",
         },
       ],
     },
     split: {
       chip: "UTM builder",
-      title: "Make the link in seconds.",
-      body: "Source, medium and campaign name in, a clean tracking link out. Copy it and you're done.",
+      title: "A link in seconds.",
+      body: "Fill in three fields. Copy a clean tracking link.",
       Visual: CampaignsSplitVisual,
     },
     more: ["funnel", "sessions", "orders"],
   },
   orders: {
     name: "Orders",
-    description:
-      "Orders come straight from Shopify, linked to the session and campaign that brought them when Sam saw the checkout.",
+    description: "Every Shopify order, linked to the visit and campaign that brought it.",
     hero: {
       title: "Every order, counted.",
-      muted: "And credited when the trail allows.",
-      lead: "Orders come straight from Shopify, so revenue in Sam always matches your store. When Sam saw the checkout, each order is linked to the session and campaign that brought it.",
+      muted: "Linked to its visit when possible.",
+      lead: "Orders come from Shopify, so revenue matches your store. 90–95% link to a full visit. The rest still count.",
       imagePosition: "50% 40%",
       Visual: OrdersHeroVisual,
       visualGap: "pt-12 lg:pt-[72px]",
@@ -191,23 +187,23 @@ export const products: Record<ProductSlug, Product> = {
       muted: "Attribution you can explain.",
       items: [
         {
-          title: "Counted from Shopify",
-          body: "Orders arrive through Shopify's order webhooks. Cancelled orders are taken out on their own.",
+          title: "Straight from Shopify",
+          body: "Orders arrive from Shopify. Cancelled orders are removed.",
         },
         {
           title: "Linked without cookies",
-          body: "The checkout is matched to its session through a short-lived hash. Nothing is written to the cart or the browser.",
+          body: "Each checkout is matched to its visit. Nothing touches the browser.",
         },
         {
           title: "No order IDs kept",
-          body: "Sam keeps amount, currency, products and campaign. Order numbers and customer details stay in Shopify.",
+          body: "Sam keeps amount, currency, products and campaign. Customer details stay in Shopify.",
         },
       ],
     },
     split: {
       chip: "Attribution",
       title: "Honest attribution.",
-      body: "If Sam saw the checkout, the order is credited to its session and campaign. If not, it still counts, it just isn't credited. No guesses.",
+      body: "If Sam saw the checkout, the order is credited to its visit and campaign. If not, it still counts.",
       Visual: OrdersSplitVisual,
     },
     more: ["funnel", "campaigns", "sessions"],

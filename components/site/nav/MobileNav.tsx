@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
-import { Arrow } from "../Arrow";
 import { SamLogo } from "../SamLogo";
 import { menus, mobileResources, topLinks } from "./menu-data";
 
@@ -79,7 +78,7 @@ export function MobileNav() {
         <div className="flex items-center gap-1 rounded-[10px] bg-[#161916] p-1">
           <Link
             href={topLinks.install.href}
-            className="rounded-[7px] bg-foreground px-3.5 py-[7px] font-body text-[14px] font-medium leading-[18px] text-night-bg"
+            className="flex items-center gap-2 rounded-[7px] bg-foreground px-3.5 py-[7px] font-body text-[14px] font-medium leading-[18px] text-night-bg"
           >
             {topLinks.install.label}
           </Link>
@@ -223,11 +222,10 @@ export function MobileNav() {
                 className="flex flex-1 items-center justify-center gap-2 rounded-[10px] bg-foreground px-[18px] py-[13px] font-body text-[15px] font-medium leading-5 text-night-bg"
               >
                 {topLinks.install.label}
-                <Arrow />
               </Link>
             </div>
             <p className="m-stagger text-center font-body text-[13px] leading-[18px] text-mist" style={stagger()}>
-              7 days free, no card needed.
+              7-day trial. Cancel anytime.
             </p>
           </div>
         </div>

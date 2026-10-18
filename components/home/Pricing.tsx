@@ -5,9 +5,9 @@ import { Plans } from "@/components/site/Plans";
 const includes = [
   "✓ Funnel, sessions and orders",
   "✓ Revenue by channel and campaign",
-  "✓ UTM campaign builder",
-  "✓ Invite your team",
-  "✓ Cookieless, EU-hosted, DPA",
+  "✓ UTM builder",
+  "✓ Team invites",
+  "✓ Cookieless, EU-hosted",
 ] as const;
 
 export function Pricing() {
@@ -25,10 +25,10 @@ export function Pricing() {
             <Chip>Pricing</Chip>
             <div className="flex flex-col">
               <h2 className="font-body text-[24px] leading-[30px] tracking-[-0.02em] text-foreground lg:text-[32px] lg:leading-10">
-                Pay for sessions, not features.
+                Priced by sessions.
               </h2>
               <p className="font-body text-[24px] leading-[30px] tracking-[-0.02em] text-mist lg:text-[32px] lg:leading-10">
-                Every plan includes everything. 7 days free.
+                All features. 7-day trial.
               </p>
             </div>
           </Reveal>

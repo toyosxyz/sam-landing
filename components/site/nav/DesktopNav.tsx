@@ -200,7 +200,7 @@ export function DesktopNav() {
         ))}
         <Link
           href={topLinks.install.href}
-          className="rounded-[7px] bg-foreground px-3.5 py-[7px] font-body text-[14px] font-medium leading-[18px] text-night-bg transition-opacity duration-200 hover:opacity-90"
+          className="flex items-center gap-2 rounded-[7px] bg-foreground px-3.5 py-[7px] font-body text-[14px] font-medium leading-[18px] text-night-bg transition-opacity duration-200 hover:opacity-90"
         >
           {topLinks.install.label}
         </Link>

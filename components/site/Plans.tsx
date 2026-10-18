@@ -16,18 +16,26 @@ const plans = [
   },
   {
     name: "Meadow",
-    monthly: "€59",
-    yearly: "€49",
+    monthly: "€79",
+    yearly: "€66",
     sessions: "Up to 100,000 sessions a month",
     image: "/images/plan-meadow.png",
     featured: true,
   },
   {
     name: "Valley",
-    monthly: "€119",
-    yearly: "€99",
+    monthly: "€169",
+    yearly: "€141",
     sessions: "Up to 300,000 sessions a month",
     image: "/images/plan-valley.png",
+    featured: false,
+  },
+  {
+    name: "Forest",
+    monthly: "€349",
+    yearly: "€291",
+    sessions: "Up to 1,000,000 sessions a month",
+    image: "/images/hills-channels.png",
     featured: false,
   },
 ] as const;
@@ -124,11 +132,11 @@ export function Plans({
               </span>
               <Link
                 href={ctaHref}
-                className={`relative flex justify-center rounded-[8px] p-[13px] font-body text-[15px] leading-[18px] ${
+                className={`relative flex items-center justify-center gap-2 rounded-[8px] p-[13px] font-body text-[15px] leading-[18px] ${
                   plan.featured ? "bg-accent font-medium text-night-bg" : "bg-night-line text-foreground"
                 }`}
               >
-                Start free trial
+                Start 7-day trial
               </Link>
             </div>
             <div className="flex flex-col gap-3.5 px-6 pt-6 pb-7 lg:px-8 lg:pt-7 lg:pb-8">

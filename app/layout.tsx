@@ -25,7 +25,8 @@ const newsreader = Newsreader({
 
 export const metadata: Metadata = {
   title: "SAM",
-  description: "Every path through your store, watched live",
+  description:
+    "Cookieless session tracking for Shopify. See where shoppers drop and which campaigns sell.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

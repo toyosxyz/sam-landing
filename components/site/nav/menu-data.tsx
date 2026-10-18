@@ -109,37 +109,37 @@ export const menus: Menu[] = [
   {
     key: "product",
     label: "Product",
-    heading: "What Sam sees",
+    heading: "What Sam shows",
     align: "pill",
     items: [
       {
         title: "Funnel",
-        description: "See exactly where the trail breaks",
+        description: "See where shoppers drop",
         href: "/product/funnel",
         icon: icons.funnel,
       },
       {
         title: "Sessions",
-        description: "Follow any shopper, step by step",
+        description: "Follow any visit",
         href: "/product/sessions",
         icon: icons.sessions,
       },
       {
         title: "Campaigns",
-        description: "UTM links, each with its own funnel",
+        description: "See which campaigns sell",
         href: "/product/campaigns",
         icon: icons.campaigns,
       },
       {
         title: "Orders",
-        description: "Every order, matched to its visit",
+        description: "Every Shopify order, counted",
         href: "/product/orders",
         icon: icons.orders,
       },
     ],
     feature: {
       title: "How it works",
-      description: "Analytics that never touch the shopper's browser.",
+      description: "Analytics that never touch the browser.",
       href: "/how-it-works",
       cta: "See how it works",
       image: "/images/menu-product.png",
@@ -149,38 +149,37 @@ export const menus: Menu[] = [
   {
     key: "resources",
     label: "Resources",
-    heading: "Learn the trail",
+    heading: "Learn more",
     align: "trigger",
     items: [
       {
         title: "Docs",
-        description: "Install, set up and send custom events",
+        description: "Install and custom events",
         href: "/docs",
         icon: icons.docs,
       },
       {
         title: "How it works",
-        description: "Server-side tracking, explained",
+        description: "How Sam tracks without cookies",
         href: "/how-it-works",
         icon: icons.server,
       },
       {
         title: "Trust center",
-        description: "Security, GDPR and where data lives",
+        description: "Where your data lives",
         href: "/trust",
         icon: icons.shield,
       },
       {
         title: "Privacy",
-        description: "No cookies, no banners, in plain words",
+        description: "Our privacy policy",
         href: "/legal/privacy",
         icon: icons.lock,
       },
     ],
     feature: {
       title: "A funnel for every campaign",
-      description:
-        "New in v1.4: open any campaign and see how far its visitors got.",
+      description: "New in v1.4: see how far each campaign's visitors got.",
       href: "/changelog",
       cta: "Read the changelog",
       image: "/images/menu-changelog.png",
@@ -195,25 +194,24 @@ export const menus: Menu[] = [
     items: [
       {
         title: "Google Analytics 4",
-        description: "No consent banner, no sampled data",
+        description: "Your funnel, no consent banner",
         href: "/compare/ga4",
         icon: icons.bars,
       },
       {
         title: "Shopify Analytics",
-        description: "The path shoppers took, not just what sold",
+        description: "The path behind every sale",
         href: "/compare/shopify-analytics",
         icon: icons.orders,
       },
     ],
     footnote: {
-      label: "When GA4 is the better fit, honestly",
+      label: "When GA4 is the better fit",
       href: "/compare/ga4#fair-take",
     },
     feature: {
       title: "Or keep both",
-      description:
-        "Plenty of stores keep GA4 for ads and use Sam to see the funnel.",
+      description: "Keep GA4 for ads. Use Sam for the funnel.",
       href: "/pricing",
       cta: "See plans from €29",
       image: "/images/menu-compare.png",
@@ -226,7 +224,7 @@ export const menus: Menu[] = [
 export const topLinks = {
   pricing: { label: "Pricing", href: "/pricing" },
   signIn: { label: "Sign in", href: "/signin" },
-  install: { label: "Install on Shopify", href: "/install" },
+  install: { label: "Start 7-day trial", href: "/install" },
 };
 
 export const mobileResources = [

@@ -35,7 +35,7 @@ const subprocessors = [
   { name: "MongoDB", purpose: "Account sign-in", region: "EU" },
   {
     name: "Shopify",
-    purpose: "Store connection, web pixel and order webhooks",
+    purpose: "Store connection, pixel and orders",
     region: "Your store",
     muted: true,
   },
@@ -43,23 +43,27 @@ const subprocessors = [
 
 const practices = [
   {
-    title: "Hashed, not stored",
-    body: "IP addresses, user agents and checkout tokens are hashed on arrival. The raw values are never written to a database or a log.",
+    title: "Hashed on arrival",
+    body: "IPs, browsers and checkout tokens are hashed. Raw values never reach a database or log.",
+  },
+  {
+    title: "No following across days",
+    body: "Visitor IDs reset every day. It's built in, so nobody can switch it off.",
   },
   {
     title: "One owner per store",
-    body: "The account that connects a store owns it. Nobody else gets access unless the owner invites them.",
+    body: "The account that connects a store owns it. Others join by invite.",
   },
   {
     title: "Delete on request",
-    body: "Remove any session from the dashboard. Uninstall the app and Sam stops collecting straight away.",
+    body: "Delete any session from the dashboard. Uninstall and collection stops.",
   },
 ];
 
 const documents = [
   { title: "Data processing agreement", body: "Request a signed copy", href: dpaHref },
-  { title: "Privacy policy", body: "How we handle your account data", href: "/legal/privacy" },
-  { title: "Terms of service", body: "The agreement behind every plan", href: "/legal/privacy#terms" },
+  { title: "Privacy policy", body: "How we handle account data", href: "/legal/privacy" },
+  { title: "Terms of service", body: "The terms behind every plan", href: "/legal/privacy#terms" },
 ];
 
 export default function TrustPage() {
@@ -81,7 +85,7 @@ export default function TrustPage() {
           title="Your shoppers' privacy,"
           muted="in writing."
           leadWidth={640}
-          lead="Where your data lives, who processes it, what we keep and for how long. Everything your legal team will ask, on one page."
+          lead="Where your data lives, who processes it and what we keep. One page for your legal team."
           className="pt-12 lg:pt-[120px]"
         />
         <div
@@ -125,11 +129,11 @@ export default function TrustPage() {
             <h2 className="flex flex-col">
               <span className="font-body text-2xl leading-8 text-foreground">Who handles the data.</span>
               <span className="font-body text-2xl leading-8 text-mist">
-                Every provider, every region, all in the EU.
+                Every provider is in the EU.
               </span>
             </h2>
             <p className="font-body text-[15px] leading-[23px] text-mist">
-              This list is kept up to date with every provider that touches store data.
+              Updated whenever a provider changes.
             </p>
           </Reveal>
           <Reveal
@@ -175,7 +179,7 @@ export default function TrustPage() {
           <SectionHeading
             chip="Practices"
             title="Privacy is the product."
-            muted="Not a setting you turn on."
+            muted="Built in from day one."
           />
           <NumberedItems items={practices} numbered={false} />
         </div>

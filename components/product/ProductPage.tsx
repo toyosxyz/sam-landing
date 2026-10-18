@@ -61,7 +61,7 @@ export function ProductPage({ slug }: { slug: ProductSlug }) {
         </SplitRow>
 
         <div className="flex flex-col gap-8 lg:gap-10">
-          <InlineHeading title="More of Sam." muted="Everything works from the same install." />
+          <InlineHeading title="More of Sam." muted="Same install." />
           <CardRow>
             {more.map((s) => (
               <ImageCard key={s} href={`/product/${s}`} {...productCards[s]} />

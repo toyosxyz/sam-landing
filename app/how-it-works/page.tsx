@@ -13,31 +13,31 @@ import { FinalCta, SiteFooter } from "@/components/site/SiteFooter";
 export const metadata: Metadata = {
   title: "How it works · SAM",
   description:
-    "How Sam counts sessions, funnels and orders without cookies or anything stored in the browser.",
+    "How Sam tracks sessions and orders without cookies.",
 };
 
 const heroFade =
   "linear-gradient(in oklab 180deg, oklab(18.4% -0.004 0.003 / 70%) 0%, oklab(18.4% -0.004 0.003 / 35%) 35%, oklab(18.4% -0.004 0.003 / 70%) 72%, oklab(18.4% -0.004 0.003) 100%), linear-gradient(in oklab 90deg, oklab(18.4% -0.004 0.003 / 88%) 0%, oklab(18.4% -0.004 0.003 / 45%) 50%, oklab(18.4% -0.004 0.003 / 5%) 100%)";
 
 const facts = [
-  { value: "0", label: "cookies set on your store" },
-  { value: "0 bytes", label: "in localStorage or sessionStorage" },
-  { value: "24h", label: "until the salt changes and every key resets" },
-  { value: "EU", label: "where Sam hosts and processes your data", accent: true },
+  { value: "0", label: "cookies set" },
+  { value: "0 bytes", label: "stored in the browser" },
+  { value: "24h", label: "until every visitor ID resets" },
+  { value: "EU", label: "where your data is hosted", accent: true },
 ];
 
 const setup = [
   {
     title: "Install the Shopify app",
-    body: "Connect your store with Shopify's own login. The first account to connect becomes the owner; teammates join by invite.",
+    body: "Log in with Shopify. The first account becomes the owner. Teammates join by invite.",
   },
   {
-    title: "Sam turns on its pixel",
-    body: "A web pixel records page views, product views, add-to-carts and checkouts. Sam also subscribes to your order webhooks.",
+    title: "Sam adds its pixel",
+    body: "It records page views, carts and checkouts. Orders come from Shopify.",
   },
   {
-    title: "Or paste a custom pixel",
-    body: "Prefer to do it by hand? Copy a snippet into Settings → Customer events in Shopify. No theme edits either way.",
+    title: "Or add it by hand",
+    body: "Paste a snippet in Shopify's Customer events. No theme edits.",
   },
 ];
 
@@ -45,31 +45,31 @@ const bridge = [
   {
     where: "IN THE BROWSER",
     title: "Checkout starts",
-    body: "The pixel sends Sam the checkout token along with the session key.",
+    body: "The pixel sends the checkout token with the visitor ID.",
   },
   {
     where: "ON SAM'S SERVER",
     title: "Token is hashed",
-    body: "Only the hash is kept, tied to the session, and it expires after a short time.",
+    body: "Only the hash is kept, and it expires soon.",
   },
   {
     where: "FROM SHOPIFY",
-    title: "Order webhook arrives",
-    body: "Shopify tells Sam about the order. Sam hashes its checkout token the same way.",
+    title: "Order arrives",
+    body: "Shopify sends the order. Sam hashes its token the same way.",
   },
   {
     where: "MATCH",
-    title: "Order meets session",
-    body: "Same hash, same checkout. The order is credited to that session and its campaign.",
+    title: "Order meets visit",
+    body: "Same hash, same checkout. The order is credited to that visit and campaign.",
     match: true,
   },
 ];
 
 const kept: [string, string][] = [
-  ["Session key", "hashed"],
-  ["Page, product, cart and checkout events", "per session"],
-  ["Device, OS, browser, country", "per session"],
-  ["Referrer and UTM parameters", "per session"],
+  ["Visitor ID", "hashed"],
+  ["Page views, carts and checkouts", "per visit"],
+  ["Device, OS, browser, country", "per visit"],
+  ["Referrer and UTMs", "per visit"],
   ["Order amount, currency, products", "per order"],
 ];
 
@@ -84,23 +84,23 @@ const never = [
 const faqs = [
   {
     q: "Do I really not need a consent banner?",
-    a: "Sam is built so its analytics don't need one: nothing is stored on the shopper's device and nobody is followed across days. Your other apps and pixels may still need consent, so check your full setup with your legal advisor.",
+    a: "Not for Sam. It stores nothing on the device and follows nobody across days. Your other apps may still need consent, so check with your legal advisor.",
   },
   {
     q: "Can I see returning customers?",
-    a: "Not across days. The session key changes when the daily salt rotates, so a shopper who comes back tomorrow is a new session. That's the trade-off that keeps Sam cookieless.",
+    a: "Not across days. The visitor ID resets daily, so tomorrow's visit is a new one. That's what keeps Sam cookieless.",
   },
   {
-    q: "Why isn't every order linked to a session?",
-    a: "An order is only linked when Sam saw the same checkout earlier in the session. Orders placed from another device, a draft order or a blocked pixel still count toward revenue, they just aren't credited.",
+    q: "Why isn't every order linked to a visit?",
+    a: "Sam links an order when it saw that checkout earlier in the visit. That covers 90–95% of orders. The rest still count toward revenue.",
   },
   {
     q: "Does the pixel slow my store down?",
-    a: "No. It runs in Shopify's sandboxed web pixel environment and loads asynchronously, so your storefront and checkout stay on Shopify's critical path.",
+    a: "No. It runs in Shopify's sandboxed pixel and loads in the background.",
   },
   {
     q: "I don't use Shopify. Can I still send orders?",
-    a: "Not yet. Sam is built around Shopify's pixel and order webhooks today.",
+    a: "Not yet. Sam is built around Shopify today.",
   },
 ];
 
@@ -149,9 +149,9 @@ export default function HowItWorksPage() {
         <HeroCopy
           chip="How it works"
           title="Analytics without the banner."
-          muted="Here's exactly how."
+          muted="Here's how."
           leadWidth={640}
-          lead="Sam counts sessions, funnels and orders without cookies or anything stored in the browser. This page explains what we collect, how a session is made, and how an order finds its way back to the visit that started it."
+          lead="How Sam counts visits and orders without storing anything in the browser."
           className="pt-12 lg:pt-[120px]"
         />
         <div
@@ -181,8 +181,8 @@ export default function HowItWorksPage() {
         <div className="flex flex-col gap-10 lg:gap-12">
           <SectionHeading
             chip="1 · Setup"
-            title="One install, two sources of truth."
-            muted="A pixel for the journey, Shopify for the orders."
+            title="One install, two sources."
+            muted="The pixel sees visits. Shopify sends orders."
             width={860}
           />
           <NumberedItems items={setup} />
@@ -190,9 +190,9 @@ export default function HowItWorksPage() {
 
         <SplitRow
           chip="2 · Sessions"
-          title="How a session is counted."
-          body="Sam hashes the visitor's IP, user agent and your store with a salt that changes every day. The result is the session key."
-          note="Nothing is written to the device, so there's nothing to ask consent for. The trade-off is deliberate: a shopper who comes back tomorrow is a new session."
+          title="How a visit is counted."
+          body="Sam turns IP, browser and store into an anonymous ID. The ID changes every day."
+          note="Nothing is stored on the device, so there's nothing to consent to. A shopper who comes back tomorrow is a new visit."
         >
           <SessionsSplitVisual image="/images/hills-funnel.png" />
         </SplitRow>
@@ -200,8 +200,8 @@ export default function HowItWorksPage() {
         <div className="flex flex-col gap-10 lg:gap-12">
           <SectionHeading
             chip="3 · Orders"
-            title="How an order finds its session."
-            muted="Without cart attributes, cookies or order IDs."
+            title="How an order finds its visit."
+            muted="Without cookies or order IDs."
             width={900}
           />
           <Reveal className="relative flex flex-col gap-7 overflow-clip rounded-lg border border-night-line bg-[#141614] p-4 shadow-[inset_0_1px_0_#EDEEE90F] lg:p-12">
@@ -253,7 +253,7 @@ export default function HowItWorksPage() {
             <div className="m-fade relative flex items-start gap-2.5 self-start rounded-[10px] border border-[#2E2E2E] bg-[#1F1F1FD9] px-[18px] py-3.5">
               <span className="mt-1.5 size-1.5 shrink-0 rounded-[3px] bg-wheat" />
               <span className="font-body text-label leading-[18px] text-[#C9C9C9]">
-                No match? The order still counts toward revenue. It just isn&apos;t credited to a session.
+                No match? The order still counts. It just isn&apos;t credited to a visit.
               </span>
             </div>
           </Reveal>
@@ -263,7 +263,7 @@ export default function HowItWorksPage() {
           <SectionHeading
             chip="4 · Data"
             title="What Sam keeps."
-            muted="And what it never touches."
+            muted="And what it never sees."
             width={900}
           />
           <Reveal className="flex flex-col gap-4 lg:flex-row lg:gap-6">

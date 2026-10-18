@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Arrow } from "./Arrow";
 import { topLinks } from "./nav/menu-data";
 
 const base =
@@ -16,7 +15,6 @@ export function PrimaryButton({
   return (
     <Link href={href} className={`${base} bg-foreground text-night-bg`}>
       {children}
-      <Arrow />
     </Link>
   );
 }

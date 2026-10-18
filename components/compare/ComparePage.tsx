@@ -46,7 +46,7 @@ export function ComparePage({ slug }: { slug: CompareSlug }) {
 
       <div className={`${container} flex flex-col gap-[72px] pb-10 lg:gap-32`}>
         <section className="flex flex-col gap-8 lg:gap-10">
-          <Heading title="Side by side." muted="For a Shopify store selling in Europe." />
+          <Heading title="Side by side." muted="For a Shopify store in Europe." />
 
           <Reveal
             delay={100}
@@ -94,7 +94,7 @@ export function ComparePage({ slug }: { slug: CompareSlug }) {
         </section>
 
         <section id="fair-take" className="flex scroll-mt-8 flex-col gap-8 lg:gap-12">
-          <Heading title={c.fairTake.title} muted="Sam isn't for everyone, and that's fine." />
+          <Heading title={c.fairTake.title} muted="Sam isn't for everyone." />
           <NumberedItems items={c.fairTake.reasons} numbered={false} />
         </section>
 

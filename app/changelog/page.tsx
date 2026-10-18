@@ -7,7 +7,7 @@ import { FinalCta, SiteFooter } from "@/components/site/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Changelog · SAM",
-  description: "New features, fixes and improvements to Sam, newest first.",
+  description: "New features and fixes, newest first.",
 };
 
 type Tag = "New" | "Improved" | "Fixed";
@@ -25,7 +25,7 @@ const entries: {
     version: "v1.4",
     tags: ["New"],
     title: "A funnel for every campaign",
-    body: "Open any campaign to see how far its visitors got: product views, add-to-cart, checkout and completed orders, side by side with the rest of your traffic.",
+    body: "Open any campaign and see how far its visitors got, from product view to order.",
     image: "/images/hills-channels.png",
   },
   {
@@ -33,21 +33,21 @@ const entries: {
     version: "v1.3",
     tags: ["New"],
     title: "Sam speaks Spanish",
-    body: "The whole dashboard is now available in Spanish. Switch language from your account menu; each teammate picks their own.",
+    body: "The dashboard is now in Spanish. Each teammate picks their language in the account menu.",
   },
   {
     date: "August 2026",
     version: "v1.2",
     tags: ["Improved"],
     title: "More orders matched to their visit",
-    body: "The checkout bridge now picks up the token earlier in checkout, so more orders arrive with their channel and campaign attached.",
+    body: "Sam now catches the checkout earlier, so more orders arrive with their channel and campaign.",
   },
   {
     date: "July 2026",
     version: "v1.1",
     tags: ["New", "Fixed"],
     title: "Orders from outside Shopify",
-    body: "A generic order webhook, signed with a secret per store, lets other backends report purchases to Sam. Also fixed duplicate purchases when the pixel and the webhook arrived at the same moment.",
+    body: "A signed order webhook lets other backends send purchases to Sam. Also fixed duplicate purchases when the pixel and webhook arrived together.",
   },
 ];
 
@@ -73,9 +73,9 @@ export default function ChangelogPage() {
       <CompactHero
         image="/images/hills-funnel.png"
         chip="Changelog"
-        title="What's new on the trail"
+        title="What's new in Sam"
         titleWidth={1040}
-        lead="New features, fixes and improvements to Sam, newest first."
+        lead="New features and fixes, newest first."
       />
 
       <div className={`${container} flex flex-col pb-[72px] lg:pb-[120px]`}>

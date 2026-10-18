@@ -4,30 +4,38 @@ import { container } from "@/components/site/layout";
 const faqs = [
   {
     q: "Do I need a cookie banner for Sam?",
-    a: "No. Sam sets no cookies and writes nothing to local or session storage. Sessions come from a daily-salted hash, so nobody is followed across days.",
+    a: "Not for Sam. It sets no cookies and stores nothing in the browser. Your other pixels may still need one.",
   },
   {
     q: "Will it slow down my store?",
-    a: "No. The pixel is tiny and loads asynchronously. Checkout and storefront stay on Shopify’s critical path.",
+    a: "No. The pixel loads in the background and never blocks checkout.",
   },
   {
     q: "How is it different from GA4 or Shopify Analytics?",
-    a: "Sam is built for Shopify journeys: cookieless sessions, funnel drop-offs, and revenue by channel and campaign — without a consent banner.",
+    a: "Keep them. Sam adds the visits they lose to consent, plus funnels by landing and campaign.",
   },
   {
     q: "Does Sam change anything in my store?",
-    a: "Install adds a custom pixel and webhooks. No theme edits, no checkout scripts you manage yourself.",
+    a: "No theme edits. Install adds a pixel and connects to your Shopify orders.",
   },
   {
     q: "Where is my data stored?",
-    a: "In the EU. You get a DPA, and nothing is written to the shopper’s browser.",
+    a: "In the EU. A DPA is included.",
+  },
+  {
+    q: "How does the free trial work?",
+    a: "7 days with every feature. A card is required through Stripe. Cancel before it ends and you pay nothing.",
   },
 ] as const;
 
 export function HomeFaq() {
   return (
     <section id="faq" className={`${container} pt-[72px] pb-10 lg:pt-[120px] lg:pb-14`}>
-      <Faq items={faqs} title="Questions, answered." subtitle="Pricing, privacy and setup." />
+      <Faq
+        items={faqs}
+        title="Before you install."
+        subtitle="Privacy, setup and billing."
+      />
     </section>
   );
 }
