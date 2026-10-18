@@ -78,11 +78,8 @@ export function SiteFooter({ variant = "page" }: { variant?: "home" | "page" }) 
         stagger
         className={`${container} flex flex-wrap gap-y-8 pt-10 lg:flex-nowrap lg:gap-y-0 lg:pt-12`}
       >
-        <Link href="/" className="flex w-full shrink-0 items-start gap-2 lg:w-[420px]">
-          <SamLogo />
-          <span className="font-body text-[15px] font-semibold leading-[18px] text-foreground">
-            sam
-          </span>
+        <Link href="/" className="flex w-full shrink-0 items-start lg:w-[420px]">
+          <SamLogo size={36} />
         </Link>
         {footerCols(variant).map((col) => (
           <div key={col.title} className="flex w-1/2 flex-col gap-2.5 lg:w-auto lg:grow lg:basis-0">
