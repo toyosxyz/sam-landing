@@ -1,3 +1,4 @@
+import { SamLogo } from "@/components/site/SamLogo";
 import { CountUp } from "@/components/site/motion";
 
 const metrics = [
@@ -56,9 +57,7 @@ export function DashboardPreview() {
         <aside className="hidden w-[200px] shrink-0 flex-col justify-between border-r border-[#2A2A2A] bg-[#141414] px-2.5 py-3.5 lg:flex">
           <div className="flex flex-col gap-3.5">
             <div className="flex items-center justify-between px-1">
-              <div className="flex size-6 shrink-0 items-center justify-center rounded-sm bg-accent">
-                <span className="size-2 rounded bg-[#141414]" />
-              </div>
+              <SamLogo size={24} />
               <span className="h-3 w-3.5 shrink-0 rounded-[3px] border-[1.5px] border-[#6A6A6A]" />
             </div>
             <div className="flex items-center justify-between rounded-[8px] border border-[#2E2E2E] px-2.5 py-2">
