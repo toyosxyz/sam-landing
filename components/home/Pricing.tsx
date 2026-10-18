@@ -1,5 +1,6 @@
 import { Chip } from "@/components/site/Chip";
 import { Reveal } from "@/components/site/motion";
+import { PlanPricesText } from "@/components/site/PlanPricesText";
 import { Plans } from "@/components/site/Plans";
 
 const includes = [
@@ -33,6 +34,7 @@ export function Pricing() {
           </Reveal>
         }
       />
+      <PlanPricesText className="mt-6 max-w-[760px]" />
     </section>
   );
 }

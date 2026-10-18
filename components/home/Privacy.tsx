@@ -3,7 +3,7 @@ import { Arrow } from "@/components/site/Arrow";
 import { Chip } from "@/components/site/Chip";
 import { Reveal } from "@/components/site/motion";
 import { row } from "@/components/site/motion-vars";
-import { SIGNUP_URL } from "@/lib/site";
+import { TrialLink } from "@/components/site/TrialLink";
 
 const facts = [
   { label: "Cookies", value: "None", accent: true },
@@ -130,12 +130,9 @@ export function Privacy() {
               </p>
             </div>
           </div>
-          <Link
-            href={SIGNUP_URL}
-            className="flex items-center gap-2 rounded-[8px] bg-foreground px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-night-bg"
-          >
+          <TrialLink className="flex items-center gap-2 rounded-[8px] bg-foreground px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-night-bg">
             Start 7-day trial
-          </Link>
+          </TrialLink>
         </Reveal>
         <Reveal stagger className="flex flex-col gap-8 lg:flex-row lg:gap-6">
           {steps.map((s) => (

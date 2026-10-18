@@ -1,4 +1,5 @@
 import { Coexist } from "@/components/home/Coexist";
+import { Definition } from "@/components/home/Definition";
 import { Features } from "@/components/home/Features";
 import { Hero } from "@/components/home/Hero";
 import { homeFaqs, HomeFaq } from "@/components/home/HomeFaq";
@@ -21,6 +22,7 @@ export default function Home() {
       <Hero />
       <Problem />
       <Proof />
+      <Definition />
       <Features />
       <Coexist />
       <Privacy />

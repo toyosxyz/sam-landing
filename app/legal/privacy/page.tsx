@@ -7,9 +7,11 @@ import {
   DocsLayout,
   DocsP,
   DocsTitle,
-  type SidebarGroup,
 } from "@/components/docs/DocsLayout";
-import { pageMetadata } from "@/lib/site";
+import { JsonLd } from "@/components/site/JsonLd";
+import { legalGroups } from "@/components/legal/nav";
+import { breadcrumbJsonLd } from "@/lib/json-ld";
+import { CONTACT_EMAIL, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/legal/privacy",
@@ -18,23 +20,17 @@ export const metadata = pageMetadata({
     "What data Sam processes for merchants and for shoppers on their Shopify stores. Cookieless sessions, EU hosting and how to contact us.",
 });
 
-const groups: SidebarGroup[] = [
-  {
-    title: "Legal",
-    items: [
-      { label: "Privacy policy", href: "/legal/privacy", active: true },
-      { label: "Terms of service" },
-      { label: "Data Processing Agreement", href: "/trust#documents" },
-      { label: "Subprocessors", href: "/trust#subprocessors" },
-    ],
-  },
+const crumbs = [
+  { name: "Home", href: "/" },
+  { name: "Legal", href: "/legal/privacy" },
+  { name: "Privacy policy", href: "/legal/privacy" },
 ];
 
 const sections = [
   {
     id: "who-we-are",
     label: "Who we are",
-    body: "Sam is built and operated by Arnor Labs. This policy explains what data Sam processes for merchants who use it, and for the shoppers who visit their stores.",
+    body: "Sam operates this service. This policy explains what data Sam processes for merchants who use it, and for the shoppers who visit their stores.",
   },
   {
     id: "shoppers",
@@ -54,12 +50,12 @@ const sections = [
   {
     id: "retention",
     label: "Retention and deletion",
-    body: "[Retention periods.] Merchants can delete sessions from the dashboard at any time.",
+    body: "Shopper session and event data is kept while the merchant account is active. Merchants can delete any session from the dashboard at any time. After a store is disconnected or the account is closed, session data is deleted within 30 days. Merchant account data (email, team, connected stores, campaigns) is kept for the life of the account. Invoices and billing records are kept for six years where tax law requires it.",
   },
   {
     id: "contact",
     label: "Your rights and contact",
-    body: "Questions or requests: privacy@samtrack.co.",
+    body: `Questions or requests: ${CONTACT_EMAIL}.`,
   },
 ];
 
@@ -83,18 +79,19 @@ function ShortVersion() {
 export default function PrivacyPage() {
   return (
     <DocsLayout
-      groups={groups}
+      groups={legalGroups("privacy")}
       sidebarExtra={<ShortVersion />}
       breadcrumb="Legal / Privacy policy"
       toc={toc}
     >
+      <JsonLd data={breadcrumbJsonLd(crumbs)} />
       <DocsTitle>Privacy policy</DocsTitle>
       <p className="font-body text-[15px] leading-[22px] text-mist">
-        Last updated: 18 October 2026 · Arnor Labs
+        Last updated: 18 October 2026 · Sam
       </p>
       <Callout>
         This page summarizes how Sam handles data. For a plain-language overview, see the Trust
-        center. Contact privacy@samtrack.co for questions.
+        center. Contact {CONTACT_EMAIL} for questions.
       </Callout>
 
       {sections.map((s, i) => (

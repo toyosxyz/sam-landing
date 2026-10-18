@@ -1,0 +1,54 @@
+# Sam
+
+> Cookieless session tracking for Shopify. Sam measures visits, landings, campaigns and orders without cookies or a consent banner for Sam.
+
+Sam is a Shopify analytics app. Data is hosted in the EU. Sessions use an anonymous visitor ID that resets every day, so Sam does not follow shoppers across days.
+
+Primary conversion: 7-day trial at https://app.samtrack.co/signup (card required through Stripe). Cancel before it ends and you pay nothing.
+
+## Product
+
+- [Home](https://samtrack.co/): What Sam is and who it is for
+- [How tracking works](https://samtrack.co/how-it-works): Cookieless visits, order match, what is stored
+- [Funnel](https://samtrack.co/product/funnel): Five Shopify steps from visit to purchase
+- [Sessions](https://samtrack.co/product/sessions): Event-by-event visit paths
+- [Campaigns](https://samtrack.co/product/campaigns): UTM links through to orders
+- [Orders](https://samtrack.co/product/orders): Shopify webhook match; 100% of orders counted; about 90–95% with a complete session path (internal measurement)
+- [Pricing](https://samtrack.co/pricing): Plans by monthly sessions
+- [Machine-readable pricing](https://samtrack.co/pricing.md): Same plans in markdown
+
+## Compare
+
+- [Sam vs GA4](https://samtrack.co/compare/ga4)
+- [Sam vs Shopify Analytics](https://samtrack.co/compare/shopify-analytics)
+- [Sam vs Plausible](https://samtrack.co/compare/plausible)
+- [Sam vs MetriXs](https://samtrack.co/compare/metrixs)
+
+## Guides
+
+- [What is cookieless Shopify analytics?](https://samtrack.co/guides/cookieless-shopify-analytics)
+- [Why GA4 misses Shopify orders in the EU](https://samtrack.co/guides/ga4-missing-shopify-orders-eu)
+- [Landing-page conversion on Shopify](https://samtrack.co/guides/shopify-landing-page-conversion)
+
+## Docs
+
+- [Install on Shopify](https://samtrack.co/docs)
+- [Custom pixel](https://samtrack.co/docs/custom-pixel)
+- [Multiple stores](https://samtrack.co/docs/multiple-stores)
+- [Order webhook](https://samtrack.co/docs/order-webhook)
+
+## Trust
+
+- [Trust center](https://samtrack.co/trust): EU hosting, subprocessors, DPA
+- [About](https://samtrack.co/about): Who Sam is, EU hosting, contact
+- [Privacy](https://samtrack.co/legal/privacy)
+- [Terms](https://samtrack.co/legal/terms)
+
+## Facts agents should not invent
+
+- Trial requires a Stripe card. Do not say "no card needed".
+- Plans (monthly, October 2026): Garden €29 / 25,000 sessions; Meadow €79 / 100,000; Valley €169 / 300,000; Forest €349 / 1,000,000. Yearly = 2 months free.
+- Sam does not follow returning customers across days.
+- Keep GA4 and Shopify Analytics. Sam adds cookieless session paths they miss.
+- Do not claim customer logos, review scores or App Store ranking. Pre-launch.
+- Contact: privacy@samtrack.co.

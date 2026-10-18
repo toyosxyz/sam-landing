@@ -6,12 +6,13 @@ import { container } from "@/components/site/layout";
 import { Reveal } from "@/components/site/motion";
 import { row as rowVar } from "@/components/site/motion-vars";
 import { HeroBackdrop, HeroCopy } from "@/components/site/PageHero";
+import { PlanPricesText } from "@/components/site/PlanPricesText";
 import { Plans } from "@/components/site/Plans";
 import { SectionHeading } from "@/components/site/sections";
 import { SiteNav } from "@/components/site/SiteNav";
 import { FinalCta, SiteFooter } from "@/components/site/SiteFooter";
 import { faqPageJsonLd, softwareApplicationJsonLd } from "@/lib/json-ld";
-import { pageMetadata } from "@/lib/site";
+import { CONTACT_EMAIL, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/pricing",
@@ -92,6 +93,7 @@ export default function PricingPage() {
         />
         <div className={`${container} relative flex flex-col gap-4 pt-10 lg:gap-6 lg:pt-14`}>
           <Plans includes={includes} />
+          <PlanPricesText className="relative max-w-[760px]" />
 
           <Reveal className="relative flex flex-col items-start gap-5 overflow-clip rounded-2xl border border-night-line px-6 py-7 lg:flex-row lg:items-center lg:justify-between lg:px-9 lg:py-8">
             <div
@@ -114,7 +116,7 @@ export default function PricingPage() {
               </p>
             </div>
             <Link
-              href="mailto:hello@sam.shop"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="relative flex items-center gap-2 rounded-[8px] border border-night-line bg-[#161916] px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-foreground"
             >
               Talk to us

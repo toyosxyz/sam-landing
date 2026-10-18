@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useState, type ReactNode } from "react";
 import { formatEur, PLANS, sessionsLabel, SIGNUP_URL } from "@/lib/site";
 import { Reveal } from "./motion";
+import { TrialLink } from "./TrialLink";
 
 const planFade =
   "linear-gradient(in oklab 180deg, oklab(21.3% -0.006 0.004 / 15%) 0%, oklab(21.3% -0.006 0.004 / 55%) 45%, oklab(21.3% -0.006 0.004 / 92%) 85%)";
@@ -97,14 +97,18 @@ export function Plans({
               <span className="relative font-body text-[15px] leading-[18px] text-mist">
                 {sessionsLabel(plan.sessions)}
               </span>
-              <Link
+              <span className="sr-only">
+                {formatEur(plan.monthlyEur)} a month billed monthly. {formatEur(plan.yearlyEur)} a
+                month billed yearly. Two months free on yearly billing.
+              </span>
+              <TrialLink
                 href={ctaHref}
                 className={`relative flex items-center justify-center gap-2 rounded-[8px] p-[13px] font-body text-[15px] leading-[18px] ${
                   plan.featured ? "bg-accent font-medium text-night-bg" : "bg-night-line text-foreground"
                 }`}
               >
                 Start 7-day trial
-              </Link>
+              </TrialLink>
             </div>
             <div className="flex flex-col gap-3.5 px-6 pt-6 pb-7 lg:px-8 lg:pt-7 lg:pb-8">
               {includes.map((item) => (

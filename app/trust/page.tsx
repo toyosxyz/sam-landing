@@ -20,7 +20,7 @@ export const metadata = pageMetadata({
 const heroFade =
   "linear-gradient(in oklab 180deg, oklab(18.4% -0.004 0.003 / 70%) 0%, oklab(18.4% -0.004 0.003 / 40%) 40%, oklab(18.4% -0.004 0.003 / 80%) 78%, oklab(18.4% -0.004 0.003) 100%), linear-gradient(in oklab 90deg, oklab(18.4% -0.004 0.003 / 88%) 0%, oklab(18.4% -0.004 0.003 / 45%) 50%, oklab(18.4% -0.004 0.003 / 5%) 100%)";
 
-const dpaHref = "mailto:hello@sam.shop?subject=DPA%20request";
+const dpaHref = "mailto:privacy@samtrack.co?subject=DPA%20request";
 
 const facts = [
   { label: "Data location", value: "European Union" },
@@ -57,14 +57,14 @@ const practices = [
   },
   {
     title: "Delete on request",
-    body: "Delete any session from the dashboard. Uninstall and collection stops.",
+    body: "Delete any session from the dashboard. After uninstall or account close, session data is removed within 30 days. Billing records are kept for six years.",
   },
 ];
 
 const documents = [
   { title: "Data processing agreement", body: "Request a signed copy", href: dpaHref },
   { title: "Privacy policy", body: "How we handle account data", href: "/legal/privacy" },
-  { title: "Terms of service", body: "The terms behind every plan", href: "/legal/privacy#terms" },
+  { title: "Terms of service", body: "The terms behind every plan", href: "/legal/terms" },
 ];
 
 export default function TrustPage() {

@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import { Chip } from "./Chip";
 import { Reveal } from "./motion";
 
@@ -21,8 +18,6 @@ export function Faq({
   asideWidth?: string;
   className?: string;
 }) {
-  const [open, setOpen] = useState(0);
-
   return (
     <div className={`flex w-full flex-col gap-8 lg:flex-row lg:gap-24 ${className}`}>
       <Reveal stagger className={`flex w-full shrink-0 flex-col gap-4 ${asideWidth}`}>
@@ -35,41 +30,34 @@ export function Faq({
         </div>
       </Reveal>
       <Reveal stagger delay={120} className="flex grow flex-col border-t border-night-line">
-        {items.map((faq, i) => {
-          const isOpen = open === i;
-          return (
-            <button
-              key={faq.q}
-              type="button"
-              aria-expanded={isOpen}
-              onClick={() => setOpen(isOpen ? -1 : i)}
-              className="group flex flex-col border-b border-night-line py-5 text-left"
-            >
-              <div className="flex justify-between gap-4">
-                <span
-                  className={`font-body text-body leading-5 text-foreground ${
-                    isOpen ? "font-medium" : ""
-                  }`}
-                >
-                  {faq.q}
-                </span>
-                <span
-                  aria-hidden
-                  className="shrink-0 font-body text-body leading-5 text-mist transition-colors group-hover:text-foreground"
-                >
-                  {isOpen ? "−" : "+"}
-                </span>
-              </div>
-              <p
-                className={`disclose mt-2.5 max-w-[620px] font-body text-[15px] leading-[23px] text-mist ${
-                  isOpen ? "" : "hidden"
-                }`}
+        {items.map((faq, i) => (
+          <details
+            key={faq.q}
+            open={i === 0}
+            className="group border-b border-night-line"
+          >
+            <summary className="flex cursor-pointer list-none justify-between gap-4 py-5 text-left [&::-webkit-details-marker]:hidden">
+              <span className="font-body text-body leading-5 text-foreground group-open:font-medium">
+                {faq.q}
+              </span>
+              <span
+                aria-hidden
+                className="shrink-0 font-body text-body leading-5 text-mist group-open:hidden"
               >
-                {faq.a}
-              </p>
-            </button>
-          );
-        })}
+                +
+              </span>
+              <span
+                aria-hidden
+                className="hidden shrink-0 font-body text-body leading-5 text-mist group-open:inline"
+              >
+                −
+              </span>
+            </summary>
+            <p className="disclose mt-0 max-w-[620px] pb-5 font-body text-[15px] leading-[23px] text-mist">
+              {faq.a}
+            </p>
+          </details>
+        ))}
       </Reveal>
     </div>
   );

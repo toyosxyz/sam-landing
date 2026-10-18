@@ -9,7 +9,7 @@ import { HeroBackdrop, HeroCopy } from "@/components/site/PageHero";
 import { NumberedItems, SectionHeading, SplitRow } from "@/components/site/sections";
 import { SiteNav } from "@/components/site/SiteNav";
 import { FinalCta, SiteFooter } from "@/components/site/SiteFooter";
-import { faqPageJsonLd } from "@/lib/json-ld";
+import { faqPageJsonLd, howToJsonLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
@@ -139,6 +139,27 @@ export default function HowItWorksPage() {
   return (
     <main className="w-full overflow-x-clip bg-background">
       <JsonLd data={faqPageJsonLd(howItWorksFaqs)} />
+      <JsonLd
+        data={howToJsonLd(
+          "How cookieless Shopify tracking works in Sam",
+          "Install Sam, record visits without cookies, and match Shopify orders to the visit.",
+          [
+            {
+              name: "Install the Shopify app",
+              text: "Log in with Shopify. The first account becomes the owner. Teammates join by invite.",
+              url: "https://samtrack.co/how-it-works",
+            },
+            {
+              name: "Sam adds its pixel",
+              text: "It records page views, carts and checkouts without cookies or browser storage. Orders come from Shopify.",
+            },
+            {
+              name: "Orders meet visits",
+              text: "Shopify sends the order. Sam matches it to the visit when it saw the checkout. About 90–95% of orders get a complete path.",
+            },
+          ],
+        )}
+      />
       <section className="relative flex flex-col overflow-clip pb-6">
         <HeroBackdrop
           image="/images/privacy-hedgerow.png"
@@ -155,7 +176,7 @@ export default function HowItWorksPage() {
           title="Analytics without the banner."
           muted="Here's how."
           leadWidth={640}
-          lead="How Sam counts visits and orders without storing anything in the browser."
+          lead="How Sam counts visits and orders without storing anything in the browser. Cookieless Shopify tracking uses a daily visitor ID, a pixel for the visit, and Shopify webhooks for every order."
           className="pt-12 lg:pt-[120px]"
         />
         <div

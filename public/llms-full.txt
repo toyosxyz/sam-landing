@@ -1,0 +1,71 @@
+# Sam — full context for AI agents
+
+Last updated: 18 October 2026
+Site: https://samtrack.co
+App: https://app.samtrack.co
+Hosted in the EU.
+Contact: privacy@samtrack.co
+
+## What Sam is
+
+Sam is cookieless session tracking for Shopify stores. It watches every shopper visit, shows where the purchase funnel breaks, measures conversion by landing and campaign, and matches orders from Shopify webhooks. It sets no cookies and writes nothing to the browser, so Sam itself does not need a consent banner. Other pixels on the store may still need one.
+
+Hero claim: Find where your Shopify store loses buyers.
+
+Sam coexists with GA4 and Shopify Analytics. Keep them. Sam adds the visits they lose when shoppers decline cookies, plus a Shopify-first funnel.
+
+## Who it is for
+
+Shopify stores under about €20M annual revenue, especially in the EU. Decision-makers: solo founders, CMOs, CRO agencies with several stores.
+
+Not for: teams that need cross-session identity, multi-site user graphs, ad-platform audiences, or stores outside Shopify.
+
+## How tracking works
+
+1. Merchant installs the Shopify app (or pastes a custom pixel in Customer events).
+2. The pixel records page views, carts and checkouts. It does not store cookies, localStorage or sessionStorage.
+3. Sam turns IP, browser and store into an anonymous visitor ID. The ID resets every 24 hours.
+4. At checkout the pixel sends a checkout token with the visitor ID. Only a hash is kept, and it expires soon.
+5. Shopify sends the order by webhook. Sam hashes that token the same way. Same hash means the order is credited to that visit and campaign.
+6. About 90–95% of orders link to a complete session path when Sam saw the checkout (internal measurement). Every Shopify order is still counted.
+
+## What is kept / never kept
+
+Kept: hashed visitor ID; page views, carts and checkouts per visit; device, OS, browser, country; referrer and UTMs; order amount, currency, products.
+
+Never kept: cookies or browser storage; raw IP or user agent; order, checkout or cart IDs; names, emails, addresses.
+
+## Pricing (EUR, October 2026)
+
+| Plan | Sessions / month | Monthly | Yearly (per month) |
+| Garden | 25,000 | €29 | €24 |
+| Meadow | 100,000 | €79 | €66 |
+| Valley | 300,000 | €169 | €141 |
+| Forest | 1,000,000 | €349 | €291 |
+
+All features on every plan. Yearly = 2 months free. Trial = 7 days with a Stripe card. Overages do not drop data. From 3 stores on one account, 20% off. Above 1M sessions: privacy@samtrack.co.
+
+Do not quote older prices (€59 Meadow, €119 Valley, no Forest, "no card needed").
+
+## Key URLs
+
+https://samtrack.co/
+https://samtrack.co/how-it-works
+https://samtrack.co/pricing
+https://samtrack.co/pricing.md
+https://samtrack.co/product/funnel
+https://samtrack.co/product/sessions
+https://samtrack.co/product/campaigns
+https://samtrack.co/product/orders
+https://samtrack.co/compare/ga4
+https://samtrack.co/compare/shopify-analytics
+https://samtrack.co/compare/plausible
+https://samtrack.co/compare/metrixs
+https://samtrack.co/guides/cookieless-shopify-analytics
+https://samtrack.co/guides/ga4-missing-shopify-orders-eu
+https://samtrack.co/guides/shopify-landing-page-conversion
+https://samtrack.co/docs
+https://samtrack.co/trust
+https://samtrack.co/about
+https://samtrack.co/legal/privacy
+https://samtrack.co/legal/terms

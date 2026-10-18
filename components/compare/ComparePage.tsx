@@ -1,3 +1,4 @@
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { HeroButtons, PrimaryButton } from "@/components/site/Buttons";
 import { container } from "@/components/site/layout";
 import { Reveal } from "@/components/site/motion";
@@ -32,6 +33,16 @@ export function ComparePage({ slug }: { slug: CompareSlug }) {
     <main className="w-full overflow-x-clip bg-background">
       <SiteNav />
 
+      <div className={`${container} relative z-[1] pt-6 lg:pt-8`}>
+        <Breadcrumbs
+          items={[
+            { name: "Home", href: "/" },
+            { name: "Compare", href: "/compare/ga4" },
+            { name: `Sam vs ${c.rival}`, href: `/compare/${slug}` },
+          ]}
+        />
+      </div>
+
       <CompactHero
         image={c.heroImage}
         chip="Compare"
@@ -45,6 +56,11 @@ export function ComparePage({ slug }: { slug: CompareSlug }) {
       </CompactHero>
 
       <div className={`${container} flex flex-col gap-[72px] pb-10 lg:gap-32`}>
+        <div className="flex max-w-[760px] flex-col gap-3">
+          <p className="font-body text-body leading-[26px] text-mist">{c.definition}</p>
+          <p className="font-body text-[13px] leading-[18px] text-[#5E635B]">{c.priceNote}</p>
+        </div>
+
         <section className="flex flex-col gap-8 lg:gap-10">
           <Heading title="Side by side." muted="For a Shopify store in Europe." />
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Inter_Tight, JetBrains_Mono, Newsreader } from "next/font/google";
 import { JsonLd } from "@/components/site/JsonLd";
+import { UmamiScript } from "@/components/site/UmamiScript";
 import { organizationJsonLd } from "@/lib/json-ld";
 import { homeSeo, SITE_URL } from "@/lib/site";
 import "./globals.css";
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable} ${newsreader.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-body">
+        <UmamiScript />
         <JsonLd data={organizationJsonLd()} />
         {children}
       </body>

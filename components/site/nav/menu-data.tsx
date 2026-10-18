@@ -99,6 +99,12 @@ export const icons = {
       <path d="M5.5 7V5.2a2.5 2.5 0 015 0V7" />
     </Icon>
   ),
+  guides: (
+    <Icon>
+      <path d="M3 3h6.5A2.5 2.5 0 0112 5.5V13H5.5A2.5 2.5 0 013 10.5V3z" />
+      <path d="M12 5.5h1a2 2 0 012 2V13h-3" />
+    </Icon>
+  ),
   bars: (
     <Icon>
       <path d="M3.5 13V9M8 13V3M12.5 13V6.5" strokeWidth="1.6" />
@@ -172,10 +178,10 @@ export const menus: Menu[] = [
         icon: icons.shield,
       },
       {
-        title: "Privacy",
-        description: "Our privacy policy",
-        href: "/legal/privacy",
-        icon: icons.lock,
+        title: "Guides",
+        description: "Cookieless analytics, GA4 gaps, landings",
+        href: "/guides",
+        icon: icons.guides,
       },
     ],
     feature: {
@@ -205,6 +211,18 @@ export const menus: Menu[] = [
         href: "/compare/shopify-analytics",
         icon: icons.orders,
       },
+      {
+        title: "Plausible",
+        description: "Shopify funnel vs site analytics",
+        href: "/compare/plausible",
+        icon: icons.bars,
+      },
+      {
+        title: "MetriXs",
+        description: "Cookieless Shopify, different depth",
+        href: "/compare/metrixs",
+        icon: icons.sessions,
+      },
     ],
     footnote: {
       label: "When GA4 is the better fit",
@@ -232,6 +250,7 @@ export const mobileResources = [
   { label: "Docs", href: "/docs" },
   { label: "How it works", href: "/how-it-works" },
   { label: "Changelog", href: "/changelog", badge: "v1.4" },
+  { label: "Guides", href: "/guides" },
   { label: "Trust center", href: "/trust" },
   { label: "Privacy", href: "/legal/privacy" },
 ];

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { TrialLink } from "./TrialLink";
 import { topLinks } from "./nav/menu-data";
 
 const base =
@@ -13,9 +14,9 @@ export function PrimaryButton({
   children?: ReactNode;
 }) {
   return (
-    <Link href={href} className={`${base} bg-foreground text-night-bg`}>
+    <TrialLink href={href} className={`${base} bg-foreground text-night-bg`}>
       {children}
-    </Link>
+    </TrialLink>
   );
 }
 

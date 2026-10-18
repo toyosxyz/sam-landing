@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 export const SITE_URL = "https://samtrack.co";
 export const SIGNUP_URL = "https://app.samtrack.co/signup";
 export const LOGIN_URL = "https://app.samtrack.co/login";
-export const CONTACT_EMAIL = "hello@sam.shop";
+export const CONTACT_EMAIL = "privacy@samtrack.co";
+export const PRICE_VALID_UNTIL = "2027-10-18";
 
 export const PLANS = [
   {
@@ -96,8 +97,29 @@ export const sitemapEntries: {
   { path: "/product/orders", changeFrequency: "monthly", priority: 0.7 },
   { path: "/compare/ga4", changeFrequency: "monthly", priority: 0.8 },
   { path: "/compare/shopify-analytics", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/compare/plausible", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/compare/metrixs", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/guides", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/guides/cookieless-shopify-analytics", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/guides/ga4-missing-shopify-orders-eu", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/guides/shopify-landing-page-conversion", changeFrequency: "monthly", priority: 0.8 },
   { path: "/trust", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/about", changeFrequency: "monthly", priority: 0.5 },
   { path: "/docs", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/docs/custom-pixel", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/docs/invite-team", changeFrequency: "monthly", priority: 0.4 },
+  { path: "/docs/multiple-stores", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/docs/order-webhook", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/docs/reauthorize", changeFrequency: "monthly", priority: 0.4 },
   { path: "/changelog", changeFrequency: "weekly", priority: 0.5 },
   { path: "/legal/privacy", changeFrequency: "monthly", priority: 0.3 },
+  { path: "/legal/terms", changeFrequency: "monthly", priority: 0.3 },
 ];
+
+export function plansPlaintext() {
+  const plans = PLANS.map(
+    (plan) =>
+      `${plan.name} is ${formatEur(plan.monthlyEur)} a month for ${plan.sessions.toLocaleString("en-US")} sessions, or ${formatEur(plan.yearlyEur)} a month billed yearly.`,
+  ).join(" ");
+  return `${plans} Every plan includes funnel, sessions, campaigns and orders. A 7-day trial needs a card through Stripe. Cancel before it ends and you pay nothing. Above 1,000,000 sessions, email ${CONTACT_EMAIL}.`;
+}

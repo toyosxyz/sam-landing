@@ -3,7 +3,7 @@ import Link from "next/link";
 import { DashboardPreview } from "./DashboardPreview";
 import { heroDelay } from "@/components/site/motion-vars";
 import { SiteNav } from "@/components/site/SiteNav";
-import { SIGNUP_URL } from "@/lib/site";
+import { TrialLink } from "@/components/site/TrialLink";
 
 const heroFade =
   "linear-gradient(in oklab 180deg, oklab(18.4% -0.004 0.003 / 0%) 0%, oklab(18.4% -0.004 0.003 / 0%) 18%, oklab(18.4% -0.004 0.003) 19.4%, oklab(18.4% -0.004 0.003) 22%, oklab(18.4% -0.004 0.003 / 70%) 33%, oklab(18.4% -0.004 0.003 / 15%) 50%, oklab(18.4% -0.004 0.003 / 10%) 68%, oklab(18.4% -0.004 0.003 / 75%) 88%, oklab(18.4% -0.004 0.003) 100%), linear-gradient(in oklab 90deg, oklab(18.4% -0.004 0.003 / 60%) 0%, oklab(18.4% -0.004 0.003 / 0%) 18%, oklab(18.4% -0.004 0.003 / 0%) 82%, oklab(18.4% -0.004 0.003 / 60%) 100%)";
@@ -51,12 +51,9 @@ export function Hero() {
               style={{ "--reveal-delay": "180ms" } as CSSProperties}
               className="flex flex-wrap gap-2.5"
             >
-              <Link
-                href={SIGNUP_URL}
-                className="flex items-center gap-2 rounded-[8px] bg-foreground px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-night-bg"
-              >
+              <TrialLink className="flex items-center gap-2 rounded-[8px] bg-foreground px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-night-bg">
                 Start 7-day trial
-              </Link>
+              </TrialLink>
               <Link
                 href="/how-it-works"
                 className="flex items-center gap-2 rounded-[8px] border border-night-line bg-[#161916] px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-foreground"

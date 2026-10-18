@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { SamLogo } from "../SamLogo";
+import { TrialLink } from "../TrialLink";
 import { menus, mobileResources, topLinks } from "./menu-data";
 
 const product = menus.find((m) => m.key === "product")!;
@@ -76,12 +77,12 @@ export function MobileNav() {
       <div className="flex items-center justify-between px-5 py-3.5">
         <Logo />
         <div className="flex items-center gap-1 rounded-[10px] bg-[#161916] p-1">
-          <Link
+          <TrialLink
             href={topLinks.install.href}
             className="flex items-center gap-2 rounded-[7px] bg-foreground px-3.5 py-[7px] font-body text-[14px] font-medium leading-[18px] text-night-bg"
           >
             {topLinks.install.label}
-          </Link>
+          </TrialLink>
           <button
             ref={toggleRef}
             type="button"
@@ -216,13 +217,13 @@ export function MobileNav() {
               >
                 Sign in
               </Link>
-              <Link
+              <TrialLink
                 href={topLinks.install.href}
                 onClick={navigate}
                 className="flex flex-1 items-center justify-center gap-2 rounded-[10px] bg-foreground px-[18px] py-[13px] font-body text-[15px] font-medium leading-5 text-night-bg"
               >
                 {topLinks.install.label}
-              </Link>
+              </TrialLink>
             </div>
             <p className="m-stagger text-center font-body text-[13px] leading-[18px] text-mist" style={stagger()}>
               7-day trial. Cancel anytime.

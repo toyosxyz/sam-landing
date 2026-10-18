@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CONTACT_EMAIL } from "@/lib/site";
 import { PrimaryButton } from "./Buttons";
 import { container } from "./layout";
 import { Reveal } from "./motion";
@@ -13,7 +14,7 @@ const docsLinks: Record<"home" | "page", FooterLink[]> = {
   home: [
     { label: "Get started", href: "/docs" },
     { label: "How tracking works", href: "/how-it-works" },
-    { label: "Custom pixel", href: "/docs#custom-events" },
+    { label: "Custom pixel", href: "/docs/custom-pixel" },
   ],
   page: [
     { label: "Get started", href: "/docs" },
@@ -32,26 +33,35 @@ function footerCols(variant: "home" | "page") {
         { label: "Campaigns", href: "/product/campaigns" },
         { label: "Orders", href: "/product/orders" },
         { label: "Pricing", href: "/pricing" },
-        { label: "Sam vs GA4", href: "/compare/ga4" },
-        { label: "Sam vs Shopify Analytics", href: "/compare/shopify-analytics" },
         { label: "Changelog", href: "/changelog" },
       ],
     },
-    { title: "Docs", links: docsLinks[variant] },
     {
-      title: "Support",
+      title: "Compare",
       links: [
-        { label: "Contact", href: "mailto:hello@sam.shop" },
-        { label: "FAQ", href: "/#faq" },
-        { label: "Billing", href: "/pricing#faq" },
+        { label: "Sam vs GA4", href: "/compare/ga4" },
+        { label: "Sam vs Shopify Analytics", href: "/compare/shopify-analytics" },
+        { label: "Sam vs Plausible", href: "/compare/plausible" },
+        { label: "Sam vs MetriXs", href: "/compare/metrixs" },
+      ],
+    },
+    {
+      title: "Learn",
+      links: [
+        ...docsLinks[variant],
+        { label: "Guides", href: "/guides" },
+        { label: "About", href: "/about" },
       ],
     },
     {
       title: "Legal",
       links: [
         { label: "Privacy", href: "/legal/privacy" },
-        { label: "Terms", href: "/legal/privacy#terms" },
+        { label: "Terms", href: "/legal/terms" },
         { label: "DPA", href: "/trust#documents" },
+        { label: "Contact", href: `mailto:${CONTACT_EMAIL}` },
+        { label: "llms.txt", href: "/llms.txt" },
+        { label: "Pricing.md", href: "/pricing.md" },
       ],
     },
   ];
@@ -116,10 +126,10 @@ export function SiteFooter({ variant = "page" }: { variant?: "home" | "page" }) 
         <div className={`${container} relative z-[2]`}>
           <div className="flex flex-col gap-1 rounded-[8px] border border-[#EDEEE914] bg-[#111311B8] px-3 py-2 backdrop-blur-[12px] lg:flex-row lg:justify-between lg:gap-0">
             <span className="font-body text-[12px] leading-4 text-[#C9CCC4]">
-              © 2026 Sam · An Arnor Labs product
+              © 2026 Sam
             </span>
             <span className="font-body text-[12px] leading-4 text-[#C9CCC4]">
-              Made in Asturias · Hosted in the EU
+              Hosted in the EU
             </span>
           </div>
         </div>

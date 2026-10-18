@@ -31,6 +31,8 @@ export type Product = {
     items: { title: string; body: string }[];
   };
   split: { chip: string; title: string; body: string; Visual: ComponentType };
+  definition: { question: string; answer: string };
+  faqs: { q: string; a: string }[];
   more: ProductSlug[];
 };
 
@@ -98,6 +100,25 @@ export const products: Record<ProductSlug, Product> = {
       body: "By device, browser, channel or country. Find the leak before you redesign.",
       Visual: FunnelSplitVisual,
     },
+    definition: {
+      question: "What is a Shopify conversion funnel?",
+      answer:
+        "A Shopify conversion funnel is the path from visit to order: visit, product viewed, cart, checkout and purchase. Sam shows each step for every session, including shoppers who decline cookies, and splits the drop by device, channel or country. Purchases come from Shopify so the last step matches your admin.",
+    },
+    faqs: [
+      {
+        q: "How many funnel steps does Sam show?",
+        a: "Five: visit, product viewed, added to cart, checkout started and purchase. Every session is counted, then you see the drop at each step.",
+      },
+      {
+        q: "Does the funnel include shoppers who decline cookies?",
+        a: "Yes. Sam sets no cookies, so those visits still appear. Other pixels on the store may still miss them.",
+      },
+      {
+        q: "Where do purchases come from?",
+        a: "Shopify webhooks. The last funnel step matches your orders. About 90–95% also have the full visit path when Sam saw the checkout.",
+      },
+    ],
     more: ["sessions", "campaigns", "orders"],
   },
   sessions: {
@@ -137,6 +158,25 @@ export const products: Record<ProductSlug, Product> = {
       body: "Each visit gets an anonymous ID that resets every day. Sam never knows who the shopper is.",
       Visual: SessionsSplitVisual,
     },
+    definition: {
+      question: "What is Shopify session tracking without cookies?",
+      answer:
+        "Cookieless Shopify session tracking records each visit from landing to thank-you without cookies or browser storage. Sam gives the visit an anonymous ID that resets every day, then lists every page, cart and checkout in order, with device and channel. Sam never knows who the shopper is.",
+    },
+    faqs: [
+      {
+        q: "Does Sam follow returning customers?",
+        a: "No. The visitor ID resets every day, so tomorrow's visit is a new session. That is what keeps Sam cookieless.",
+      },
+      {
+        q: "Can I delete a session?",
+        a: "Yes. Filter by any field and delete a session in one click. Collection stops if you uninstall.",
+      },
+      {
+        q: "What does a session include?",
+        a: "Landing path, device, browser, country, channel, and every event in order. Live visits show who is on the store right now.",
+      },
+    ],
     more: ["funnel", "campaigns", "orders"],
   },
   campaigns: {
@@ -176,6 +216,25 @@ export const products: Record<ProductSlug, Product> = {
       body: "Fill in three fields. Copy a clean tracking link.",
       Visual: CampaignsSplitVisual,
     },
+    definition: {
+      question: "How does Shopify UTM tracking reach orders?",
+      answer:
+        "Sam lets you build a UTM link, share it in an ad, email or bio, and see that campaign's funnel to checkout. Orders come from Shopify webhooks, so you see which campaigns sold, not only which ones got clicks. No cookies are required for Sam to credit the visit.",
+    },
+    faqs: [
+      {
+        q: "Do I need cookies for UTM tracking?",
+        a: "Not for Sam. The campaign is stored with the visit. Shoppers who decline cookies still carry the UTM into the funnel when Sam saw the session.",
+      },
+      {
+        q: "Can I see a funnel per campaign?",
+        a: "Yes. Each campaign shows views, carts, checkouts and orders side by side. Added in v1.4.",
+      },
+      {
+        q: "What if a shopper strips the UTM?",
+        a: "Then that visit is not credited to the campaign. The order still counts if Shopify sent it.",
+      },
+    ],
     more: ["funnel", "sessions", "orders"],
   },
   orders: {
@@ -215,6 +274,25 @@ export const products: Record<ProductSlug, Product> = {
       body: "If Sam saw the checkout, the order is credited to its visit and campaign. If not, it still counts.",
       Visual: OrdersSplitVisual,
     },
+    definition: {
+      question: "How does Sam match Shopify orders without cookies?",
+      answer:
+        "Orders arrive from Shopify webhooks, so every purchase is counted. When Sam saw the checkout in that visit, it matches the order to the session and campaign with a short-lived hash. About 90–95% of orders get a complete visit path. The rest still count toward revenue. No order IDs, names or emails are kept.",
+    },
+    faqs: [
+      {
+        q: "Why isn't every order linked to a visit?",
+        a: "Sam links an order when it saw that checkout earlier in the visit. That covers about 90–95% of orders. The rest still count toward revenue.",
+      },
+      {
+        q: "Does Sam store customer names or emails?",
+        a: "No. Sam keeps amount, currency, products and campaign. Customer details stay in Shopify.",
+      },
+      {
+        q: "Can I send orders from outside Shopify?",
+        a: "Yes, with a signed order webhook. See the docs. Shopify remains the default source.",
+      },
+    ],
     more: ["funnel", "campaigns", "sessions"],
   },
 };

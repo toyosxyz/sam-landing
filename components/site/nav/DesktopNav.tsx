@@ -12,6 +12,7 @@ import {
 } from "react";
 import { Arrow } from "../Arrow";
 import { SamLogo } from "../SamLogo";
+import { TrialLink } from "../TrialLink";
 import { menus, topLinks, type Menu, type MenuKey } from "./menu-data";
 
 type Size = { width: number; height: number };
@@ -198,12 +199,12 @@ export function DesktopNav() {
             {link.label}
           </Link>
         ))}
-        <Link
+        <TrialLink
           href={topLinks.install.href}
           className="flex items-center gap-2 rounded-[7px] bg-foreground px-3.5 py-[7px] font-body text-[14px] font-medium leading-[18px] text-night-bg transition-opacity duration-200 hover:opacity-90"
         >
           {topLinks.install.label}
-        </Link>
+        </TrialLink>
       </div>
 
       <div

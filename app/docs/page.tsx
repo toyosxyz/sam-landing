@@ -6,9 +6,11 @@ import {
   DocsP,
   DocsTitle,
   Pager,
-  type SidebarGroup,
 } from "@/components/docs/DocsLayout";
-import { pageMetadata } from "@/lib/site";
+import { docsGroups } from "@/components/docs/nav";
+import { JsonLd } from "@/components/site/JsonLd";
+import { breadcrumbJsonLd, howToJsonLd } from "@/lib/json-ld";
+import { pageMetadata, SIGNUP_URL } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/docs",
@@ -17,43 +19,6 @@ export const metadata = pageMetadata({
     "Create a Sam account, connect your Shopify store and watch the first sessions arrive. Custom pixel steps if you cannot install apps.",
 });
 
-const groups: SidebarGroup[] = [
-  {
-    title: "Get started",
-    items: [
-      { label: "Welcome", href: "/" },
-      { label: "Install the app", href: "/docs", active: true },
-      { label: "Custom pixel", href: "/docs#custom-events" },
-      { label: "Invite your team" },
-    ],
-  },
-  {
-    title: "Dashboard",
-    items: [
-      { label: "Overview", href: "/product/funnel" },
-      { label: "Sessions", href: "/product/sessions" },
-      { label: "Orders", href: "/product/orders" },
-      { label: "Campaigns", href: "/product/campaigns" },
-    ],
-  },
-  {
-    title: "Tracking",
-    items: [
-      { label: "How tracking works", href: "/how-it-works" },
-      { label: "What Sam stores", href: "/trust" },
-      { label: "Order attribution", href: "/product/orders" },
-    ],
-  },
-  {
-    title: "Advanced",
-    items: [
-      { label: "Multiple stores" },
-      { label: "Generic order webhook" },
-      { label: "Reauthorize permissions" },
-    ],
-  },
-];
-
 const toc = [
   { id: "create-account", label: "Create your Sam account" },
   { id: "connect-shopify", label: "Connect Shopify" },
@@ -61,15 +26,43 @@ const toc = [
   { id: "custom-events", label: "Can't install apps?" },
 ] as const;
 
+const crumbs = [
+  { name: "Home", href: "/" },
+  { name: "Docs", href: "/docs" },
+  { name: "Install the app", href: "/docs" },
+];
+
 export default function DocsPage() {
   return (
     <DocsLayout
-      groups={groups}
+      groups={docsGroups("/docs")}
       search
       breadcrumb="Get started / Install the app"
       toc={toc}
       footerVariant="home"
     >
+      <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <JsonLd
+        data={howToJsonLd(
+          "Install Sam on Shopify",
+          "Create a Sam account, connect your Shopify store, and watch the first sessions arrive.",
+          [
+            {
+              name: "Create your Sam account",
+              text: "Sign up at app.samtrack.co with your work email. You can switch the dashboard between English and Spanish at any time.",
+              url: `${SIGNUP_URL}`,
+            },
+            {
+              name: "Connect Shopify",
+              text: "Open Connect Shopify, type your store’s myshopify.com domain and approve customer events and read orders. The first account to connect a store becomes its owner.",
+            },
+            {
+              name: "Watch the first sessions arrive",
+              text: "Sam turns on its pixel and subscribes to order webhooks automatically. Open Overview. The first visits show up within minutes.",
+            },
+          ],
+        )}
+      />
       <DocsTitle>Install the Shopify app</DocsTitle>
       <p className="font-body text-body leading-[26px] text-mist lg:text-lead lg:leading-7">
         Connecting a store takes about a minute. You&apos;ll need permission to install apps on
@@ -87,7 +80,7 @@ export default function DocsPage() {
       <DocsH2 id="create-account">1. Create your Sam account</DocsH2>
       <DocsP>
         Sign up at app.samtrack.co with your work email. You can switch the dashboard between
-        English and Spanish at any time.
+        English and Spanish at any time. The trial is 7 days and needs a card through Stripe.
       </DocsP>
 
       <DocsH2 id="connect-shopify">2. Connect Shopify</DocsH2>
@@ -109,8 +102,9 @@ export default function DocsPage() {
 
       <DocsH2 id="custom-events">Can&apos;t install apps?</DocsH2>
       <DocsP>
-        Use a custom pixel instead. Copy your snippet from Settings → Custom pixel in Sam, then
-        paste it in Shopify Admin:
+        Use a custom pixel instead. Full steps live on the custom pixel page. Short version: copy
+        your snippet from Settings → Custom pixel in Sam, then paste it in Shopify Admin → Customer
+        events.
       </DocsP>
       <CodeBlock
         title="Shopify Admin"
@@ -123,7 +117,7 @@ export default function DocsPage() {
 
       <Pager
         prev={{ label: "Welcome", href: "/" }}
-        next={{ label: "Custom pixel", href: "/docs#custom-events" }}
+        next={{ label: "Custom pixel", href: "/docs/custom-pixel" }}
       />
     </DocsLayout>
   );
