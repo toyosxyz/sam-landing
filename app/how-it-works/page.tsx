@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { SessionsSplitVisual } from "@/components/product/visuals";
 import { Arrow } from "@/components/site/Arrow";
 import { Faq } from "@/components/site/Faq";
+import { JsonLd } from "@/components/site/JsonLd";
 import { container } from "@/components/site/layout";
 import { Reveal } from "@/components/site/motion";
 import { heroDelay, row } from "@/components/site/motion-vars";
@@ -9,12 +9,15 @@ import { HeroBackdrop, HeroCopy } from "@/components/site/PageHero";
 import { NumberedItems, SectionHeading, SplitRow } from "@/components/site/sections";
 import { SiteNav } from "@/components/site/SiteNav";
 import { FinalCta, SiteFooter } from "@/components/site/SiteFooter";
+import { faqPageJsonLd } from "@/lib/json-ld";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "How it works · SAM",
+export const metadata = pageMetadata({
+  path: "/how-it-works",
+  title: "How Cookieless Shopify Tracking Works | Sam",
   description:
-    "How Sam tracks sessions and orders without cookies.",
-};
+    "How Sam counts Shopify visits and orders without cookies or browser storage. Daily visitor IDs, webhook order match, and why Sam does not need a consent banner.",
+});
 
 const heroFade =
   "linear-gradient(in oklab 180deg, oklab(18.4% -0.004 0.003 / 70%) 0%, oklab(18.4% -0.004 0.003 / 35%) 35%, oklab(18.4% -0.004 0.003 / 70%) 72%, oklab(18.4% -0.004 0.003) 100%), linear-gradient(in oklab 90deg, oklab(18.4% -0.004 0.003 / 88%) 0%, oklab(18.4% -0.004 0.003 / 45%) 50%, oklab(18.4% -0.004 0.003 / 5%) 100%)";
@@ -81,7 +84,7 @@ const never = [
   "Anything written to the cart",
 ];
 
-const faqs = [
+export const howItWorksFaqs = [
   {
     q: "Do I really not need a consent banner?",
     a: "Not for Sam. It stores nothing on the device and follows nobody across days. Your other apps may still need consent, so check with your legal advisor.",
@@ -135,6 +138,7 @@ function DataList({
 export default function HowItWorksPage() {
   return (
     <main className="w-full overflow-x-clip bg-background">
+      <JsonLd data={faqPageJsonLd(howItWorksFaqs)} />
       <section className="relative flex flex-col overflow-clip pb-6">
         <HeroBackdrop
           image="/images/privacy-hedgerow.png"
@@ -272,7 +276,7 @@ export default function HowItWorksPage() {
           </Reveal>
         </div>
 
-        <Faq items={faqs} title="Fair questions." subtitle="Straight answers." />
+        <Faq items={howItWorksFaqs} title="Fair questions." subtitle="Straight answers." />
       </div>
 
       <FinalCta />

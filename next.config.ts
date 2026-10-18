@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
         destination: "https://app.samtrack.co/login",
         permanent: false,
       },
+      {
+        source: "/install",
+        destination: "https://app.samtrack.co/signup",
+        permanent: false,
+      },
     ];
   },
   turbopack: {

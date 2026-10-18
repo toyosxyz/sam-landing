@@ -6,6 +6,7 @@ import {
   products,
   type ProductSlug,
 } from "@/components/product/product-data";
+import { pageMetadata } from "@/lib/site";
 
 export function generateStaticParams() {
   return productSlugs.map((slug) => ({ slug }));
@@ -21,7 +22,11 @@ export async function generateMetadata({
   const { slug } = await params;
   if (!isProductSlug(slug)) return {};
   const product = products[slug];
-  return { title: `${product.name} · SAM`, description: product.description };
+  return pageMetadata({
+    path: `/product/${slug}`,
+    title: product.seoTitle,
+    description: product.description,
+  });
 }
 
 export default async function Page({ params }: PageProps<"/product/[slug]">) {

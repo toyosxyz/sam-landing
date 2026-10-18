@@ -1,7 +1,7 @@
 import { Faq } from "@/components/site/Faq";
 import { container } from "@/components/site/layout";
 
-const faqs = [
+export const homeFaqs = [
   {
     q: "Do I need a cookie banner for Sam?",
     a: "Not for Sam. It sets no cookies and stores nothing in the browser. Your other pixels may still need one.",
@@ -32,7 +32,7 @@ export function HomeFaq() {
   return (
     <section id="faq" className={`${container} pt-[72px] pb-10 lg:pt-[120px] lg:pb-14`}>
       <Faq
-        items={faqs}
+        items={homeFaqs}
         title="Before you install."
         subtitle="Privacy, setup and billing."
       />

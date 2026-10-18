@@ -3,6 +3,7 @@ import { Arrow } from "@/components/site/Arrow";
 import { Chip } from "@/components/site/Chip";
 import { Reveal } from "@/components/site/motion";
 import { row } from "@/components/site/motion-vars";
+import { SIGNUP_URL } from "@/lib/site";
 
 const facts = [
   { label: "Cookies", value: "None", accent: true },
@@ -84,7 +85,7 @@ export function Privacy() {
             stored in the shopper&apos;s browser.
           </p>
           <Link
-            href="#tracking"
+            href="/how-it-works"
             className="flex items-center gap-1 font-body text-[14px] leading-[18px] text-mist"
           >
             How tracking works
@@ -130,7 +131,7 @@ export function Privacy() {
             </div>
           </div>
           <Link
-            href="#install"
+            href={SIGNUP_URL}
             className="flex items-center gap-2 rounded-[8px] bg-foreground px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-night-bg"
           >
             Start 7-day trial

@@ -18,7 +18,6 @@ export function Pricing() {
     >
       <Plans
         includes={includes}
-        ctaHref="#install"
         className="gap-8 lg:gap-14"
         header={
           <Reveal stagger className="flex flex-col gap-4">

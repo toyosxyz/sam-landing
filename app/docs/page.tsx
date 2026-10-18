@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   Callout,
   CodeBlock,
@@ -9,12 +8,14 @@ import {
   Pager,
   type SidebarGroup,
 } from "@/components/docs/DocsLayout";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Install the Shopify app · SAM Docs",
+export const metadata = pageMetadata({
+  path: "/docs",
+  title: "Install Sam on Shopify in One Minute",
   description:
-    "Connecting a store takes about a minute. Create your Sam account, connect Shopify and watch the first sessions arrive.",
-};
+    "Create a Sam account, connect your Shopify store and watch the first sessions arrive. Custom pixel steps if you cannot install apps.",
+});
 
 const groups: SidebarGroup[] = [
   {

@@ -60,11 +60,13 @@ export function Faq({
                   {isOpen ? "−" : "+"}
                 </span>
               </div>
-              {isOpen && (
-                <p className="disclose mt-2.5 max-w-[620px] font-body text-[15px] leading-[23px] text-mist">
-                  {faq.a}
-                </p>
-              )}
+              <p
+                className={`disclose mt-2.5 max-w-[620px] font-body text-[15px] leading-[23px] text-mist ${
+                  isOpen ? "" : "hidden"
+                }`}
+              >
+                {faq.a}
+              </p>
             </button>
           );
         })}

@@ -2,43 +2,8 @@
 
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
+import { formatEur, PLANS, sessionsLabel, SIGNUP_URL } from "@/lib/site";
 import { Reveal } from "./motion";
-import { topLinks } from "./nav/menu-data";
-
-const plans = [
-  {
-    name: "Garden",
-    monthly: "€29",
-    yearly: "€24",
-    sessions: "Up to 25,000 sessions a month",
-    image: "/images/plan-garden.png",
-    featured: false,
-  },
-  {
-    name: "Meadow",
-    monthly: "€79",
-    yearly: "€66",
-    sessions: "Up to 100,000 sessions a month",
-    image: "/images/plan-meadow.png",
-    featured: true,
-  },
-  {
-    name: "Valley",
-    monthly: "€169",
-    yearly: "€141",
-    sessions: "Up to 300,000 sessions a month",
-    image: "/images/plan-valley.png",
-    featured: false,
-  },
-  {
-    name: "Forest",
-    monthly: "€349",
-    yearly: "€291",
-    sessions: "Up to 1,000,000 sessions a month",
-    image: "/images/hills-channels.png",
-    featured: false,
-  },
-] as const;
 
 const planFade =
   "linear-gradient(in oklab 180deg, oklab(21.3% -0.006 0.004 / 15%) 0%, oklab(21.3% -0.006 0.004 / 55%) 45%, oklab(21.3% -0.006 0.004 / 92%) 85%)";
@@ -47,7 +12,7 @@ export function Plans({
   includes,
   header,
   className = "gap-6",
-  ctaHref = topLinks.install.href,
+  ctaHref = SIGNUP_URL,
 }: {
   includes: readonly string[];
   header?: ReactNode;
@@ -96,11 +61,13 @@ export function Plans({
         stagger
         className="flex w-full flex-col overflow-clip rounded-[12px] border border-night-line bg-[#161916] lg:flex-row lg:rounded-md"
       >
-        {plans.map((plan, i) => (
+        {PLANS.map((plan, i) => (
           <div
             key={plan.name}
             className={`flex grow basis-0 flex-col ${
-              i < plans.length - 1 ? "border-b border-night-line lg:border-r lg:border-b-0" : ""
+              i < PLANS.length - 1
+                ? "border-b border-night-line lg:border-r lg:border-b-0"
+                : ""
             }`}
           >
             <div
@@ -123,12 +90,12 @@ export function Plans({
                     switched ? "value-swap" : ""
                   }`}
                 >
-                  {yearly ? plan.yearly : plan.monthly}
+                  {formatEur(yearly ? plan.yearlyEur : plan.monthlyEur)}
                 </span>
                 <span className="font-body text-[15px] leading-[18px] text-mist">/month</span>
               </div>
               <span className="relative font-body text-[15px] leading-[18px] text-mist">
-                {plan.sessions}
+                {sessionsLabel(plan.sessions)}
               </span>
               <Link
                 href={ctaHref}

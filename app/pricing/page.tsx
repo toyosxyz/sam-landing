@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Arrow } from "@/components/site/Arrow";
 import { Faq } from "@/components/site/Faq";
+import { JsonLd } from "@/components/site/JsonLd";
 import { container } from "@/components/site/layout";
 import { Reveal } from "@/components/site/motion";
 import { row as rowVar } from "@/components/site/motion-vars";
@@ -10,12 +10,15 @@ import { Plans } from "@/components/site/Plans";
 import { SectionHeading } from "@/components/site/sections";
 import { SiteNav } from "@/components/site/SiteNav";
 import { FinalCta, SiteFooter } from "@/components/site/SiteFooter";
+import { faqPageJsonLd, softwareApplicationJsonLd } from "@/lib/json-ld";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Pricing · SAM",
+export const metadata = pageMetadata({
+  path: "/pricing",
+  title: "Sam Pricing: Plans from €29 a Month",
   description:
-    "Plans by monthly sessions. All features on every plan. 7-day trial.",
-};
+    "Sam plans are priced by monthly Shopify sessions. Garden €29, Meadow €79, Valley €169, Forest €349. All features on every plan. 7-day trial with a card through Stripe.",
+});
 
 const heroFade =
   "linear-gradient(in oklab 180deg, oklab(18.4% -0.004 0.003 / 70%) 0%, oklab(18.4% -0.004 0.003 / 40%) 40%, oklab(18.4% -0.004 0.003 / 80%) 78%, oklab(18.4% -0.004 0.003) 100%), linear-gradient(in oklab 90deg, oklab(18.4% -0.004 0.003 / 88%) 0%, oklab(18.4% -0.004 0.003 / 45%) 50%, oklab(18.4% -0.004 0.003 / 5%) 100%)";
@@ -40,7 +43,7 @@ const rows: { label: string; values?: [string, string, string, string] }[] = [
   { label: "Dashboard in English and Spanish" },
 ];
 
-const faqs = [
+export const pricingFaqs = [
   {
     q: "What counts as a session?",
     a: "One visitor, one day. Five pages in an afternoon is one session. Coming back tomorrow is a new one.",
@@ -66,6 +69,8 @@ const faqs = [
 export default function PricingPage() {
   return (
     <main className="w-full overflow-x-clip bg-background">
+      <JsonLd data={softwareApplicationJsonLd({ withOffers: true })} />
+      <JsonLd data={faqPageJsonLd(pricingFaqs)} />
       <section className="relative flex flex-col overflow-clip">
         <HeroBackdrop
           image="/images/plan-meadow.png"
@@ -172,7 +177,7 @@ export default function PricingPage() {
         </div>
 
         <div id="faq" className="scroll-mt-8">
-          <Faq items={faqs} title="Billing questions." subtitle="Short answers." />
+          <Faq items={pricingFaqs} title="Billing questions." subtitle="Short answers." />
         </div>
       </div>
 

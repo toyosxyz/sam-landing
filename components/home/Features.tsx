@@ -143,7 +143,7 @@ export function Features() {
             </p>
           </div>
           <Link
-            href="#funnel"
+            href="/product/funnel"
             className="flex items-center gap-1 pt-2 font-body text-[14px] leading-[18px] text-mist"
           >
             Explore the funnel
@@ -352,7 +352,7 @@ export function Features() {
             </p>
           </div>
           <Link
-            href="#sessions"
+            href="/product/sessions"
             className="flex items-center gap-1 pt-2 font-body text-[14px] leading-[18px] text-mist"
           >
             See a session
@@ -546,7 +546,7 @@ export function Features() {
             </span>
           </div>
           <Link
-            href="#features"
+            href="/pricing"
             className="rounded-[8px] border border-night-line bg-[#161916] px-3.5 py-2 font-body text-[14px] leading-[18px] text-foreground"
           >
             All features

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Arrow } from "@/components/site/Arrow";
 import { Fragment } from "react";
@@ -10,12 +9,14 @@ import {
   DocsTitle,
   type SidebarGroup,
 } from "@/components/docs/DocsLayout";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Privacy policy · SAM",
+export const metadata = pageMetadata({
+  path: "/legal/privacy",
+  title: "Privacy Policy | Sam",
   description:
-    "What data Sam processes for merchants who use it, and for the shoppers who visit their stores.",
-};
+    "What data Sam processes for merchants and for shoppers on their Shopify stores. Cookieless sessions, EU hosting and how to contact us.",
+});
 
 const groups: SidebarGroup[] = [
   {
@@ -38,7 +39,7 @@ const sections = [
   {
     id: "shoppers",
     label: "Data about shoppers",
-    body: "Sam processes page and event data from a store's web pixel and order data from Shopify webhooks, on the merchant's behalf. Sessions are identified by a one-way hash with a daily salt. No cookies or browser storage are used.",
+    body: "Sam processes page and event data from a store's web pixel and order data from Shopify webhooks, on the merchant's behalf. Sessions are identified by a one-way hash with a daily salt. No cookies or browser storage are used. Sessions cannot be linked across days.",
   },
   {
     id: "merchants",
@@ -89,11 +90,11 @@ export default function PrivacyPage() {
     >
       <DocsTitle>Privacy policy</DocsTitle>
       <p className="font-body text-[15px] leading-[22px] text-mist">
-        Last updated: [date] · Arnor Labs
+        Last updated: 18 October 2026 · Arnor Labs
       </p>
-      <Callout tone="danger">
-        Layout draft. The text below shows structure only and must be replaced with the reviewed
-        legal copy before launch.
+      <Callout>
+        This page summarizes how Sam handles data. For a plain-language overview, see the Trust
+        center. Contact privacy@samtrack.co for questions.
       </Callout>
 
       {sections.map((s, i) => (

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Arrow } from "@/components/site/Arrow";
 import { Chip } from "@/components/site/Chip";
@@ -9,12 +8,14 @@ import { HeroBackdrop, HeroCopy } from "@/components/site/PageHero";
 import { InlineHeading, NumberedItems, SectionHeading } from "@/components/site/sections";
 import { SiteNav } from "@/components/site/SiteNav";
 import { FinalCta, SiteFooter } from "@/components/site/SiteFooter";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Trust center · SAM",
+export const metadata = pageMetadata({
+  path: "/trust",
+  title: "EU-Hosted Shopify Analytics: Privacy and DPA | Sam",
   description:
-    "Where your data lives, who processes it, what we keep and for how long.",
-};
+    "Sam hosts Shopify session data in the EU. No cookies, no shopper personal data stored, hashed on arrival. DPA, subprocessors and retention on one page.",
+});
 
 const heroFade =
   "linear-gradient(in oklab 180deg, oklab(18.4% -0.004 0.003 / 70%) 0%, oklab(18.4% -0.004 0.003 / 40%) 40%, oklab(18.4% -0.004 0.003 / 80%) 78%, oklab(18.4% -0.004 0.003) 100%), linear-gradient(in oklab 90deg, oklab(18.4% -0.004 0.003 / 88%) 0%, oklab(18.4% -0.004 0.003 / 45%) 50%, oklab(18.4% -0.004 0.003 / 5%) 100%)";

@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import { container } from "@/components/site/layout";
 import { Reveal } from "@/components/site/motion";
 import { CompactHero } from "@/components/site/PageHero";
 import { SiteNav } from "@/components/site/SiteNav";
 import { FinalCta, SiteFooter } from "@/components/site/SiteFooter";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Changelog · SAM",
-  description: "New features and fixes, newest first.",
-};
+export const metadata = pageMetadata({
+  path: "/changelog",
+  title: "What's New in Sam",
+  description:
+    "Sam changelog: new Shopify funnel, campaign and tracking features, newest first. Dashboard in English and Spanish.",
+});
 
 type Tag = "New" | "Improved" | "Fixed";
 

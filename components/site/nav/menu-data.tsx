@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SIGNUP_URL } from "@/lib/site";
 
 export type MenuKey = "product" | "resources" | "compare";
 
@@ -224,7 +225,7 @@ export const menus: Menu[] = [
 export const topLinks = {
   pricing: { label: "Pricing", href: "/pricing" },
   signIn: { label: "Sign in", href: "/signin" },
-  install: { label: "Start 7-day trial", href: "/install" },
+  install: { label: "Start 7-day trial", href: SIGNUP_URL },
 };
 
 export const mobileResources = [

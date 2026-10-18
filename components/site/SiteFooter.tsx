@@ -27,7 +27,13 @@ function footerCols(variant: "home" | "page") {
     {
       title: "Product",
       links: [
+        { label: "Funnel", href: "/product/funnel" },
+        { label: "Sessions", href: "/product/sessions" },
+        { label: "Campaigns", href: "/product/campaigns" },
+        { label: "Orders", href: "/product/orders" },
         { label: "Pricing", href: "/pricing" },
+        { label: "Sam vs GA4", href: "/compare/ga4" },
+        { label: "Sam vs Shopify Analytics", href: "/compare/shopify-analytics" },
         { label: "Changelog", href: "/changelog" },
       ],
     },

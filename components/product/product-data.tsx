@@ -15,6 +15,7 @@ export type ProductSlug = (typeof productSlugs)[number];
 
 export type Product = {
   name: string;
+  seoTitle: string;
   description: string;
   hero: {
     title: string;
@@ -62,7 +63,9 @@ export const productCards: Record<
 export const products: Record<ProductSlug, Product> = {
   funnel: {
     name: "Funnel",
-    description: "Five steps from visit to order, and where shoppers drop.",
+    seoTitle: "Shopify Conversion Funnel Analytics | Sam",
+    description:
+      "Five Shopify funnel steps from visit to purchase. See where shoppers drop by device, channel or country. Cookieless, no banner for Sam.",
     hero: {
       title: "See where shoppers drop.",
       muted: "Step by step, by device.",
@@ -99,7 +102,9 @@ export const products: Record<ProductSlug, Product> = {
   },
   sessions: {
     name: "Sessions",
-    description: "Every page, cart and checkout of a visit, in order. Fully anonymous.",
+    seoTitle: "Shopify Session Tracking Without Cookies | Sam",
+    description:
+      "Follow every Shopify visit from landing to thank-you, event by event. Anonymous ID that resets daily. No cookies, no banner for Sam.",
     hero: {
       title: "Follow any visit.",
       muted: "From landing to thank-you page.",
@@ -136,7 +141,9 @@ export const products: Record<ProductSlug, Product> = {
   },
   campaigns: {
     name: "Campaigns",
-    description: "Build UTM links in Sam and see each campaign's funnel, down to the order.",
+    seoTitle: "Shopify UTM Campaign Attribution | Sam",
+    description:
+      "Build UTM links in Sam and see each campaign's funnel to checkout and order. Know which campaigns sell, without cookies.",
     hero: {
       title: "Know which campaigns sell.",
       muted: "Down to the order.",
@@ -173,7 +180,9 @@ export const products: Record<ProductSlug, Product> = {
   },
   orders: {
     name: "Orders",
-    description: "Every Shopify order, linked to the visit and campaign that brought it.",
+    seoTitle: "Match Shopify Orders to the Visit | Sam",
+    description:
+      "Every Shopify order counted from webhooks. About 90–95% link to a full visit path. The rest still count toward revenue.",
     hero: {
       title: "Every order, counted.",
       muted: "Linked to its visit when possible.",

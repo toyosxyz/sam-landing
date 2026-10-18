@@ -3,6 +3,7 @@ export type CompareSlug = (typeof compareSlugs)[number];
 
 export type Comparison = {
   rival: string;
+  seoTitle: string;
   description: string;
   lead: string;
   heroImage: string;
@@ -14,8 +15,9 @@ export type Comparison = {
 export const comparisons: Record<CompareSlug, Comparison> = {
   ga4: {
     rival: "Google Analytics 4",
+    seoTitle: "Sam vs GA4: Shopify Funnel Without a Banner",
     description:
-      "Sam vs GA4 for a Shopify store in Europe: cookies, consent, setup, orders and price.",
+      "Sam vs GA4 for a Shopify store in Europe: cookies, consent, setup, orders and price. Keep GA4 for ads; use Sam for the funnel.",
     lead: "GA4 measures any site or app. Sam shows Shopify stores where shoppers drop and which campaigns sell, without a consent banner.",
     heroImage: "/images/plan-valley.png",
     rows: [
@@ -60,8 +62,9 @@ export const comparisons: Record<CompareSlug, Comparison> = {
   },
   "shopify-analytics": {
     rival: "Shopify Analytics",
+    seoTitle: "Sam vs Shopify Analytics After Cookie Consent",
     description:
-      "Sam vs Shopify's built-in analytics: consent, visit detail, funnels, campaigns and price.",
+      "Sam vs Shopify Analytics when shoppers decline cookies: visit detail, five-step funnel, UTM campaigns and EU hosting.",
     lead: "Shopify tells you what sold. Sam shows the path behind it, including visits that decline cookies.",
     heroImage: "/images/hills-sessions.png",
     rows: [
