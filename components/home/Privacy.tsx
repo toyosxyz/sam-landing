@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Arrow } from "@/components/site/Arrow";
 import { Chip } from "@/components/site/Chip";
 import { Reveal } from "@/components/site/motion";
 import { row } from "@/components/site/motion-vars";
@@ -85,9 +86,10 @@ export function Privacy() {
           </p>
           <Link
             href="#tracking"
-            className="font-body text-[14px] leading-[18px] text-mist"
+            className="flex items-center gap-1 font-body text-[14px] leading-[18px] text-mist"
           >
-            How tracking works ↗
+            How tracking works
+            <Arrow direction="up-right" size={14} />
           </Link>
         </div>
 
@@ -133,7 +135,7 @@ export function Privacy() {
             className="flex items-center gap-2 rounded-[8px] bg-foreground px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-night-bg"
           >
             Install on Shopify
-            <span aria-hidden className="font-normal">→</span>
+            <Arrow />
           </Link>
         </Reveal>
         <Reveal stagger className="flex flex-col gap-8 lg:flex-row lg:gap-6">

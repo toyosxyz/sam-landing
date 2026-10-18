@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Arrow } from "@/components/site/Arrow";
 import { CountUp, Reveal } from "@/components/site/motion";
 import { bar, heroDelay, row } from "@/components/site/motion-vars";
 
@@ -54,10 +55,10 @@ export function SplitStage({ image, children }: { image: string; children: React
 
 const funnelSteps = [
   { label: "Visit", pct: "100.0%", sessions: "37,150 sessions", drop: "—" },
-  { label: "Product viewed", pct: "42.4%", sessions: "15,757 sessions", drop: "↘ 58%" },
-  { label: "Added to cart", pct: "13.3%", sessions: "4,923 sessions", drop: "↘ 69%", alert: true },
-  { label: "Checkout started", pct: "5.1%", sessions: "1,911 sessions", drop: "↘ 61%" },
-  { label: "Purchase", pct: "2.9%", sessions: "1,063 sessions", drop: "↘ 44%" },
+  { label: "Product viewed", pct: "42.4%", sessions: "15,757 sessions", drop: "58%" },
+  { label: "Added to cart", pct: "13.3%", sessions: "4,923 sessions", drop: "69%", alert: true },
+  { label: "Checkout started", pct: "5.1%", sessions: "1,911 sessions", drop: "61%" },
+  { label: "Purchase", pct: "2.9%", sessions: "1,063 sessions", drop: "44%" },
 ];
 
 export function FunnelHeroVisual() {
@@ -109,8 +110,9 @@ export function FunnelHeroVisual() {
               />
               <span className={`${muted} text-[10px] leading-3`}>{s.sessions}</span>
               <span
-                className={`font-body text-[10px] leading-3 ${s.alert ? "text-[#E5484D]" : "text-[#A0A0A0]"}`}
+                className={`flex items-center gap-0.5 font-body text-[10px] leading-3 ${s.alert ? "text-[#E5484D]" : "text-[#A0A0A0]"}`}
               >
+                {i > 0 && <Arrow direction="down-right" size={11} />}
                 {s.drop}
               </span>
             </div>
@@ -146,7 +148,11 @@ export function FunnelSplitVisual() {
             <span className={`${muted} text-[11px] font-medium leading-[14px] tracking-[0.06em]`}>
               CONVERSION BY DEVICE
             </span>
-            <span className={`${muted} text-label leading-4`}>Visit → purchase, last 7 days</span>
+            <span className={`${muted} flex items-center gap-1 text-label leading-4`}>
+              Visit
+              <Arrow size={12} />
+              purchase, last 7 days
+            </span>
           </div>
           <div className="hidden gap-1 sm:flex">
             {["Device", "Channel", "Country"].map((t, i) => (
@@ -218,7 +224,10 @@ export function SessionsHeroVisual() {
     <HeroStage image="/images/hills-sessions.png">
       <div className={`${panel} max-w-[760px] gap-3.5 bg-[#1B1B1B] p-4 lg:p-5`}>
         <div className="flex flex-col gap-1">
-          <span className={`${muted} text-[11px] leading-[14px]`}>← Back to sessions</span>
+          <span className={`${muted} flex items-center gap-1 text-[11px] leading-[14px]`}>
+            <Arrow direction="left" size={12} />
+            Back to sessions
+          </span>
           <span className={`${strong} text-lead font-semibold leading-[22px] tracking-[-0.01em]`}>
             Session events
           </span>
@@ -302,7 +311,10 @@ export function SessionsSplitVisual({ image = "/images/privacy-hedgerow.png" }: 
             </div>
           ))}
         </div>
-        <span className={`${muted} m-fade self-center text-[14px] leading-4`}>↓ hash</span>
+        <span className={`${muted} m-fade flex items-center gap-1 self-center text-[14px] leading-4`}>
+          <Arrow direction="down" size={14} />
+          hash
+        </span>
         <div className="m-fade flex items-center justify-between gap-3 rounded-[10px] border border-[#A3E63540] bg-[#A3E63514] px-4 py-3.5">
           <span className="font-body text-label leading-4 text-[#F2F2F2]">Session key</span>
           <span className="truncate font-mono text-[12px] leading-4 text-accent">sess_7f3a9c2e41d84b0e</span>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Arrow } from "@/components/site/Arrow";
 import { Faq } from "@/components/site/Faq";
 import { container } from "@/components/site/layout";
 import { Reveal } from "@/components/site/motion";
@@ -165,9 +166,7 @@ export default function PricingPage() {
               className="relative flex items-center gap-2 rounded-[8px] border border-night-line bg-[#161916] px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-foreground"
             >
               Talk to us
-              <span aria-hidden className="font-normal">
-                →
-              </span>
+              <Arrow />
             </Link>
           </Reveal>
         </div>

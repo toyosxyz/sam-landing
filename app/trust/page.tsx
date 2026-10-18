@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Arrow } from "@/components/site/Arrow";
 import { Chip } from "@/components/site/Chip";
 import { container } from "@/components/site/layout";
 import { Reveal } from "@/components/site/motion";
@@ -24,7 +25,7 @@ const facts = [
   { label: "Data location", value: "European Union" },
   { label: "Personal data from shoppers", value: "None stored" },
   { label: "Browser storage", value: "None used" },
-  { label: "Data processing agreement", value: "Available ↗", href: dpaHref },
+  { label: "Data processing agreement", value: "Available", href: dpaHref },
 ];
 
 const subprocessors = [
@@ -93,11 +94,12 @@ export default function TrustPage() {
               <>
                 <span className="font-body text-label leading-[18px] text-mist">{f.label}</span>
                 <span
-                  className={`font-body text-lead leading-6 lg:text-[20px] lg:leading-[26px] ${
+                  className={`flex items-center gap-1.5 font-body text-lead leading-6 lg:text-[20px] lg:leading-[26px] ${
                     f.href ? "text-accent" : "text-foreground"
                   }`}
                 >
                   {f.value}
+                  {f.href && <Arrow direction="up-right" size={18} />}
                 </span>
               </>
             );
@@ -191,9 +193,10 @@ export default function TrustPage() {
                   <span className="font-body text-[17px] leading-[22px] text-foreground">{d.title}</span>
                   <span className="font-body text-[14px] leading-5 text-mist">{d.body}</span>
                 </div>
-                <span className="font-body text-body leading-5 text-mist transition-colors group-hover:text-foreground">
-                  ↗
-                </span>
+                <Arrow
+                  direction="up-right"
+                  className="text-mist transition-colors group-hover:text-foreground"
+                />
               </Link>
             ))}
           </Reveal>

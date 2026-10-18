@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Arrow } from "@/components/site/Arrow";
 import { container } from "@/components/site/layout";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -181,7 +182,10 @@ export function Pager({
       {prev ? (
         <Link href={prev.href} className="flex flex-col gap-1">
           <span className="font-body text-[12px] leading-4 text-[#5E635B]">Previous</span>
-          <span className="font-body text-[15px] leading-5 text-foreground">← {prev.label}</span>
+          <span className="flex items-center gap-1.5 font-body text-[15px] leading-5 text-foreground">
+            <Arrow direction="left" />
+            {prev.label}
+          </span>
         </Link>
       ) : (
         <span />
@@ -189,7 +193,10 @@ export function Pager({
       {next && (
         <Link href={next.href} className="flex flex-col items-end gap-1 text-right">
           <span className="font-body text-[12px] leading-4 text-[#5E635B]">Next</span>
-          <span className="font-body text-[15px] leading-5 text-foreground">{next.label} →</span>
+          <span className="flex items-center gap-1.5 font-body text-[15px] leading-5 text-foreground">
+            {next.label}
+            <Arrow />
+          </span>
         </Link>
       )}
     </div>

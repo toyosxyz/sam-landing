@@ -1,21 +1,22 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
+import { Arrow } from "@/components/site/Arrow";
 import { Chip } from "@/components/site/Chip";
 import { CountUp, Reveal } from "@/components/site/motion";
 import { bar, row } from "@/components/site/motion-vars";
 
 const funnelSteps = [
   { label: "Visit", pct: "100.0%", sessions: "37,150 sessions", drop: "—" },
-  { label: "Product viewed", pct: "42.4%", sessions: "15,757 sessions", drop: "↘ 58%" },
+  { label: "Product viewed", pct: "42.4%", sessions: "15,757 sessions", drop: "58%" },
   {
     label: "Added to cart",
     pct: "13.3%",
     sessions: "4,923 sessions",
-    drop: "↘ 69%",
+    drop: "69%",
     dropAlert: true,
   },
-  { label: "Checkout started", pct: "5.1%", sessions: "1,911 sessions", drop: "↘ 61%" },
-  { label: "Purchase", pct: "2.9%", sessions: "1,063 sessions", drop: "↘ 44%" },
+  { label: "Checkout started", pct: "5.1%", sessions: "1,911 sessions", drop: "61%" },
+  { label: "Purchase", pct: "2.9%", sessions: "1,063 sessions", drop: "44%" },
 ] as const;
 
 const sessionEvents = [
@@ -91,23 +92,12 @@ const campaigns = [
 ] as const;
 
 const restRows = [
-  { label: "Live sessions: who is on your store right now", trail: "↘" },
-  {
-    label: "Orders matched to the session and channel that brought them",
-    trail: "↘",
-  },
-  { label: "Customer journeys from first visit to repeat order", trail: "↘" },
-  { label: "Every metric split by device, OS and browser", trail: "↘" },
-  {
-    label: "Alerts when a step of the funnel suddenly drops",
-    trail: "Soon",
-    soon: true,
-  },
-  {
-    label: "Your numbers inside Claude and ChatGPT, via MCP",
-    trail: "Soon",
-    soon: true,
-  },
+  { label: "Live sessions: who is on your store right now" },
+  { label: "Orders matched to the session and channel that brought them" },
+  { label: "Customer journeys from first visit to repeat order" },
+  { label: "Every metric split by device, OS and browser" },
+  { label: "Alerts when a step of the funnel suddenly drops", soon: true },
+  { label: "Your numbers inside Claude and ChatGPT, via MCP", soon: true },
 ] as const;
 
 const cardGlow =
@@ -155,9 +145,10 @@ export function Features() {
           </div>
           <Link
             href="#funnel"
-            className="pt-2 font-body text-[14px] leading-[18px] text-mist"
+            className="flex items-center gap-1 pt-2 font-body text-[14px] leading-[18px] text-mist"
           >
-            Explore the funnel ↗
+            Explore the funnel
+            <Arrow direction="up-right" size={14} />
           </Link>
         </Reveal>
         <Reveal delay={100} className={featureCard} style={{ backgroundImage: cardGlow }}>
@@ -215,12 +206,13 @@ export function Features() {
                     {s.sessions}
                   </span>
                   <span
-                    className={`font-body text-[10px] leading-3 ${
+                    className={`flex items-center gap-0.5 font-body text-[10px] leading-3 ${
                       "dropAlert" in s && s.dropAlert
                         ? "text-[#E5484D]"
                         : "text-[#A0A0A0]"
                     }`}
                   >
+                    {i > 0 && <Arrow direction="down-right" size={11} />}
                     {s.drop}
                   </span>
                 </div>
@@ -259,8 +251,9 @@ export function Features() {
           />
           <div className="relative flex w-full max-w-[656px] flex-col gap-3.5 rounded-md border border-[#2E2E2E] bg-[#1B1B1B] p-4 shadow-[0_24px_60px_#00000080] lg:p-5">
             <div className="flex flex-col gap-1">
-              <span className="font-body text-[11px] leading-[14px] text-[#A0A0A0]">
-                ← Back to sessions
+              <span className="flex items-center gap-1 font-body text-[11px] leading-[14px] text-[#A0A0A0]">
+                <Arrow direction="left" size={12} />
+                Back to sessions
               </span>
               <span className="font-body text-lead font-semibold leading-[22px] tracking-[-0.01em] text-[#EDEDED]">
                 Session events
@@ -362,9 +355,10 @@ export function Features() {
           </div>
           <Link
             href="#sessions"
-            className="pt-2 font-body text-[14px] leading-[18px] text-mist"
+            className="flex items-center gap-1 pt-2 font-body text-[14px] leading-[18px] text-mist"
           >
-            See a session ↗
+            See a session
+            <Arrow direction="up-right" size={14} />
           </Link>
         </Reveal>
       </div>
@@ -571,15 +565,11 @@ export function Features() {
               <span className="font-body text-[15px] leading-[21px] text-foreground lg:text-[17px] lg:leading-[22px]">
                 {row.label}
               </span>
-              <span
-                className={`font-body ${
-                  "soon" in row && row.soon
-                    ? "text-label leading-4 text-accent"
-                    : "text-[15px] leading-[18px] text-mist"
-                }`}
-              >
-                {row.trail}
-              </span>
+              {"soon" in row ? (
+                <span className="font-body text-label leading-4 text-accent">Soon</span>
+              ) : (
+                <Arrow direction="down-right" className="mt-[3px] text-mist" />
+              )}
             </div>
           ))}
         </Reveal>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
+import { Arrow } from "../Arrow";
 import { SamLogo } from "../SamLogo";
 import { menus, mobileResources, topLinks } from "./menu-data";
 
@@ -222,9 +223,7 @@ export function MobileNav() {
                 className="flex flex-1 items-center justify-center gap-2 rounded-[10px] bg-foreground px-[18px] py-[13px] font-body text-[15px] font-medium leading-5 text-night-bg"
               >
                 {topLinks.install.label}
-                <span aria-hidden className="font-normal">
-                  →
-                </span>
+                <Arrow />
               </Link>
             </div>
             <p className="m-stagger text-center font-body text-[13px] leading-[18px] text-mist" style={stagger()}>

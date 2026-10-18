@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Arrow } from "./Arrow";
 import { Chip } from "./Chip";
 import { Reveal } from "./motion";
 
@@ -140,11 +141,12 @@ export function ImageCard({
         />
       </div>
       <div className="flex flex-col gap-2 p-6">
-        <div className="flex justify-between">
+        <div className="flex items-center justify-between">
           <span className="font-body text-lead leading-6 text-foreground">{title}</span>
-          <span className="font-body text-body leading-6 text-mist transition-[color,translate] duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground">
-            ↗
-          </span>
+          <Arrow
+            direction="up-right"
+            className="text-mist transition-[color,translate] duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground"
+          />
         </div>
         <p className="font-body text-[15px] leading-[22px] text-mist">{body}</p>
       </div>

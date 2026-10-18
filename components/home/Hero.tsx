@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import { DashboardPreview } from "./DashboardPreview";
+import { Arrow } from "@/components/site/Arrow";
 import { heroDelay } from "@/components/site/motion-vars";
 import { SiteNav } from "@/components/site/SiteNav";
 
@@ -55,9 +56,7 @@ export function Hero() {
                 className="flex items-center gap-2 rounded-[8px] bg-foreground px-4 py-2.5 font-body text-[15px] font-medium leading-[18px] text-night-bg"
               >
                 Start 7-day trial
-                <span aria-hidden className="font-normal">
-                  →
-                </span>
+                <Arrow />
               </Link>
             </div>
           </div>

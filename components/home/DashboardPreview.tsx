@@ -1,25 +1,26 @@
+import { Arrow } from "@/components/site/Arrow";
 import { SamLogo } from "@/components/site/SamLogo";
 import { CountUp } from "@/components/site/motion";
 
 const metrics = [
-  { label: "CONVERSION", value: "3.1%", delta: "↗ 8.4%", up: true },
-  { label: "REVENUE", value: "€58,240", delta: "↗ 12.6%", up: true },
-  { label: "AOV", value: "€62.30", delta: "↘ 1.9%", up: false },
-  { label: "SESSIONS", value: "30,184", delta: "↗ 4.2%", up: true },
+  { label: "CONVERSION", value: "3.1%", delta: "8.4%", up: true },
+  { label: "REVENUE", value: "€58,240", delta: "12.6%", up: true },
+  { label: "AOV", value: "€62.30", delta: "1.9%", up: false },
+  { label: "SESSIONS", value: "30,184", delta: "4.2%", up: true },
 ] as const;
 
 const funnelTabs = [
-  { label: "UNIQUE SESSIONS", value: "30,184", delta: "↗ 4%", up: true, active: true },
-  { label: "ADD TO CART", value: "4,110", delta: "↗ 6%", up: true, active: false },
-  { label: "REACHED CHECKOUT", value: "1,642", delta: "↘ 9%", up: false, active: false },
-  { label: "ORDERS", value: "935", delta: "↗ 11%", up: true, active: false },
+  { label: "UNIQUE SESSIONS", value: "30,184", delta: "4%", up: true, active: true },
+  { label: "ADD TO CART", value: "4,110", delta: "6%", up: true, active: false },
+  { label: "REACHED CHECKOUT", value: "1,642", delta: "9%", up: false, active: false },
+  { label: "ORDERS", value: "935", delta: "11%", up: true, active: false },
 ] as const;
 
 const secondary = [
-  { label: "PAGE VIEWS", value: "128,402", delta: "↗ 5.1%", up: true },
-  { label: "PAGES PER SESSION", value: "4.25", delta: "↗ 0.8%", up: true },
-  { label: "BOUNCE RATE", value: "48.6%", delta: "↘ 3.2%", up: true },
-  { label: "AVG. DURATION", value: "2m 41s", delta: "↗ 6.7%", up: true },
+  { label: "PAGE VIEWS", value: "128,402", delta: "5.1%", up: true },
+  { label: "PAGES PER SESSION", value: "4.25", delta: "0.8%", up: true },
+  { label: "BOUNCE RATE", value: "48.6%", delta: "3.2%", up: true, falling: true },
+  { label: "AVG. DURATION", value: "2m 41s", delta: "6.7%", up: true },
 ] as const;
 
 const navItems = ["Overview", "Campaigns", "Sessions", "Orders"] as const;
@@ -126,13 +127,7 @@ export function DashboardPreview() {
                     delay={500 + i * 90}
                     className="w-max font-display text-[24px] font-bold leading-[30px] tracking-[-0.02em] text-[#F2F2F2] lg:text-[30px] lg:leading-9"
                   />
-                  <span
-                    className={`w-max font-body text-[11px] leading-[14px] ${
-                      m.up ? "text-accent" : "text-[#E5484D]"
-                    }`}
-                  >
-                    {m.delta}
-                  </span>
+                  <Delta value={m.delta} up={m.up} />
                 </div>
               </div>
             ))}
@@ -158,13 +153,7 @@ export function DashboardPreview() {
                       delay={700 + i * 90}
                       className="font-display text-[22px] font-bold leading-7 text-[#F2F2F2]"
                     />
-                    <span
-                      className={`font-body text-[11px] leading-[14px] ${
-                        t.up ? "text-accent" : "text-[#E5484D]"
-                      }`}
-                    >
-                      {t.delta}
-                    </span>
+                    <Delta value={t.delta} up={t.up} />
                   </div>
                 </div>
               ))}
@@ -189,9 +178,7 @@ export function DashboardPreview() {
                   <span className="font-display text-[22px] font-bold leading-7 text-[#F2F2F2]">
                     {m.value}
                   </span>
-                  <span className="font-body text-[11px] leading-[14px] text-accent">
-                    {m.delta}
-                  </span>
+                  <Delta value={m.delta} up rising={!("falling" in m)} />
                 </div>
               </div>
             ))}
@@ -199,6 +186,20 @@ export function DashboardPreview() {
         </div>
       </div>
     </div>
+  );
+}
+
+/** `up` is whether the change is good (colour); `rising` is the arrow's direction. */
+function Delta({ value, up, rising = up }: { value: string; up: boolean; rising?: boolean }) {
+  return (
+    <span
+      className={`flex w-max shrink-0 items-center gap-0.5 font-body text-[11px] leading-[14px] ${
+        up ? "text-accent" : "text-[#E5484D]"
+      }`}
+    >
+      <Arrow direction={rising ? "up-right" : "down-right"} size={12} />
+      <span className="self-baseline">{value}</span>
+    </span>
   );
 }
 

@@ -10,6 +10,7 @@ import {
   useState,
   type CSSProperties,
 } from "react";
+import { Arrow } from "../Arrow";
 import { SamLogo } from "../SamLogo";
 import { menus, topLinks, type Menu, type MenuKey } from "./menu-data";
 
@@ -286,9 +287,7 @@ function MenuContent({ menu, onNavigate }: { menu: Menu; onNavigate: () => void 
             style={{ "--i": menu.items.length + 1 } as CSSProperties}
           >
             {menu.footnote.label}
-            <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">
-              →
-            </span>
+            <Arrow size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
         )}
       </div>
@@ -320,12 +319,10 @@ function MenuContent({ menu, onNavigate }: { menu: Menu; onNavigate: () => void 
           <span className="font-body text-[13px] leading-[18px] text-foreground">{feature.cta}</span>
           <span className="flex items-center gap-1.5">
             <span className="nav-firefly size-1.5 shrink-0 rounded-[3px] bg-accent" />
-            <span
-              aria-hidden
-              className="font-body text-[13px] leading-[18px] text-mist transition-transform duration-300 group-hover:translate-x-0.5"
-            >
-              →
-            </span>
+            <Arrow
+              size={14}
+              className="text-mist transition-transform duration-300 group-hover:translate-x-0.5"
+            />
           </span>
         </span>
       </Link>

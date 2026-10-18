@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SessionsSplitVisual } from "@/components/product/visuals";
+import { Arrow } from "@/components/site/Arrow";
 import { Faq } from "@/components/site/Faq";
 import { container } from "@/components/site/layout";
 import { Reveal } from "@/components/site/motion";
@@ -242,11 +243,8 @@ export default function HowItWorksPage() {
                     </span>
                   </div>
                   {i < bridge.length - 1 && (
-                    <span
-                      aria-hidden
-                      className="flex items-center justify-center font-body text-lead leading-[22px] text-mist lg:pl-0"
-                    >
-                      <span className="rotate-90 lg:rotate-0">→</span>
+                    <span className="flex items-center justify-center text-mist lg:pl-0">
+                      <Arrow size={18} className="rotate-90 lg:rotate-0" />
                     </span>
                   )}
                 </li>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Arrow } from "@/components/site/Arrow";
 import { Fragment } from "react";
 import {
   Callout,
@@ -70,8 +71,9 @@ function ShortVersion() {
       <p className="font-body text-label leading-5 text-mist">
         Read the Trust page for a plain-language summary of what Sam keeps.
       </p>
-      <Link href="/trust" className="font-body text-label leading-[18px] text-accent">
-        Go to Trust ↗
+      <Link href="/trust" className="flex items-center gap-1 font-body text-label leading-[18px] text-accent">
+        Go to Trust
+        <Arrow direction="up-right" size={13} />
       </Link>
     </div>
   );
