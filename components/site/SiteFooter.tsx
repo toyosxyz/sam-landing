@@ -58,7 +58,8 @@ function footerCols(variant: "home" | "page") {
       links: [
         { label: "Privacy", href: "/legal/privacy" },
         { label: "Terms", href: "/legal/terms" },
-        { label: "DPA", href: "/trust#documents" },
+        { label: "DPA", href: "/legal/dpa" },
+        { label: "Trust", href: "/trust" },
         { label: "Contact", href: `mailto:${CONTACT_EMAIL}` },
         { label: "llms.txt", href: "/llms.txt" },
         { label: "Pricing.md", href: "/pricing.md" },

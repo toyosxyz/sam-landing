@@ -105,9 +105,13 @@ export default function TermsPage() {
       <DocsH2 id="data">5. Your data</DocsH2>
       <DocsP>
         You own the store data Sam processes for you. We process it to provide the service, as
-        described in the privacy policy and, where needed, a data processing agreement. You can
-        delete sessions from the dashboard. Disconnecting a store or closing the account stops
-        collection. We host in the European Union.
+        described in the privacy policy and the{" "}
+        <Link href="/legal/dpa" className="text-accent">
+          Data processing agreement
+        </Link>
+        . Using the service accepts that DPA. You can delete sessions from the dashboard.
+        Disconnecting a store or closing the account stops collection. We host in the European
+        Union.
       </DocsP>
 
       <DocsH2 id="liability">6. Liability</DocsH2>

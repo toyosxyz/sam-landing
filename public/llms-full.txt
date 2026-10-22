@@ -69,3 +69,4 @@ https://samtrack.co/trust
 https://samtrack.co/about
 https://samtrack.co/legal/privacy
 https://samtrack.co/legal/terms
+https://samtrack.co/legal/dpa

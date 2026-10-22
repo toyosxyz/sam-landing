@@ -12,21 +12,19 @@ import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/trust",
-  title: "EU-Hosted Shopify Analytics: Privacy and DPA | Sam",
+  title: "EU-Hosted Shopify Analytics and Privacy | Sam",
   description:
-    "Sam hosts Shopify session data in the EU. No cookies, no shopper personal data stored, hashed on arrival. DPA, subprocessors and retention on one page.",
+    "Sam hosts Shopify session data in the EU. No cookies, no shopper personal data stored, hashed on arrival. Subprocessors and retention on one page.",
 });
 
 const heroFade =
   "linear-gradient(in oklab 180deg, oklab(18.4% -0.004 0.003 / 70%) 0%, oklab(18.4% -0.004 0.003 / 40%) 40%, oklab(18.4% -0.004 0.003 / 80%) 78%, oklab(18.4% -0.004 0.003) 100%), linear-gradient(in oklab 90deg, oklab(18.4% -0.004 0.003 / 88%) 0%, oklab(18.4% -0.004 0.003 / 45%) 50%, oklab(18.4% -0.004 0.003 / 5%) 100%)";
 
-const dpaHref = "mailto:privacy@samtrack.co?subject=DPA%20request";
-
 const facts = [
   { label: "Data location", value: "European Union" },
   { label: "Personal data from shoppers", value: "None stored" },
   { label: "Browser storage", value: "None used" },
-  { label: "Data processing agreement", value: "Available", href: dpaHref },
+  { label: "Visitor ID", value: "Resets daily" },
 ];
 
 const subprocessors = [
@@ -57,14 +55,14 @@ const practices = [
   },
   {
     title: "Delete on request",
-    body: "Delete any session from the dashboard. After uninstall or account close, session data is removed within 30 days. Billing records are kept for six years.",
+    body: "Delete any session from the dashboard. When you uninstall the app, Shopify's uninstall webhook deletes session data.",
   },
 ];
 
 const documents = [
-  { title: "Data processing agreement", body: "Request a signed copy", href: dpaHref },
   { title: "Privacy policy", body: "How we handle account data", href: "/legal/privacy" },
   { title: "Terms of service", body: "The terms behind every plan", href: "/legal/terms" },
+  { title: "Data processing agreement", body: "Accepted by using the service", href: "/legal/dpa" },
 ];
 
 export default function TrustPage() {

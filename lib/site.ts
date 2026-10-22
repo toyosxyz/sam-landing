@@ -114,6 +114,7 @@ export const sitemapEntries: {
   { path: "/changelog", changeFrequency: "weekly", priority: 0.5 },
   { path: "/legal/privacy", changeFrequency: "monthly", priority: 0.3 },
   { path: "/legal/terms", changeFrequency: "monthly", priority: 0.3 },
+  { path: "/legal/dpa", changeFrequency: "monthly", priority: 0.3 },
 ];
 
 export function plansPlaintext() {

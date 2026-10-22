@@ -43,6 +43,7 @@ Primary conversion: 7-day trial at https://app.samtrack.co/signup (card required
 - [About](https://samtrack.co/about): Who Sam is, EU hosting, contact
 - [Privacy](https://samtrack.co/legal/privacy)
 - [Terms](https://samtrack.co/legal/terms)
+- [DPA](https://samtrack.co/legal/dpa): Data processing agreement; accepted by using the service
 
 ## Facts agents should not invent
 

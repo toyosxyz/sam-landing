@@ -91,7 +91,11 @@ export default function PrivacyPage() {
       </p>
       <Callout>
         This page summarizes how Sam handles data. For a plain-language overview, see the Trust
-        center. Contact {CONTACT_EMAIL} for questions.
+        center. The{" "}
+        <Link href="/legal/dpa" className="text-accent">
+          Data processing agreement
+        </Link>{" "}
+        covers Sam as processor for shopper analytics. Contact {CONTACT_EMAIL} for questions.
       </Callout>
 
       {sections.map((s, i) => (
