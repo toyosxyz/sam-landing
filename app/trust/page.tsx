@@ -20,7 +20,7 @@ export const metadata = pageMetadata({
 const heroFade =
   "linear-gradient(in oklab 180deg, oklab(18.4% -0.004 0.003 / 70%) 0%, oklab(18.4% -0.004 0.003 / 40%) 40%, oklab(18.4% -0.004 0.003 / 80%) 78%, oklab(18.4% -0.004 0.003) 100%), linear-gradient(in oklab 90deg, oklab(18.4% -0.004 0.003 / 88%) 0%, oklab(18.4% -0.004 0.003 / 45%) 50%, oklab(18.4% -0.004 0.003 / 5%) 100%)";
 
-const facts = [
+const facts: { label: string; value: string; href?: string }[] = [
   { label: "Data location", value: "European Union" },
   { label: "Personal data from shoppers", value: "None stored" },
   { label: "Browser storage", value: "None used" },
