@@ -50,7 +50,7 @@ const sections = [
   {
     id: "retention",
     label: "Retention and deletion",
-    body: "Shopper session and event data is kept while the merchant account is active. Merchants can delete any session from the dashboard at any time. After a store is disconnected or the account is closed, session data is deleted within 30 days. Merchant account data (email, team, connected stores, campaigns) is kept for the life of the account. Invoices and billing records are kept for six years where tax law requires it.",
+    body: "Shopper session and event data is kept while the merchant account is active. Merchants can delete any session from the dashboard at any time. When the Shopify app is uninstalled, session data is deleted on Shopify's uninstall webhook. Merchant account data (email, team, connected stores, campaigns) is kept for the life of the account.",
   },
   {
     id: "contact",

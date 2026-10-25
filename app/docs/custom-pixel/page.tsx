@@ -29,7 +29,6 @@ export default function CustomPixelPage() {
   return (
     <DocsLayout
       groups={docsGroups("/docs/custom-pixel")}
-      search
       breadcrumb="Get started / Custom pixel"
       toc={[
         { id: "when", label: "When to use it" },

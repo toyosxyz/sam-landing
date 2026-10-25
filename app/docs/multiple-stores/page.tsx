@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
   path: "/docs/multiple-stores",
   title: "Multiple Shopify Stores in Sam",
   description:
-    "Each Shopify store has its own Sam plan. From 3 stores on one account, every plan is 20% off and you get one invoice.",
+    "Connect several Shopify stores on one Sam account. Sessions across stores count together toward your plan and invoice.",
 });
 
 const crumbs = [
@@ -28,11 +28,10 @@ export default function MultipleStoresPage() {
   return (
     <DocsLayout
       groups={docsGroups("/docs/multiple-stores")}
-      search
       breadcrumb="Advanced / Multiple stores"
       toc={[
-        { id: "one-plan", label: "One plan per store" },
-        { id: "agency", label: "Agency discount" },
+        { id: "billing", label: "How billing works" },
+        { id: "dashboard", label: "Dashboard" },
         { id: "switch", label: "Switch stores" },
       ]}
     >
@@ -43,23 +42,23 @@ export default function MultipleStoresPage() {
         account.
       </p>
 
-      <DocsH2 id="one-plan">One plan per store</DocsH2>
+      <DocsH2 id="billing">How billing works</DocsH2>
       <DocsP>
-        Each connected Shopify store has its own session plan. A 25,000-session Garden store and a
-        100,000-session Meadow store on the same account pay for each plan. Sessions are not pooled
-        across stores, because each store has its own pixel and orders.
-      </DocsP>
-
-      <DocsH2 id="agency">Agency discount</DocsH2>
-      <DocsP>
-        From three stores on one account, every plan is 20% off and you get one invoice. The
-        discount applies to monthly and yearly billing. It is meant for CRO agencies and multi-brand
-        merchants, not a separate product tier.
+        Sessions from every connected store on the account count together toward your plan. One
+        invoice covers the account. Pick a plan for the total monthly sessions across those stores,
+        not a separate plan per store.
       </DocsP>
       <Callout>
-        Need a contracted SLA or more than 1,000,000 sessions on one store? Email
+        Need a contracted SLA or more than 1,000,000 sessions on one account? Email
         privacy@samtrack.co.
       </Callout>
+
+      <DocsH2 id="dashboard">Dashboard</DocsH2>
+      <DocsP>
+        Each store still has its own pixel and orders. Funnel, sessions, campaigns and reports stay
+        scoped to the store you have selected, even though billing pools sessions across the
+        account.
+      </DocsP>
 
       <DocsH2 id="switch">Switch stores</DocsH2>
       <DocsP>

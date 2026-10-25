@@ -87,11 +87,11 @@ export default function TermsPage() {
         New accounts get a 7-day trial of every feature. A card is required through Stripe. If you
         cancel before the trial ends, you pay nothing. After that, you pay the plan you chose,
         monthly or yearly. Yearly billing is two months free. Plans are priced by monthly sessions.
-        Going over a plan’s session limit does not stop collection; if it happens two months in a
-        row we will ask you to move to the next plan before the bill changes. From three stores on
-        one account, every plan is 20% off. Above 1,000,000 sessions a month, pricing is agreed by
-        email. Taxes may apply. You can change plans at any time: upgrades apply now, downgrades
-        apply on the next billing date.
+        Sessions from every store on the account count together toward that limit. When you reach
+        it, Sam stops recording new events until the next billing period or until you upgrade. Data
+        already collected stays. Above 1,000,000 sessions a month, pricing is agreed by email.
+        Taxes may apply. You can change plans at any time: upgrades apply now, downgrades apply on
+        the next billing date.
       </DocsP>
 
       <DocsH2 id="acceptable-use">4. Acceptable use</DocsH2>

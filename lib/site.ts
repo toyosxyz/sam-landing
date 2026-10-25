@@ -116,11 +116,3 @@ export const sitemapEntries: {
   { path: "/legal/terms", changeFrequency: "monthly", priority: 0.3 },
   { path: "/legal/dpa", changeFrequency: "monthly", priority: 0.3 },
 ];
-
-export function plansPlaintext() {
-  const plans = PLANS.map(
-    (plan) =>
-      `${plan.name} is ${formatEur(plan.monthlyEur)} a month for ${plan.sessions.toLocaleString("en-US")} sessions, or ${formatEur(plan.yearlyEur)} a month billed yearly.`,
-  ).join(" ");
-  return `${plans} Every plan includes funnel, sessions, campaigns and orders. A 7-day trial needs a card through Stripe. Cancel before it ends and you pay nothing. Above 1,000,000 sessions, email ${CONTACT_EMAIL}.`;
-}

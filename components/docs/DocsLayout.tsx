@@ -46,7 +46,6 @@ function SidebarLinks({ groups }: { groups: SidebarGroup[] }) {
 
 export function DocsLayout({
   groups,
-  search = false,
   sidebarExtra,
   breadcrumb,
   toc,
@@ -54,7 +53,6 @@ export function DocsLayout({
   children,
 }: {
   groups: SidebarGroup[];
-  search?: boolean;
   sidebarExtra?: ReactNode;
   breadcrumb: string;
   toc: readonly TocItem[];
@@ -80,15 +78,6 @@ export function DocsLayout({
           </details>
 
           <aside className="hidden w-[240px] shrink-0 flex-col gap-7 lg:flex">
-            {search && (
-              <div
-                aria-hidden
-                className="flex items-center justify-between rounded-[8px] border border-night-line bg-[#161916] px-3 py-2"
-              >
-                <span className="font-body text-[14px] leading-[18px] text-mist">Search docs</span>
-                <span className="font-body text-[12px] leading-4 text-[#5E635B]">⌘K</span>
-              </div>
-            )}
             <SidebarLinks groups={groups} />
             {sidebarExtra}
           </aside>

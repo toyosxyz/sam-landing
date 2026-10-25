@@ -11,7 +11,7 @@ export function Breadcrumbs({ items }: { items: readonly BreadcrumbItem[] }) {
           {items.map((item, i) => {
             const last = i === items.length - 1;
             return (
-              <li key={item.href} className="flex items-center gap-2">
+              <li key={`${item.href}-${i}`} className="flex items-center gap-2">
                 {i > 0 && <span aria-hidden>/</span>}
                 {last ? (
                   <span className="text-mist">{item.name}</span>

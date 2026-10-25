@@ -11,7 +11,7 @@ Yearly billing: 2 months free (pay 10 months).
 
 - Price: €29/month billed monthly | €24/month billed yearly (€290/year)
 - Limits: 25,000 sessions a month
-- Features: Funnel, sessions, orders, campaigns, UTM builder, team invites, cookieless tracking, EU hosting, DPA, dashboard in English and Spanish
+- Features: Funnel, sessions, orders, campaigns, UTM builder, team invites, cookieless tracking, EU hosting, dashboard in English and Spanish
 
 ## Meadow
 
@@ -43,11 +43,11 @@ One visitor, one day. Five pages in an afternoon is one session. Coming back tom
 
 ## Overage
 
-Nothing breaks and no data is lost if you go over. If it happens two months in a row, Sam suggests the next plan before the bill changes.
+Sam stops recording new events for the rest of the billing period once you hit the session limit. Data already collected stays. Upgrade anytime to keep tracking.
 
-## Agencies
+## Multiple stores
 
-Each store has its own plan. From 3 stores on one account, every plan is 20% off and you get one invoice.
+Sessions from every store on the account count together toward one plan and one invoice. Pick a plan for the total across those stores.
 
 ## Signup
 

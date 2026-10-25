@@ -29,7 +29,6 @@ export default function OrderWebhookPage() {
   return (
     <DocsLayout
       groups={docsGroups("/docs/order-webhook")}
-      search
       breadcrumb="Advanced / Generic order webhook"
       toc={[
         { id: "when", label: "When to use it" },

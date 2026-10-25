@@ -36,11 +36,11 @@ const setup = [
   },
   {
     title: "Sam adds its pixel",
-    body: "It records page views, carts and checkouts. Orders come from Shopify.",
+    body: "It records page views, carts and checkouts. Nothing is stored in the browser.",
   },
   {
-    title: "Or add it by hand",
-    body: "Paste a snippet in Shopify's Customer events. No theme edits.",
+    title: "Orders meet visits",
+    body: "Shopify sends each order by webhook. Sam links it to the visit when it saw the checkout.",
   },
 ];
 
@@ -151,11 +151,11 @@ export default function HowItWorksPage() {
             },
             {
               name: "Sam adds its pixel",
-              text: "It records page views, carts and checkouts without cookies or browser storage. Orders come from Shopify.",
+              text: "It records page views, carts and checkouts. Nothing is stored in the browser.",
             },
             {
               name: "Orders meet visits",
-              text: "Shopify sends the order. Sam matches it to the visit when it saw the checkout. About 90–95% of orders get a complete path.",
+              text: "Shopify sends each order by webhook. Sam links it to the visit when it saw the checkout. About 90–95% of orders get a complete path.",
             },
           ],
         )}

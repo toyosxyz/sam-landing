@@ -6,7 +6,6 @@ import { container } from "@/components/site/layout";
 import { Reveal } from "@/components/site/motion";
 import { row as rowVar } from "@/components/site/motion-vars";
 import { HeroBackdrop, HeroCopy } from "@/components/site/PageHero";
-import { PlanPricesText } from "@/components/site/PlanPricesText";
 import { Plans } from "@/components/site/Plans";
 import { SectionHeading } from "@/components/site/sections";
 import { SiteNav } from "@/components/site/SiteNav";
@@ -39,7 +38,7 @@ const rows: { label: string; values?: [string, string, string, string] }[] = [
   { label: "Funnel, sessions, orders and campaigns" },
   { label: "Device, channel and country breakdowns" },
   { label: "Cookieless tracking" },
-  { label: "EU hosting and DPA" },
+  { label: "EU hosting" },
   { label: "Team invites" },
   { label: "Dashboard in English and Spanish" },
 ];
@@ -51,7 +50,7 @@ export const pricingFaqs = [
   },
   {
     q: "What happens if I go over my plan?",
-    a: "Nothing breaks and no data is lost. If it happens two months in a row, we'll suggest the next plan before your bill changes.",
+    a: "Sam stops recording new events for the rest of the billing period once you hit the session limit. Data already collected stays. Upgrade anytime to keep tracking.",
   },
   {
     q: "Can I change plans later?",
@@ -63,7 +62,7 @@ export const pricingFaqs = [
   },
   {
     q: "I run several stores. Do I pay for each?",
-    a: "Each store has its own plan. From 3 stores on one account, every plan is 20% off and you get one invoice.",
+    a: "No. Sessions from every store on the account count together toward one plan and one invoice. Pick a plan for the total across those stores.",
   },
 ];
 
@@ -93,7 +92,6 @@ export default function PricingPage() {
         />
         <div className={`${container} relative flex flex-col gap-4 pt-10 lg:gap-6 lg:pt-14`}>
           <Plans includes={includes} />
-          <PlanPricesText className="relative max-w-[760px]" />
 
           <Reveal className="relative flex flex-col items-start gap-5 overflow-clip rounded-2xl border border-night-line px-6 py-7 lg:flex-row lg:items-center lg:justify-between lg:px-9 lg:py-8">
             <div

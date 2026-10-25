@@ -2,19 +2,44 @@ import Link from "next/link";
 import { Arrow } from "@/components/site/Arrow";
 import { Chip } from "@/components/site/Chip";
 import { Reveal } from "@/components/site/motion";
+import { row as rowVar } from "@/components/site/motion-vars";
 
-const points = [
+const rows = [
   {
-    title: "Keep GA4 for ads",
-    body: "Audiences and bidding stay in Google.",
+    label: "Cookies",
+    sam: "None",
+    ga4: "First-party cookies",
+    shopify: "Shopify analytics cookies",
   },
   {
-    title: "Keep Shopify for totals",
-    body: "Sales and products stay in your admin.",
+    label: "Consent banner",
+    sam: "Not needed for Sam",
+    ga4: "Usually required in the EU",
+    shopify: "Limits declined visits",
   },
   {
-    title: "One tradeoff",
-    body: "Sam doesn't follow shoppers across days. Use GA4 for that.",
+    label: "Purchase funnel",
+    sam: "Ready on day one",
+    ga4: "Built in Explorations",
+    shopify: "Cart and checkout rates",
+  },
+  {
+    label: "Orders",
+    sam: "From Shopify. All counted",
+    ga4: "From the browser. Gaps from consent",
+    shopify: "Sales totals in admin",
+  },
+  {
+    label: "Visit detail",
+    sam: "Every event of every visit",
+    ga4: "Events you configure",
+    shopify: "Totals",
+  },
+  {
+    label: "Best for",
+    sam: "Shopify funnel",
+    ga4: "Ads and audiences",
+    shopify: "Sales and products",
   },
 ] as const;
 
@@ -33,17 +58,57 @@ export function Coexist() {
         </div>
       </Reveal>
 
-      <Reveal stagger className="flex flex-col gap-8 lg:flex-row lg:gap-6">
-        {points.map((p, i) => (
+      <Reveal
+        delay={100}
+        className="flex flex-col rounded-2xl border border-night-line bg-[#141614] px-5 py-2 lg:px-7"
+      >
+        <div className="hidden border-b border-night-line py-[18px] lg:flex">
+          <span className="w-[220px] shrink-0" />
+          <span className="flex grow basis-0 items-center gap-2 pr-5 font-body text-[15px] leading-5 text-foreground">
+            <span className="size-2 shrink-0 rounded bg-accent" />
+            Sam
+          </span>
+          <span className="grow basis-0 pr-5 font-body text-[15px] leading-5 text-mist">
+            GA4
+          </span>
+          <span className="grow basis-0 font-body text-[15px] leading-5 text-mist">
+            Shopify Analytics
+          </span>
+        </div>
+        {rows.map((row, i) => (
           <div
-            key={p.title}
-            className="flex grow basis-0 flex-col gap-3.5 border-t border-night-line pt-6"
+            key={row.label}
+            style={rowVar(i)}
+            className={`m-row flex flex-col gap-3 py-5 lg:flex-row lg:gap-0 ${
+              i < rows.length - 1 ? "border-b border-night-line" : ""
+            }`}
           >
-            <span className="font-body text-[14px] leading-[18px] text-accent">
-              {String(i + 1).padStart(2, "0")}
+            <span className="font-body text-[15px] leading-[22px] text-mist lg:w-[220px] lg:shrink-0">
+              {row.label}
             </span>
-            <h3 className="font-body text-[20px] leading-6 text-foreground">{p.title}</h3>
-            <p className="font-body text-[15px] leading-[23px] text-mist">{p.body}</p>
+            <div className="flex grow basis-0 flex-col gap-0.5 lg:pr-5">
+              <span className="flex items-center gap-1.5 font-body text-label leading-4 text-mist lg:hidden">
+                <span className="size-1.5 shrink-0 rounded bg-accent" />
+                Sam
+              </span>
+              <span className="font-body text-body leading-[22px] text-foreground">
+                {row.sam}
+              </span>
+            </div>
+            <div className="flex grow basis-0 flex-col gap-0.5 lg:pr-5">
+              <span className="font-body text-label leading-4 text-mist lg:hidden">
+                GA4
+              </span>
+              <span className="font-body text-body leading-[22px] text-mist">{row.ga4}</span>
+            </div>
+            <div className="flex grow basis-0 flex-col gap-0.5">
+              <span className="font-body text-label leading-4 text-mist lg:hidden">
+                Shopify Analytics
+              </span>
+              <span className="font-body text-body leading-[22px] text-mist">
+                {row.shopify}
+              </span>
+            </div>
           </div>
         ))}
       </Reveal>

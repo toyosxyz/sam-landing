@@ -37,7 +37,7 @@ export function ComparePage({ slug }: { slug: CompareSlug }) {
         <Breadcrumbs
           items={[
             { name: "Home", href: "/" },
-            { name: "Compare", href: "/compare/ga4" },
+            ...(slug === "ga4" ? [] : [{ name: "Compare", href: "/compare/ga4" }]),
             { name: `Sam vs ${c.rival}`, href: `/compare/${slug}` },
           ]}
         />

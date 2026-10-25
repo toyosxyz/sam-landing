@@ -36,7 +36,6 @@ export default function DocsPage() {
   return (
     <DocsLayout
       groups={docsGroups("/docs")}
-      search
       breadcrumb="Get started / Install the app"
       toc={toc}
       footerVariant="home"

@@ -28,7 +28,6 @@ export default function ReauthorizePage() {
   return (
     <DocsLayout
       groups={docsGroups("/docs/reauthorize")}
-      search
       breadcrumb="Advanced / Reauthorize permissions"
       toc={[
         { id: "why", label: "When this shows up" },

@@ -8,7 +8,7 @@
 **What it does:** Sam watches every shopper session on your Shopify store, shows where the purchase funnel breaks, measures conversion by landing and campaign, and matches orders from Shopify webhooks. It coexists with GA4 and Shopify Analytics: more privacy and fuller session data for consent-declining traffic, at the cost of not following shoppers across days.
 **Product category:** Shopify analytics / cookieless session tracking / conversion funnel analytics
 **Product type:** SaaS (Shopify app)
-**Business model:** Session-volume plans: Garden €29 (25k), Meadow €79 (100k), Valley €169 (300k), Forest €349 (1M). Yearly = 2 months free. 7-day trial via Stripe (card required). 20% off from 3 stores on one account. Enterprise above 1M sessions via sales email. Rationale in `.agents/pricing-strategy.md`.
+**Business model:** Session-volume plans: Garden €29 (25k), Meadow €79 (100k), Valley €169 (300k), Forest €349 (1M). Yearly = 2 months free. 7-day trial via Stripe (card required). Multi-store: sessions across stores on one account are pooled for the plan and invoice. Enterprise above 1M sessions via sales email. Rationale in `.agents/pricing-strategy.md`.
 
 ## Target Audience
 **Target companies:** Shopify stores under ~€20M annual revenue that want a clear view of what happens in the store without hyper-granular or cross-session identity analytics. Strong fit in the EU (GDPR / ePrivacy).

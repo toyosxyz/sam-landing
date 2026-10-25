@@ -224,7 +224,7 @@ export const guides: Guide[] = [
           },
           {
             type: "p",
-            text: "Plans start at €29 a month for 25,000 sessions (Garden, October 2026). All features sit on every plan. From three stores on one account, every plan is 20% off.",
+            text: "Plans start at €29 a month for 25,000 sessions (Garden, October 2026). All features sit on every plan.",
           },
         ],
       },
@@ -463,7 +463,7 @@ export const guides: Guide[] = [
           },
           {
             type: "p",
-            text: "Sam does that on install. Open Sessions, filter by landing path, and read the funnel. Campaigns have their own view when the visit carried a UTM.",
+            text: "Sam does that on install. Open Campaigns when the visit carried a UTM.",
           },
         ],
       },
@@ -532,7 +532,7 @@ export const guides: Guide[] = [
       },
       {
         q: "Do I need UTMs on every landing?",
-        a: "No. Organic and direct visits still get a landing path. UTMs are extra when you paid for the click.",
+        a: "No. Organic and direct visits still get a landing path. When you create a campaign in Sam, it builds the UTM link for you to use in ads, email or a bio.",
       },
       {
         q: "What if the order has no landing?",

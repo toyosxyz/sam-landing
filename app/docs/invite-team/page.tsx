@@ -28,7 +28,6 @@ export default function InviteTeamPage() {
   return (
     <DocsLayout
       groups={docsGroups("/docs/invite-team")}
-      search
       breadcrumb="Get started / Invite your team"
       toc={[
         { id: "owner", label: "Who owns the store" },

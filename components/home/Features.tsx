@@ -93,11 +93,9 @@ const campaigns = [
 
 const restRows = [
   { label: "Live sessions on your store" },
-  { label: "Orders matched to their session" },
-  { label: "Conversion by landing page" },
-  { label: "Split by device, OS and browser" },
-  { label: "Alerts when a step drops", soon: true },
-  { label: "Your data in Claude and ChatGPT", soon: true },
+  { label: "Complete order sync with Shopify" },
+  { label: "Conversion by landing page or campaign" },
+  { label: "Complete funnel information" },
 ] as const;
 
 const cardGlow =
@@ -536,21 +534,13 @@ export function Features() {
 
       {/* And the rest */}
       <div className="flex flex-col gap-12">
-        <Reveal className="flex flex-col items-start gap-5 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-col items-start lg:flex-row lg:flex-wrap lg:gap-2">
-            <span className={`${blockTitle} text-foreground`}>
-              And more.
-            </span>
-            <span className={`${blockTitle} text-mist`}>
-              On every plan.
-            </span>
-          </div>
-          <Link
-            href="/pricing"
-            className="rounded-[8px] border border-night-line bg-[#161916] px-3.5 py-2 font-body text-[14px] leading-[18px] text-foreground"
-          >
-            All features
-          </Link>
+        <Reveal className="flex flex-col items-start lg:flex-row lg:flex-wrap lg:gap-2">
+          <span className={`${blockTitle} text-foreground`}>
+            And more.
+          </span>
+          <span className={`${blockTitle} text-mist`}>
+            On every plan.
+          </span>
         </Reveal>
         <Reveal stagger className="flex flex-col border-t border-night-line">
           {restRows.map((row) => (
@@ -561,11 +551,7 @@ export function Features() {
               <span className="font-body text-[15px] leading-[21px] text-foreground lg:text-[17px] lg:leading-[22px]">
                 {row.label}
               </span>
-              {"soon" in row ? (
-                <span className="font-body text-label leading-4 text-accent">Soon</span>
-              ) : (
-                <Arrow direction="down-right" className="mt-[3px] text-mist" />
-              )}
+              <Arrow direction="down-right" className="mt-[3px] text-mist" />
             </div>
           ))}
         </Reveal>
